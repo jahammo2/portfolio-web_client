@@ -6,6 +6,7 @@ npm-debug.log
 .idea
 ./.DevKeysAndPasswords.js
 .DevKeysAndPasswords.js
+.devKeysAndPasswords.js
 
 build/
 dist/
