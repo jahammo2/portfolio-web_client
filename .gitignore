@@ -5,6 +5,7 @@ npm-debug.log
 .DS_STORE
 .idea
 ./.DevKeysAndPasswords.js
+.DevKeysAndPasswords.js
 
 build/
 dist/
