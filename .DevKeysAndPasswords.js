@@ -1,6 +1,5 @@
 class DevKeysAndPasswords {
   brightWolfPassword() {
-    return [password];
   }
 }
 
