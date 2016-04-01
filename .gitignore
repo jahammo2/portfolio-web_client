@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.tmp
+.sass-cache
+.DS_STORE
+.idea
+.DevKeysAndPasswords.js
+
+build/
+dist/
