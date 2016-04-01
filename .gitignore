@@ -4,7 +4,7 @@ npm-debug.log
 .sass-cache
 .DS_STORE
 .idea
-.DevKeysAndPasswords.js
+./.DevKeysAndPasswords.js
 
 build/
 dist/
