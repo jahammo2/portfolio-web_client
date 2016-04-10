@@ -15,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+      asdfasdfs
         {this.props.children}
       </div>
     );

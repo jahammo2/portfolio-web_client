@@ -1,60 +1,37 @@
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var lost = require('lost');
 var webpack = require('webpack');
-
-var environment = process.env.NODE_ENV || 'development';
-var plugins = [
-  new webpack.DefinePlugin({
-    'process.env': { 'NODE_ENV': JSON.stringify(environment) }
-  }),
-  new ExtractTextPlugin('styles.css'),
-  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
-];
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  devServer: {
-    proxy: {
-      '/api/*': {
-        target: 'http://localhost:3000'
-      }
-    }
-  },
-  entry: './app/index.js',
+  entry: [
+    './src/index.js'
+  ],
   module: {
-    loaders: [
-      {
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        test: /\.js/
-      },
-      {
-        loader: 'file?name=[name].[ext]',
-        test: /\.html$/
-      },
-      {
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
-        test: /\.s(c|a)ss$/
-      },
-      {
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'),
-        test: /\.css$/
-      },
-      {
-        loader: 'url?limit=25000',
-        test:/\.(png|jpg|svg)$/
-      }
-    ]
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'react-hot!babel'
+    }, {
+      test: /\.css$/,
+      loader: 'style!css!postcss'
+    }]
   },
-  sassLoader: {
-    outputStyle: 'expanded'
-  },
-  postcss: function() {
-    return [lost, autoprefixer];
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   output: {
-    filename: 'bundle.js',
-    path: './dist'
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
   },
-  plugins: plugins
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  postcss: function () {
+    return [autoprefixer];
+  }
 };
+
