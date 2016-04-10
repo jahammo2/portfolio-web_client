@@ -14,7 +14,11 @@ var plugins = [
 
 module.exports = {
   devServer: {
-    inline: true
+    proxy: {
+      '/api/*': {
+        target: 'http://localhost:3000'
+      }
+    }
   },
   entry: './app/index.js',
   module: {
@@ -54,5 +58,3 @@ module.exports = {
   },
   plugins: plugins
 };
-
-
