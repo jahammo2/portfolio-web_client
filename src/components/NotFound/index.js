@@ -6,17 +6,17 @@ const propTypes = {
   children: PropTypes.node
 };
 
-class App extends Component {
+class NotFound extends Component {
   render() {
     return (
       <div className="app">
         asdfasdfs
-        {this.props.children}
+        // {this.props.children}
       </div>
     );
   }
 }
 
-App.propTypes = propTypes;
+NotFound.propTypes = propTypes;
 
-export default App;
+export default NotFound;
