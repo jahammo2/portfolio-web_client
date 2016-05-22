@@ -3,8 +3,8 @@
  * To allow the unit tests to run, set them up to return nothing when
  * they are required.
  */
-const nullExtensions = ['.css', '.scss', '.sass', '.png', '.jpg'];
+const nullExtensions = ['.css', '.scss', '.sass', '.png', '.jpg', '.svg'];
 
-nullExtensions.forEach(function(extension) {
-  require.extensions[extension] = function() {};
+nullExtensions.forEach(function (extension) {
+  require.extensions[extension] = function () {};
 });

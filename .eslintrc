@@ -96,7 +96,11 @@
     /**
      * Style
      */
-    "indent": [2, 2],
+    "indent": [
+      2,
+      2,
+      "SwitchCase": 1
+    ],
     "brace-style": [
       2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
@@ -106,7 +110,7 @@
     "quotes": [
       2, "single", "avoid-escape"    // http://eslint.org/docs/rules/quotes
     ],
-    "jsx-quotes": [2, "prefer-double"], // http://eslint.org/docs/rules/jsx-quotes
+    "jsx-quotes": [2, "prefer-single"], // http://eslint.org/docs/rules/jsx-quotes
     "camelcase": [2, {               // http://eslint.org/docs/rules/camelcase
       "properties": "never"
     }],
@@ -143,7 +147,7 @@
     }],
     "space-after-keywords": 2,       // http://eslint.org/docs/rules/space-after-keywords
     "space-before-blocks": 2,        // http://eslint.org/docs/rules/space-before-blocks
-    "space-before-function-paren": [2, "never"], // http://eslint.org/docs/rules/space-before-function-paren
+    "space-before-function-paren": [2, "always"], // http://eslint.org/docs/rules/space-before-function-paren
     "space-infix-ops": 2,            // http://eslint.org/docs/rules/space-infix-ops
     "space-return-throw-case": 2,    // http://eslint.org/docs/rules/space-return-throw-case
     "spaced-comment": [2, "always",  {// http://eslint.org/docs/rules/spaced-comment
@@ -207,5 +211,14 @@
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "globals": {
+    "faker": false,
+    "spy": false,
+    "stub": false,
+    "expect": false,
+    "fromJS": false,
+    "List": false,
+    "Map": false
+  }
 }

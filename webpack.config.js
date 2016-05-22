@@ -1,58 +1,57 @@
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var lost = require('lost');
 var webpack = require('webpack');
-
-var environment = process.env.NODE_ENV || 'development';
-var plugins = [
-  new webpack.DefinePlugin({
-    'process.env': { 'NODE_ENV': JSON.stringify(environment) }
-  }),
-  new ExtractTextPlugin('styles.css'),
-  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
-];
+var autoprefixer = require('autoprefixer');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var lost = require('lost');
 
 module.exports = {
-  devServer: {
-    inline: true
-  },
-  entry: './app/index.js',
+  entry: [
+    'whatwg-fetch',
+    './src/index.js'
+  ],
   module: {
     loaders: [
       {
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        test: /\.js/
+        loader: 'react-hot!babel'
       },
       {
-        loader: 'file?name=[name].[ext]',
-        test: /\.html$/
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
       },
       {
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
-        test: /\.s(c|a)ss$/
-      },
-      {
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader'),
-        test: /\.css$/
-      },
-      {
-        loader: 'url?limit=25000',
-        test:/\.(png|jpg|svg)$/
+        test: /\.s(c|a)ss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
       }
     ]
   },
-  sassLoader: {
-    outputStyle: 'expanded'
-  },
-  postcss: function() {
-    return [lost, autoprefixer];
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   output: {
-    filename: 'bundle.js',
-    path: './dist'
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
   },
-  plugins: plugins
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+    historyApiFallback: true,
+    devtool: 'eval'
+  },
+  devtool: '#source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      inject: 'body',
+      template: 'src/index.html',
+      title: 'fasdfasd'
+    }),
+    new ExtractTextPlugin('styles.css')
+  ],
+  postcss: function () {
+    return [lost, autoprefixer];
+  }
 };
-
-

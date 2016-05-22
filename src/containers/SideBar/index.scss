@@ -1,0 +1,25 @@
+// Temporary
+.link {
+  color: red;
+
+  &:active {
+    color: orange;
+  }
+}
+
+.active {
+  color: purple;
+  font-size: 60px;
+
+  &:active {
+    color: green;
+  }
+}
+
+.side-bar {
+  position: absolute;
+  height: 500px;
+  width: 50%;
+  background: lightyellow;
+  right: 0;
+}

@@ -1,2 +1,2 @@
---require ./app/utils/mochaHelper
---compilers js:babel-core/register,css:./app/utils/mochaNullCompilers.js,png:./app/utils/mochaNullCompilers.js,jpg:./app/utils/mochaNullCompilers.js
+--compilers js:babel-core/register,css:./src/utils/mochaNullCompilers.js,png:./src/utils/mochaNullCompilers.js,jpg:./src/utils/mochaNullCompilers.js
+--require ./src/utils/mochaHelper
