@@ -39,7 +39,7 @@ describe('PortfolioActions', () => {
       });
     });
 
-    it('dispatches projectsFetched', () => {
+    it('dispatches projectActive', () => {
       const dispatch = spy();
       const asyncAction = PortfolioActions.fetchProjects();
       const action = asyncAction(dispatch);

@@ -7,11 +7,13 @@ describe('PortfolioRoot', () => {
 
     before(() => {
       portfolioRoot = new PortfolioRoot();
+
       portfolioRoot.props = {
         fetchProjects: () => {
           return;
         }
       };
+
       fetchProjects = spy(portfolioRoot.props, 'fetchProjects');
     });
 

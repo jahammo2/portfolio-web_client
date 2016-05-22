@@ -16,7 +16,6 @@ class ProjectDashboard extends Component {
   render () {
     return (
       <div className='project-dashboard'>
-        poo
         {this.project()}
       </div>
     );
