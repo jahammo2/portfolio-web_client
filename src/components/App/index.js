@@ -7,10 +7,9 @@ const propTypes = {
 };
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="app">
-        asdfasdfs
+      <div className='app'>
         {this.props.children}
       </div>
     );

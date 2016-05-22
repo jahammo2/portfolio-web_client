@@ -1,25 +1,20 @@
 // Imports
-// import React, { Component, PropTypes } from 'react';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // PropTypes
-// const propTypes = {
-//   children: PropTypes.node
-// };
-
-/*
-  App
-  <App/>
-*/
+const propTypes = {
+  children: PropTypes.node
+};
 
 class LogIn extends Component {
-  render() {
+  render () {
     return (
-      <div></div>
+      <div>
+      </div>
     );
   }
 }
 
-// App.propTypes = propTypes;
+LogIn.propTypes = propTypes;
 
 export default LogIn;

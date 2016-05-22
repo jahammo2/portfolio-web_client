@@ -1,25 +1,20 @@
 // Imports
-// import React, { Component, PropTypes } from 'react';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // PropTypes
-// const propTypes = {
-//   children: PropTypes.node
-// };
-
-/*
-  App
-  <App/>
-*/
+const propTypes = {
+  children: PropTypes.node
+};
 
 class AdminPanel extends Component {
-  render() {
+  render () {
     return (
-      <div> fasdfasd</div>
+      <div>
+      </div>
     );
   }
 }
 
-// App.propTypes = propTypes;
+AdminPanel.propTypes = propTypes;
 
 export default AdminPanel;

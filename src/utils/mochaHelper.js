@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 import chaiImmutable from 'chai-immutable';
 import faker from 'faker';
 import jsdom from 'jsdom';
+import sinon from 'sinon';
 
 const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
 const win = doc.defaultView;
@@ -16,9 +17,11 @@ global.Map = Immutable.Map;
 global.fromJS = Immutable.fromJS;
 global.expect = chai.expect;
 global.faker = faker;
+global.spy = sinon.spy;
+global.stub = sinon.stub;
 
 Object.keys(window).forEach((key) => {
   if (!(key in global)) {
-    global[key] = window[key];
+    global[key] = window[key];
   }
 });

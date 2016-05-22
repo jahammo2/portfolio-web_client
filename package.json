@@ -62,7 +62,8 @@
     "sinon": "^1.16.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "babel": {
     "presets": [

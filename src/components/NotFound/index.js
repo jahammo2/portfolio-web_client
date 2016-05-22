@@ -7,11 +7,9 @@ const propTypes = {
 };
 
 class NotFound extends Component {
-  render() {
+  render () {
     return (
-      <div className="app">
-        asdfasdfs
-        // {this.props.children}
+      <div>
       </div>
     );
   }

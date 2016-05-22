@@ -1,49 +1,16 @@
-import reducer from './index';
-import { PROJECTS_FETCHED_SUCCESS } from '../constants/actionTypes';
-import actionTypes from '../constants/actionTypes';
+import reducer from '../../index';
+import { PROJECTS_FETCHED_SUCCESS } from '../../../constants/actionTypes';
 
 describe('draftQuotesReducer', () => {
   const initialState = new Map({
     projects: new List([]),
-    colorSets: new List([])
-  });
-
-  it('returns the initial state', () => {
-    expect(initialState).to.eql(reducer(undefined, {}));
-  });
-
-  it('defaults to passing the current state', () => {
-    const action = {
-      type: 'TOTALLY_BOGUS_ACTION_TYPE',
-      projects: [{name: 'Winston Churchill', occupation: 'Prime Minister'}]
-    };
-
-    expect(initialState).to.eql(reducer(initialState, action));
+    colorSets: new List([]),
+    languages: new List([]),
+    devices: new List([]),
+    activeProject: new Map()
   });
 
   describe('action PROJECTS_FETCHED_SUCCESS', () => {
-    const projects = {
-      data: [],
-      included: []
-    };
-
-    it('is working without mutating before state', () => {
-      const projects = {
-        data: [],
-        included: []
-      };
-      const action = {
-        type: PROJECTS_FETCHED_SUCCESS,
-        projects: projects
-      };
-      const stateAfter = new Map({
-        projects: new List(projects.data),
-        colorSets: new List([])
-      });
-
-      expect(stateAfter).to.eql(reducer(initialState, action));
-    });
-
     it('sets color-sets', () => {
       const id1 = faker.random.number();
       const id2 = faker.random.number();
@@ -97,16 +64,21 @@ describe('draftQuotesReducer', () => {
           }
         ]
       };
+
       const action = {
         type: PROJECTS_FETCHED_SUCCESS,
         projects: projects
       };
+
       const stateAfter = new Map({
         projects: new List(expectedProjects.data),
+        languages: new List([]),
+        devices: new List([]),
         colorSets: new List([
           expectedProjects.included[0],
           expectedProjects.included[1]
-        ])
+        ]),
+        activeProject: new Map()
       });
 
       expect(stateAfter).to.eql(reducer(initialState, action));
