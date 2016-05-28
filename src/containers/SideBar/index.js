@@ -15,10 +15,6 @@ class SideBar extends Component {
     super(props);
   }
 
-  activateActiveProject (project) {
-    this.props.setActiveProject(project);
-  }
-
   isActiveProject (project) {
     const activeProject = this.props.activeProject;
 
@@ -29,14 +25,22 @@ class SideBar extends Component {
     return 'link';
   }
 
+  isSideBarShowing () {
+    if (this.props.sideBarShowing) {
+      return 'side-bar side-bar--showing';
+    }
+
+    return 'side-bar';
+  }
+
   displayTitleLinks () {
     return this.props.projects.map((project) => {
       return (
         <li key={project.get('id')}>
           <a
             className={this.isActiveProject(project)}
-            onClick={() => {this.activateActiveProject(project);}}
-            ref='activateActiveProject'
+            onClick={() => {this.props.setActiveProject(project);}}
+            ref='setActiveProject'
           >
             {project.get('attributes').get('title')}
           </a>
@@ -47,7 +51,7 @@ class SideBar extends Component {
 
   render () {
     return (
-      <ul className='side-bar'>
+      <ul className={this.isSideBarShowing()}>
         {this.displayTitleLinks()}
       </ul>
     );

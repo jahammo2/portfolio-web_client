@@ -22,4 +22,9 @@
   width: 50%;
   background: lightyellow;
   right: 0;
+  visibility: hidden;
+
+  &--showing {
+    visibility: visible;
+  }
 }

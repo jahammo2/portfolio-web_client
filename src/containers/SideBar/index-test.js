@@ -35,7 +35,7 @@ describe('SideBar', () => {
   ]);
   const project = projects.last();
 
-  describe('activateActiveProject', () => {
+  describe('displayTitleLinks', () => {
     let setActiveProject;
 
     before(() => {
@@ -51,10 +51,10 @@ describe('SideBar', () => {
         />
       );
 
-      Simulate.click(ReactDOM.findDOMNode(component.refs.activateActiveProject));
+      Simulate.click(ReactDOM.findDOMNode(component.refs.setActiveProject));
     });
 
-    it('calls setActiveProject', () => {
+    it('calls setActiveProject on clicking of link', () => {
       expect(setActiveProject.calledOnce).to.be.true;
     });
 
@@ -77,6 +77,41 @@ describe('SideBar', () => {
 
     it('returns active if the project is active', () => {
       expect(isActiveProject).to.equal('active');
+    });
+  });
+
+  describe('isSideBarShowing', () => {
+    let isSideBarShowing;
+    let sideBar;
+
+    beforeEach(() => {
+      sideBar = new SideBar();
+    });
+
+    context('when the side bar is supposed to be showing', () => {
+      beforeEach(() => {
+        sideBar.props = {
+          sideBarShowing: true
+        };
+        isSideBarShowing = sideBar.isSideBarShowing();
+      });
+
+      it('returns --showing', () => {
+        expect(isSideBarShowing).to.equal('side-bar side-bar--showing');
+      });
+    });
+
+    context('when the side bar is not supposed to be showing', () => {
+      beforeEach(() => {
+        sideBar.props = {
+          sideBarShowing: false
+        };
+        isSideBarShowing = sideBar.isSideBarShowing();
+      });
+
+      it('does not return --showing', () => {
+        expect(isSideBarShowing).to.equal('side-bar');
+      });
     });
   });
 });

@@ -1,12 +1,13 @@
 import reducer from '../index';
 
-describe('draftQuotesReducer', () => {
+describe('reducer', () => {
   const initialState = new Map({
     projects: new List([]),
     colorSets: new List([]),
     languages: new List([]),
     devices: new List([]),
-    activeProject: new Map()
+    activeProject: new Map(),
+    sideBarShowing: false
   });
 
   it('returns the initial state', () => {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { List, Map } from 'immutable';
 import SideBar from '../SideBar';
+import Header from '../Header';
 import * as actionCreators from '../../actions/PortfolioActions';
 
 const propTypes = {
@@ -11,7 +12,9 @@ const propTypes = {
   activeProject: PropTypes.instanceOf(Map),
   setActiveProject: PropTypes.func,
   fetchProjects: PropTypes.func,
-  projectActive: PropTypes.func
+  projectActive: PropTypes.func,
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 export class PortfolioRoot extends Component {
@@ -19,13 +22,21 @@ export class PortfolioRoot extends Component {
     this.props.fetchProjects();
   }
 
+  klass () {
+    return 'foo';
+  }
+
   render () {
     return (
-      <div className='projects'>
+      <div className={this.klass}>
+        <Header
+          sideBarShown={this.props.sideBarShown}
+        />
         <SideBar
           projects={this.props.projects}
           activeProject={this.props.activeProject}
           setActiveProject={this.props.projectActive}
+          sideBarShowing={this.props.sideBarShowing}
         />
         {this.props.children &&
           cloneElement(this.props.children, {
@@ -42,7 +53,8 @@ PortfolioRoot.propTypes = propTypes;
 function mapStateToProps (state) {
   return {
     projects: state.get('projects'),
-    activeProject: state.get('activeProject')
+    activeProject: state.get('activeProject'),
+    sideBarShowing: state.get('sideBarShowing')
   };
 }
 

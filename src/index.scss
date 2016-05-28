@@ -1,3 +1,17 @@
+@import "~normalize.css";
+@import "./variables";
+@import "./mixins/index";
+
 * {
   font-size: 40px;
+  font-family: "georgia";
+}
+
+.row-between {
+  @include row;
+  justify-content: space-between;
+}
+
+p {
+  margin: 0 0 $base-spacing;
 }
