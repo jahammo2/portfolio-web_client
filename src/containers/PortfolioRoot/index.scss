@@ -4,10 +4,11 @@
   width: $base-width;
   margin: 0 auto;
   padding-top: 15px;
-  height: 95%;
+  overflow: scroll;
+  height: 100%;
+  position: relative;
 
   &__container {
-    background: lightblue;
     height: 100%;
   }
 }
