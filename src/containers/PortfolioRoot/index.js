@@ -5,11 +5,13 @@ import { List, Map } from 'immutable';
 import SideBar from '../SideBar';
 import Header from '../Header';
 import * as actionCreators from '../../actions/PortfolioActions';
+import './index.scss';
 
 const propTypes = {
   children: PropTypes.node,
   projects: PropTypes.instanceOf(List),
   activeProject: PropTypes.instanceOf(Map),
+  colorSets: PropTypes.instanceOf(List),
   setActiveProject: PropTypes.func,
   fetchProjects: PropTypes.func,
   projectActive: PropTypes.func,
@@ -22,13 +24,9 @@ export class PortfolioRoot extends Component {
     this.props.fetchProjects();
   }
 
-  klass () {
-    return 'foo';
-  }
-
   render () {
     return (
-      <div className={this.klass}>
+      <div className='portfolio-root'>
         <Header
           sideBarShown={this.props.sideBarShown}
         />
@@ -37,12 +35,16 @@ export class PortfolioRoot extends Component {
           activeProject={this.props.activeProject}
           setActiveProject={this.props.projectActive}
           sideBarShowing={this.props.sideBarShowing}
+          sideBarShown={this.props.sideBarShown}
         />
-        {this.props.children &&
-          cloneElement(this.props.children, {
-            project: this.props.activeProject
-          })
-        }
+        <div className='portfolio-root__container'>
+          {this.props.children &&
+            cloneElement(this.props.children, {
+              project: this.props.activeProject,
+              colorSets: this.props.colorSets
+            })
+          }
+        </div>
       </div>
     );
   }
@@ -54,7 +56,8 @@ function mapStateToProps (state) {
   return {
     projects: state.get('projects'),
     activeProject: state.get('activeProject'),
-    sideBarShowing: state.get('sideBarShowing')
+    sideBarShowing: state.get('sideBarShowing'),
+    colorSets: state.get('colorSets')
   };
 }
 

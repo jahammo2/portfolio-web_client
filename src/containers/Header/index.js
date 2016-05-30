@@ -1,5 +1,6 @@
 // Imports
 import React, { Component, PropTypes } from 'react';
+import './index.scss';
 
 // PropTypes
 const propTypes = {
@@ -9,15 +10,20 @@ const propTypes = {
 class Header extends Component {
   render () {
     return (
-      <header className='row-between'>
-        <p>Jordan Hammond</p>
-        <div
-          onClick={() => {this.props.sideBarShown();}}
-          ref='sideBarShown'
-        >
-          Hamburger
+      <div className='header column-between'>
+        <div className='header__container row-between'>
+          <p className='header__name'>Jordan Hammond</p>
+          <div
+            onClick={() => {this.props.sideBarShown();}}
+            className='row-between header__menu'
+            ref='sideBarShown'
+          >
+            <p>menu</p>
+            <i className="fa fa-bars" aria-hidden="true"></i>
+          </div>
         </div>
-      </header>
+        <hr className='header__line' />
+      </div>
     );
   }
 }

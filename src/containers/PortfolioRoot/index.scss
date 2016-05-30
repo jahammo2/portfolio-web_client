@@ -1,0 +1,13 @@
+@import "../../variables";
+
+.portfolio-root {
+  width: $base-width;
+  margin: 0 auto;
+  padding-top: 5%;
+  height: 95%;
+
+  &__container {
+    background: lightblue;
+    height: 100%;
+  }
+}

@@ -37,9 +37,11 @@ describe('SideBar', () => {
 
   describe('displayTitleLinks', () => {
     let setActiveProject;
+    let sideBarShown;
 
     before(() => {
       setActiveProject = spy(ActionCreators, 'projectActive').withArgs(project);
+      sideBarShown = spy(ActionCreators, 'sideBarShown');
     });
 
     beforeEach(() => {
@@ -48,6 +50,7 @@ describe('SideBar', () => {
           projects={projects}
           activeProject={project}
           setActiveProject={ActionCreators.projectActive}
+          sideBarShown={ActionCreators.sideBarShown}
         />
       );
 
@@ -58,8 +61,17 @@ describe('SideBar', () => {
       expect(setActiveProject.calledOnce).to.be.true;
     });
 
+    it('calls sideBarShown on clicking of link', () => {
+      expect(sideBarShown.calledOnce).to.be.true;
+    });
+
     afterEach(() => {
       setActiveProject.reset();
+      sideBarShown.reset();
+    });
+
+    after(() => {
+      sideBarShown.restore();
     });
   });
 

@@ -2,8 +2,13 @@
 @import "./variables";
 @import "./mixins/index";
 
-* {
-  font-size: 40px;
+html,
+body,
+.main,
+.app {
+  height: 100%;
+  width: 100%;
+  font-size: $base-font-size;
   font-family: "georgia";
 }
 
@@ -12,6 +17,16 @@
   justify-content: space-between;
 }
 
-p {
-  margin: 0 0 $base-spacing;
+.column-between {
+  @include column;
+  justify-content: space-between;
 }
+
+p {
+  margin: 0 0 ($base-spacing * .5);
+}
+
+a {
+  cursor: pointer;
+}
+

@@ -1,30 +1,36 @@
-// Temporary
-.link {
-  color: red;
-
-  &:active {
-    color: orange;
-  }
-}
+@import "../../variables";
 
 .active {
-  color: purple;
-  font-size: 60px;
-
-  &:active {
-    color: green;
-  }
+  font-weight: bold;
 }
 
 .side-bar {
   position: absolute;
-  height: 500px;
-  width: 50%;
-  background: lightyellow;
+  height: 100%;
+  width: 100%;
+  background: white;
+  top: $header-height;
   right: 0;
-  visibility: hidden;
+  display: none;
+  z-index: 2;
+
+  &__container {
+    width: $base-width;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
 
   &--showing {
-    visibility: visible;
+    display: block;
+  }
+
+  &__project {
+    margin-bottom: 20px;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 }

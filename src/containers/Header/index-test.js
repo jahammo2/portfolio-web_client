@@ -34,5 +34,9 @@ describe('Header', () => {
     afterEach(() => {
       sideBarShown.reset();
     });
+
+    after(() => {
+      sideBarShown.restore();
+    });
   });
 });
