@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { List, Map } from 'immutable';
 import SideBar from '../SideBar';
+import Header from '../Header';
 import * as actionCreators from '../../actions/PortfolioActions';
+import './index.scss';
 
 const propTypes = {
   children: PropTypes.node,
   projects: PropTypes.instanceOf(List),
   activeProject: PropTypes.instanceOf(Map),
+  colorSets: PropTypes.instanceOf(List),
   setActiveProject: PropTypes.func,
   fetchProjects: PropTypes.func,
-  projectActive: PropTypes.func
+  projectActive: PropTypes.func,
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 export class PortfolioRoot extends Component {
@@ -21,17 +26,25 @@ export class PortfolioRoot extends Component {
 
   render () {
     return (
-      <div className='projects'>
+      <div className='portfolio-root'>
+        <Header
+          sideBarShown={this.props.sideBarShown}
+        />
         <SideBar
           projects={this.props.projects}
           activeProject={this.props.activeProject}
           setActiveProject={this.props.projectActive}
+          sideBarShowing={this.props.sideBarShowing}
+          sideBarShown={this.props.sideBarShown}
         />
-        {this.props.children &&
-          cloneElement(this.props.children, {
-            project: this.props.activeProject
-          })
-        }
+        <div className='portfolio-root__container'>
+          {this.props.children &&
+            cloneElement(this.props.children, {
+              project: this.props.activeProject,
+              colorSets: this.props.colorSets
+            })
+          }
+        </div>
       </div>
     );
   }
@@ -42,7 +55,9 @@ PortfolioRoot.propTypes = propTypes;
 function mapStateToProps (state) {
   return {
     projects: state.get('projects'),
-    activeProject: state.get('activeProject')
+    activeProject: state.get('activeProject'),
+    sideBarShowing: state.get('sideBarShowing'),
+    colorSets: state.get('colorSets')
   };
 }
 

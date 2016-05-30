@@ -7,7 +7,9 @@ import { List, Map } from 'immutable';
 const propTypes = {
   projects: PropTypes.instanceOf(List),
   activeProject: PropTypes.instanceOf(Map),
-  setActiveProject: PropTypes.func
+  setActiveProject: PropTypes.func,
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 class SideBar extends Component {
@@ -15,8 +17,9 @@ class SideBar extends Component {
     super(props);
   }
 
-  activateActiveProject (project) {
+  setActiveProject (project) {
     this.props.setActiveProject(project);
+    return this.props.sideBarShown();
   }
 
   isActiveProject (project) {
@@ -26,17 +29,28 @@ class SideBar extends Component {
       return 'active';
     }
 
-    return 'link';
+    return 'side-bar__project ';
+  }
+
+  isSideBarShowing () {
+    if (this.props.sideBarShowing) {
+      return 'side-bar side-bar--showing';
+    }
+
+    return 'side-bar';
   }
 
   displayTitleLinks () {
     return this.props.projects.map((project) => {
       return (
-        <li key={project.get('id')}>
+        <li
+          className='side-bar__project'
+          key={project.get('id')}
+        >
           <a
             className={this.isActiveProject(project)}
-            onClick={() => {this.activateActiveProject(project);}}
-            ref='activateActiveProject'
+            onClick={() => {this.setActiveProject(project);}}
+            ref='setActiveProject'
           >
             {project.get('attributes').get('title')}
           </a>
@@ -47,9 +61,11 @@ class SideBar extends Component {
 
   render () {
     return (
-      <ul className='side-bar'>
-        {this.displayTitleLinks()}
-      </ul>
+      <div className={this.isSideBarShowing()}>
+        <ul className='side-bar__container'>
+          {this.displayTitleLinks()}
+        </ul>
+      </div>
     );
   }
 }

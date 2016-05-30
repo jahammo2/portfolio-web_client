@@ -1,7 +1,7 @@
 import reducer from '../../index';
 import { PROJECTS_FETCHED_SUCCESS } from '../../../constants/actionTypes';
 
-describe('draftQuotesReducer', () => {
+describe('reducer', () => {
   const initialState = new Map({
     projects: new List([]),
     colorSets: new List([]),

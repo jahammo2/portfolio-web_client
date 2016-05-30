@@ -6,7 +6,8 @@ const INITIAL_STATE = new Map({
   colorSets: new List([]),
   devices: new List([]),
   languages: new List([]),
-  activeProject: new Map()
+  activeProject: new Map(),
+  sideBarShowing: false
 });
 
 function setIncludedData (projects, included) {
@@ -33,12 +34,22 @@ function setProjectStates (state, projects) {
   });
 }
 
+function showOrHideSideBar (state) {
+  if (state.get('sideBarShowing')) {
+    return state.set('sideBarShowing', false);
+  }
+
+  return state.set('sideBarShowing', true);
+}
+
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.PROJECTS_FETCHED_SUCCESS:
       return setProjectStates(state, action.projects);
     case actionTypes.PROJECT_ACTIVE_SUCCESS:
       return state.set('activeProject', fromJS(action.project));
+    case actionTypes.SIDE_BAR_SHOWN_SUCCESS:
+      return showOrHideSideBar(state);
     default:
       return state;
   }

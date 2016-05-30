@@ -1,3 +1,32 @@
-* {
-  font-size: 40px;
+@import "~normalize.css";
+@import "./variables";
+@import "./mixins/index";
+
+html,
+body,
+.main,
+.app {
+  height: 100%;
+  width: 100%;
+  font-size: $base-font-size;
+  font-family: "georgia";
 }
+
+.row-between {
+  @include row;
+  justify-content: space-between;
+}
+
+.column-between {
+  @include column;
+  justify-content: space-between;
+}
+
+p {
+  margin: 0 0 ($base-spacing * .5);
+}
+
+a {
+  cursor: pointer;
+}
+

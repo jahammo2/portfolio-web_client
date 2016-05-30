@@ -35,11 +35,13 @@ describe('SideBar', () => {
   ]);
   const project = projects.last();
 
-  describe('activateActiveProject', () => {
+  describe('displayTitleLinks', () => {
     let setActiveProject;
+    let sideBarShown;
 
     before(() => {
       setActiveProject = spy(ActionCreators, 'projectActive').withArgs(project);
+      sideBarShown = spy(ActionCreators, 'sideBarShown');
     });
 
     beforeEach(() => {
@@ -48,18 +50,28 @@ describe('SideBar', () => {
           projects={projects}
           activeProject={project}
           setActiveProject={ActionCreators.projectActive}
+          sideBarShown={ActionCreators.sideBarShown}
         />
       );
 
-      Simulate.click(ReactDOM.findDOMNode(component.refs.activateActiveProject));
+      Simulate.click(ReactDOM.findDOMNode(component.refs.setActiveProject));
     });
 
-    it('calls setActiveProject', () => {
+    it('calls setActiveProject on clicking of link', () => {
       expect(setActiveProject.calledOnce).to.be.true;
+    });
+
+    it('calls sideBarShown on clicking of link', () => {
+      expect(sideBarShown.calledOnce).to.be.true;
     });
 
     afterEach(() => {
       setActiveProject.reset();
+      sideBarShown.reset();
+    });
+
+    after(() => {
+      sideBarShown.restore();
     });
   });
 
@@ -77,6 +89,41 @@ describe('SideBar', () => {
 
     it('returns active if the project is active', () => {
       expect(isActiveProject).to.equal('active');
+    });
+  });
+
+  describe('isSideBarShowing', () => {
+    let isSideBarShowing;
+    let sideBar;
+
+    beforeEach(() => {
+      sideBar = new SideBar();
+    });
+
+    context('when the side bar is supposed to be showing', () => {
+      beforeEach(() => {
+        sideBar.props = {
+          sideBarShowing: true
+        };
+        isSideBarShowing = sideBar.isSideBarShowing();
+      });
+
+      it('returns --showing', () => {
+        expect(isSideBarShowing).to.equal('side-bar side-bar--showing');
+      });
+    });
+
+    context('when the side bar is not supposed to be showing', () => {
+      beforeEach(() => {
+        sideBar.props = {
+          sideBarShowing: false
+        };
+        isSideBarShowing = sideBar.isSideBarShowing();
+      });
+
+      it('does not return --showing', () => {
+        expect(isSideBarShowing).to.equal('side-bar');
+      });
     });
   });
 });
