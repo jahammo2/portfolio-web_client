@@ -6,20 +6,22 @@
 
 .side-bar {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - $header-height);
+  width: 0;
+  overflow: scroll;
   background: white;
   top: $header-height;
   right: 0;
   visibility: hidden;
   z-index: 2;
-  transition-property: visibility;
-  transition-duration: .5s;
+  transition-property: visibility, width;
+  transition-duration: .5s, .5s;
   animation-name: slide-out;
   animation-duration: .5s;
   animation-fill-mode: forwards;
 
   &__container {
+    height: 100%;
     width: $base-width;
     margin: 0 auto;
     list-style: none;
@@ -28,8 +30,11 @@
   }
 
   &--showing {
+    width: 100%;
     visibility: visible;
     animation-name: slide;
+    transition-property: width;
+    transition-duration: .2s;
     animation-duration: .5s;
     animation-fill-mode: both;
   }
