@@ -4,7 +4,8 @@ import './index.scss';
 
 // PropTypes
 const propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  sideBarShown: PropTypes.func
 };
 
 class Header extends Component {
@@ -19,7 +20,7 @@ class Header extends Component {
             ref='sideBarShown'
           >
             <p>menu</p>
-            <i className="fa fa-bars" aria-hidden="true"></i>
+            <i className='fa fa-bars' aria-hidden='true'></i>
           </div>
         </div>
         <hr className='header__line' />

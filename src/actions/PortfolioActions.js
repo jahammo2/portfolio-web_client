@@ -3,7 +3,7 @@ import { setActiveProject } from '../utils/ActionHelpers';
 export function sideBarShown () {
   return {
     type: 'SIDE_BAR_SHOWN_SUCCESS'
-  }
+  };
 }
 
 export function projectActive (project) {

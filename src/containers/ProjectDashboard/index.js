@@ -1,6 +1,6 @@
 // Imports
 import React, { Component, PropTypes } from 'react';
-import { Map } from 'immutable';
+import { Map, List } from 'immutable';
 import './index.scss';
 import laptop from '../../img/laptop.png';
 import ProjectDashboardInfo from '../../components/ProjectDashboardInfo';
@@ -8,6 +8,7 @@ import ProjectDashboardInfo from '../../components/ProjectDashboardInfo';
 // PropTypes
 const propTypes = {
   project: PropTypes.instanceOf(Map),
+  colorSets: PropTypes.instanceOf(List),
   children: PropTypes.node
 };
 
@@ -26,7 +27,7 @@ class ProjectDashboard extends Component {
   }
 
   displayDeviceImage () {
-    return(
+    return (
       <div className='project-dashboard__image'>
         <img className='project-dashboard__laptop' src={laptop} />
         <div className='project-dashboard__laptop__overlay' />

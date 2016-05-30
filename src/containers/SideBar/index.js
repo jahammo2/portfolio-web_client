@@ -7,7 +7,9 @@ import { List, Map } from 'immutable';
 const propTypes = {
   projects: PropTypes.instanceOf(List),
   activeProject: PropTypes.instanceOf(Map),
-  setActiveProject: PropTypes.func
+  setActiveProject: PropTypes.func,
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 class SideBar extends Component {
@@ -47,7 +49,7 @@ class SideBar extends Component {
         >
           <a
             className={this.isActiveProject(project)}
-            onClick={() => {this.setActiveProject(project)}}
+            onClick={() => {this.setActiveProject(project);}}
             ref='setActiveProject'
           >
             {project.get('attributes').get('title')}

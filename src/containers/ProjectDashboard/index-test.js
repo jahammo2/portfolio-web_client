@@ -1,16 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import ProjectDashboard from './index';
-import {
-  renderIntoDocument,
-  Simulate
-} from 'react-addons-test-utils';
 
 describe('ProjectDashboard', () => {
   describe('getBackground', () => {
     let projectDashboard;
     let getBackground;
-    let component;
     const color1 = faker.internet.color();
     const color2 = faker.internet.color();
 
