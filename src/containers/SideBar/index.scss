@@ -6,7 +6,8 @@
 
 .side-bar {
   position: absolute;
-  height: calc(100% - $header-height);
+  // height: calc(100% - $header-height);
+  height: 100%;
   width: 0;
   overflow: scroll;
   background: white;
