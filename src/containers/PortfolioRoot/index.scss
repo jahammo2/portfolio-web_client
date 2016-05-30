@@ -4,7 +4,8 @@
   width: $base-width;
   margin: 0 auto;
   padding-top: 15px;
-  height: 95%;
+  height: 100%;
+  position: relative;
 
   &__container {
     background: lightblue;

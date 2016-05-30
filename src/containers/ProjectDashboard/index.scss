@@ -25,6 +25,8 @@
 }
 
 .project-dashboard__container {
+  height: 100%;
+  overflow: scroll;
   width: 88%;
   margin: 0 auto;
   padding-top: $header-height-spacing;
