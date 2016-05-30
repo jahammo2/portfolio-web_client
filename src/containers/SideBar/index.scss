@@ -44,19 +44,19 @@
 }
 
 @-webkit-keyframes slide-out {
-	from {
-	  left: 0;
-	}
-	to {
+  from {
+    left: 0;
+  }
+  to {
     left: 100%;
-	}
+  }
 }
 
 @-webkit-keyframes slide {
-	from {
-		left: 100%
-	}
-	to {
-		left: 0
-	}
+  from {
+    left: 100%
+  }
+  to {
+    left: 0
+  }
 }
