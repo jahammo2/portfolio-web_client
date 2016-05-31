@@ -21,7 +21,8 @@
   animation-fill-mode: forwards;
 
   @media screen and (min-width: 600px) {
-    width: 60%;
+    top: $header-height__tablet;
+    transition-duration: 3s;
     animation-name: slide-out-tablet;
   }
 
@@ -38,11 +39,12 @@
     width: 100%;
     visibility: visible;
     animation-name: slide-mobile;
+    animation-duration: .5s;
     transition-property: width;
     transition-duration: .2s;
-    animation-fill-mode: both;
 
     @media screen and (min-width: 600px) {
+      width: 60%;
       animation-name: slide-tablet;
     }
   }

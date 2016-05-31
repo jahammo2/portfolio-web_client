@@ -24,6 +24,14 @@ export class PortfolioRoot extends Component {
     this.props.fetchProjects();
   }
 
+  portfolioRootContainerClassName () {
+    if (this.props.sideBarShowing) {
+      return 'portfolio-root__container portfolio-root__container--pushed';
+    }
+
+    return 'portfolio-root__container';
+  }
+
   render () {
     return (
       <div className='portfolio-root'>
@@ -37,7 +45,7 @@ export class PortfolioRoot extends Component {
           sideBarShowing={this.props.sideBarShowing}
           sideBarShown={this.props.sideBarShown}
         />
-        <div className='portfolio-root__container'>
+        <div className={this.portfolioRootContainerClassName()}>
           {this.props.children &&
             cloneElement(this.props.children, {
               project: this.props.activeProject,
