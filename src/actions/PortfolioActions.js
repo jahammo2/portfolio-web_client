@@ -1,4 +1,4 @@
-import { setActiveProject } from '../utils/ActionHelpers';
+import { setActiveProject, getHost } from '../utils/ActionHelpers';
 
 export function sideBarShown () {
   return {
@@ -23,7 +23,7 @@ export function projectsFetched (projects) {
 export function fetchProjects () {
   return function (dispatch) {
     return window
-      .fetch('http://localhost:3000/api/projects')
+      .fetch(`${getHost()}/api/projects`)
         .then(response => response.json())
         .then((response) => {
           dispatch(projectsFetched(response));

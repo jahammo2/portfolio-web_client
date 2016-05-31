@@ -10,12 +10,24 @@
   background: white;
   opacity: .81;
 
+  @media screen and (min-width: 600px) {
+    height: ($header-height__tablet);
+  }
+
   &__container {
     margin: 22px auto 0;
     font-size: 24px;
     font-weight: bold;
-    width: 98%;
+    width: 87%;
     height: 100%;
+
+    @media screen and (min-width: 600px) {
+      width: 93.7%;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: $base-width;
+    }
   }
 
   &__line {
@@ -26,22 +38,12 @@
     border: none;
   }
 
-  &__menu {
-    margin-top: 12px;
-    min-width: 120px;
-
-    &:hover {
-      cursor: pointer
-    }
-  }
-
   &__name {
     max-width: 100px;
-  }
-}
 
-i.fa-bars {
-  font-size: 36px;
-  margin-top: -3px;
-  color: black;
+    @media screen and (min-width: 600px) {
+      margin-top: 12px;
+      max-width: 500px;
+    }
+  }
 }

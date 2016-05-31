@@ -6,7 +6,6 @@
 
 .side-bar {
   position: absolute;
-  // height: calc(100% - $header-height);
   height: 100%;
   width: 0;
   overflow: scroll;
@@ -15,11 +14,24 @@
   right: 0;
   visibility: hidden;
   z-index: 2;
+  animation-name: slide-out-mobile;
   transition-property: visibility, width;
   transition-duration: .5s, .5s;
-  animation-name: slide-out;
+  transition-timing-function: initial, ease-in;
   animation-duration: .5s;
   animation-fill-mode: forwards;
+
+  @media screen and (min-width: 600px) {
+    height: initial;
+    top: $header-height__tablet;
+    transition-duration: .5s, 0;
+    transition-delay: 0s, .5s;
+    animation-name: slide-out-tablet;
+  }
+
+  @media screen and (min-width: 768px) {
+    animation-name: slide-out-desktop;
+  }
 
   &__container {
     height: 100%;
@@ -28,16 +40,30 @@
     list-style: none;
     padding: 0;
     margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+      width: ($base-width * .65);
+    }
   }
 
   &--showing {
     width: 100%;
     visibility: visible;
-    animation-name: slide;
+    animation-name: slide-mobile;
+    animation-duration: .5s;
     transition-property: width;
     transition-duration: .2s;
-    animation-duration: .5s;
-    animation-fill-mode: both;
+
+    @media screen and (min-width: 600px) {
+      width: 60%;
+      animation-name: slide-tablet;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 35%;
+      animation-name: slide-desktop;
+      transition-duration: 0s;
+    }
   }
 
   &__project {
@@ -49,7 +75,7 @@
   }
 }
 
-@-webkit-keyframes slide-out {
+@-webkit-keyframes slide-out-mobile {
   from {
     left: 0;
   }
@@ -58,11 +84,47 @@
   }
 }
 
-@-webkit-keyframes slide {
+@-webkit-keyframes slide-mobile {
   from {
     left: 100%
   }
   to {
-    left: 0
+    left: 0;
+  }
+}
+
+@-webkit-keyframes slide-out-tablet {
+  from {
+    right: 0;
+  }
+  to {
+    right: -60%;
+  }
+}
+
+@-webkit-keyframes slide-tablet {
+  from {
+    right: -60%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@-webkit-keyframes slide-out-desktop {
+  from {
+    right: 0;
+  }
+  to {
+    right: -35%;
+  }
+}
+
+@-webkit-keyframes slide-desktop {
+  from {
+    right: -35%;
+  }
+  to {
+    right: 0;
   }
 }
