@@ -1,4 +1,5 @@
 @import "../../variables";
+@import "../../mixins/index";
 
 .project-dashboard {
   height: 100%;
@@ -15,6 +16,10 @@
     @media screen and (min-width: 600px) {
       width: 90%;
       margin-left: -(((100% - $base-width) * .5) + 6%);
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-left: -(((100% - $base-width) * .5) + 4%);
     }
   }
 
@@ -43,5 +48,10 @@
   @media screen and (min-width: 600px) {
     padding-top: $header-height-spacing__tablet;
     overflow: initial;
+  }
+
+  @media screen and (min-width: 768px) {
+    @include row;
+    justify-content: space-between;
   }
 }

@@ -3,17 +3,19 @@
 .portfolio-root {
   width: 100%;
   padding-top: 15px;
+  padding-bottom: 15px;
   overflow: scroll;
   height: 100%;
   position: relative;
 
   @media screen and (min-width: 600px) {
     padding-top: ($header-height__tablet * .48);
+    padding-bottom: ($header-height__tablet * .48);
   }
 
   &__container {
-    margin-left: 5.5%;
-    margin-right: 5.5%;
+    margin-left: ((100% - $base-width) * .5);
+    margin-right: ((100% - $base-width) * .5);
     width: $base-width;
     height: 100%;
     transition-property: margin-left, margin-right, width;
@@ -23,6 +25,15 @@
       &--pushed {
         margin-left: -49%;
         margin-right: 60%;
+        transition-property: margin-left, margin-right, width;
+        transition-duration: .5s, .5s, .5s;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      &--pushed {
+        margin-left: -24%;
+        margin-right: 24%;
         transition-property: margin-left, margin-right, width;
         transition-duration: .5s, .5s, .5s;
       }

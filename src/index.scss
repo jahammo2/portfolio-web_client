@@ -17,6 +17,11 @@ body,
   justify-content: space-between;
 }
 
+.row-right {
+  @include row;
+  justify-content: flex-end;
+}
+
 .column-between {
   @include column;
   justify-content: space-between;
