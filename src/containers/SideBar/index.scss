@@ -6,7 +6,6 @@
 
 .side-bar {
   position: absolute;
-  // height: calc(100% - $header-height);
   height: 100%;
   width: 0;
   overflow: scroll;
@@ -15,11 +14,17 @@
   right: 0;
   visibility: hidden;
   z-index: 2;
+  animation-name: slide-out-mobile;
   transition-property: visibility, width;
   transition-duration: .5s, .5s;
-  animation-name: slide-out;
   animation-duration: .5s;
   animation-fill-mode: forwards;
+
+  @media screen and (min-width: 600px) {
+    top: $header-height__tablet;
+    transition-duration: 3s;
+    animation-name: slide-out-tablet;
+  }
 
   &__container {
     height: 100%;
@@ -33,11 +38,15 @@
   &--showing {
     width: 100%;
     visibility: visible;
-    animation-name: slide;
+    animation-name: slide-mobile;
+    animation-duration: .5s;
     transition-property: width;
     transition-duration: .2s;
-    animation-duration: .5s;
-    animation-fill-mode: both;
+
+    @media screen and (min-width: 600px) {
+      width: 60%;
+      animation-name: slide-tablet;
+    }
   }
 
   &__project {
@@ -49,7 +58,7 @@
   }
 }
 
-@-webkit-keyframes slide-out {
+@-webkit-keyframes slide-out-mobile {
   from {
     left: 0;
   }
@@ -58,11 +67,29 @@
   }
 }
 
-@-webkit-keyframes slide {
+@-webkit-keyframes slide-mobile {
   from {
     left: 100%
   }
   to {
     left: 0
+  }
+}
+
+@-webkit-keyframes slide-out-tablet {
+  from {
+    right: 0
+  }
+  to {
+    right: -60%;
+  }
+}
+
+@-webkit-keyframes slide-tablet {
+  from {
+    right: -60%;
+  }
+  to {
+    right: 0;
   }
 }

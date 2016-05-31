@@ -54,7 +54,12 @@ module.exports = {
       template: 'src/index.html',
       title: 'fasdfasd'
     }),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      }
+    }),
   ],
   postcss: function () {
     return [lost, autoprefixer];

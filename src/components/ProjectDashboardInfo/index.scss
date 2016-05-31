@@ -1,6 +1,10 @@
 .project-dashboard__project-info {
   margin-top: 6px;
 
+  @media screen and (min-width: 600px) {
+    width: 57%;
+  }
+
   &__title {
     font-size: 36px;
   }
