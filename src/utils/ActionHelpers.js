@@ -7,7 +7,7 @@ export function setActiveProject (projects, dispatch, projectActive) {
 }
 
 export function getHost () {
-  if (process.env.NODE_ENV == 'development') {
+  if (process.env.NODE_ENV === 'development') {
     return 'http://localhost:3000';
   }
 
