@@ -1,0 +1,20 @@
+@import "../../variables";
+
+.menu-bar {
+  margin-top: ($base-font-size * .5);
+
+  &:hover {
+    cursor: pointer
+  }
+
+  &__title {
+    margin-right: ($base-font-size * .5);
+  }
+}
+
+i.fa-bars,
+i.fa-times {
+  font-size: 36px;
+  margin-top: -3px;
+  color: black;
+}

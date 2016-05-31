@@ -1,42 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import Header from './index';
-import {
-  renderIntoDocument,
-  Simulate
-} from 'react-addons-test-utils';
-import * as ActionCreators from '../../actions/PortfolioActions';
 
 describe('Header', () => {
-  let component;
+  let header;
 
-  describe('displayMenu', () => {
-    let sideBarShown;
+  describe('iconClassName', () => {
+    let iconClassName;
 
     before(() => {
-      sideBarShown = spy(ActionCreators, 'sideBarShown');
+      header = new Header();
+      header.props = {
+        sideBarShowing: true
+      };
     });
 
     beforeEach(() => {
-      component = renderIntoDocument(
-        <Header
-          sideBarShown={ActionCreators.sideBarShown}
-        />
-      );
-
-      Simulate.click(ReactDOM.findDOMNode(component.refs.sideBarShown));
+      iconClassName = header.iconClassName();
     });
 
-    it('calls sideBarShown on clicking of menu', () => {
-      expect(sideBarShown.calledOnce).to.be.true;
-    });
-
-    afterEach(() => {
-      sideBarShown.reset();
-    });
-
-    after(() => {
-      sideBarShown.restore();
+    it('returns times if true', () => {
+      expect(iconClassName).to.equal('times');
     });
   });
 });

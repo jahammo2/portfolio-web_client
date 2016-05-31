@@ -37,6 +37,7 @@ export class PortfolioRoot extends Component {
       <div className='portfolio-root'>
         <Header
           sideBarShown={this.props.sideBarShown}
+          sideBarShowing={this.props.sideBarShowing}
         />
         <SideBar
           projects={this.props.projects}
