@@ -45,6 +45,7 @@ export class PortfolioRoot extends Component {
           setActiveProject={this.props.projectActive}
           sideBarShowing={this.props.sideBarShowing}
           sideBarShown={this.props.sideBarShown}
+          colorSets={this.props.colorSets}
         />
         <div className={this.portfolioRootContainerClassName()}>
           {this.props.children &&

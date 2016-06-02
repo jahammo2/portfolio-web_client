@@ -13,6 +13,10 @@
     padding-bottom: ($header-height__tablet * .48);
   }
 
+  @media screen and (min-width: 768px) {
+    height: 85vh;
+  }
+
   &__container {
     margin-left: ((100% - $base-width) * .5);
     margin-right: ((100% - $base-width) * .5);
@@ -23,19 +27,9 @@
 
     @media screen and (min-width: 600px) {
       &--pushed {
-        margin-left: -49%;
-        margin-right: 60%;
-        transition-property: margin-left, margin-right, width;
-        transition-duration: .5s, .5s, .5s;
-      }
-    }
-
-    @media screen and (min-width: 768px) {
-      &--pushed {
-        margin-left: -24%;
-        margin-right: 24%;
-        transition-property: margin-left, margin-right, width;
-        transition-duration: .5s, .5s, .5s;
+        margin-left: (calc(-400px + 11%));
+        transition-property: margin-left, width;
+        transition-duration: .5s, .5s;
       }
     }
   }

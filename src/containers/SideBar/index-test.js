@@ -51,6 +51,7 @@ describe('SideBar', () => {
           activeProject={project}
           setActiveProject={ActionCreators.projectActive}
           sideBarShown={ActionCreators.sideBarShown}
+          colorSets={new List([])}
         />
       );
 
@@ -88,12 +89,12 @@ describe('SideBar', () => {
     });
 
     it('returns active if the project is active', () => {
-      expect(isActiveProject).to.equal('active');
+      expect(isActiveProject).to.be.true;
     });
   });
 
-  describe('isSideBarShowing', () => {
-    let isSideBarShowing;
+  describe('sideBarClassName', () => {
+    let sideBarClassName;
     let sideBar;
 
     beforeEach(() => {
@@ -105,11 +106,11 @@ describe('SideBar', () => {
         sideBar.props = {
           sideBarShowing: true
         };
-        isSideBarShowing = sideBar.isSideBarShowing();
+        sideBarClassName = sideBar.sideBarClassName();
       });
 
       it('returns --showing', () => {
-        expect(isSideBarShowing).to.equal('side-bar side-bar--showing');
+        expect(sideBarClassName).to.equal('side-bar side-bar--showing row-between');
       });
     });
 
@@ -118,11 +119,112 @@ describe('SideBar', () => {
         sideBar.props = {
           sideBarShowing: false
         };
-        isSideBarShowing = sideBar.isSideBarShowing();
+        sideBarClassName = sideBar.sideBarClassName();
       });
 
       it('does not return --showing', () => {
-        expect(isSideBarShowing).to.equal('side-bar');
+        expect(sideBarClassName).to.equal('side-bar row-between');
+      });
+    });
+  });
+
+  describe('sideBarProjectClassName', () => {
+    let sideBarProjectClassName;
+    let sideBar;
+
+    beforeEach(() => {
+      sideBar = new SideBar();
+      sideBar.props = {
+        activeProject: project
+      };
+
+      sideBarProjectClassName = sideBar.sideBarProjectClassName(projects.last());
+    });
+
+    it('returns active if true', () => {
+      expect(sideBarProjectClassName).to.equal('side-bar__project side-bar__project--active');
+    });
+  });
+
+  describe('sideBarBulletClassName', () => {
+    let sideBarBulletClassName;
+    let sideBar;
+
+    beforeEach(() => {
+      sideBar = new SideBar();
+      sideBar.props = {
+        activeProject: project
+      };
+
+      sideBarBulletClassName = sideBar.sideBarBulletClassName(projects.last());
+    });
+
+    it('returns active if true', () => {
+      expect(sideBarBulletClassName).to.equal('side-bar__bullet side-bar__bullet--active');
+    });
+  });
+
+  describe('sideBarBulletStyles', () => {
+    let sideBarBulletStyles;
+    let sideBar;
+    const color1 = faker.internet.color();
+    const color2 = faker.internet.color();
+
+    const expectedProject = fromJS({
+      id: faker.random.number(),
+      attributes: {
+        title: faker.random.word(),
+        github_page_url: faker.internet.url(),
+        web_page_url: faker.internet.url(),
+        body: faker.lorem.sentences(),
+        description: faker.lorem.sentence(),
+        date_deployed: '2016-03-13 20:45:16'
+      },
+      relationships: {
+        color_set: {
+          data: {
+            type: 'color-sets',
+            id: 19
+          }
+        }
+      }
+    });
+
+    const colorSets = new List([
+      new Map({
+        id: 19,
+        type: 'color-sets',
+        attributes: new Map({
+          background: color1,
+          button: color1,
+          circle: color1
+        })
+      }),
+      new Map({
+        id: 20,
+        type: 'color-sets',
+        attributes: new Map({
+          background: color2,
+          button: color2,
+          circle: color2
+        })
+      })
+    ]);
+
+    beforeEach(() => {
+      sideBar = new SideBar();
+      sideBar.props = {
+        activeProject: expectedProject,
+        colorSets: colorSets
+      };
+
+      sideBarBulletStyles = sideBar.sideBarBulletStyles(expectedProject);
+    });
+
+    it('returns a background and border-color', () => {
+      expect(sideBarBulletStyles).to.deep.eq({
+        background: color1,
+        borderColor: color1
       });
     });
   });
