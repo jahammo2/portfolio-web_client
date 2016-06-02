@@ -110,7 +110,7 @@ describe('SideBar', () => {
       });
 
       it('returns --showing', () => {
-        expect(sideBarClassName).to.equal('side-bar side-bar--showing');
+        expect(sideBarClassName).to.equal('side-bar side-bar--showing row-between');
       });
     });
 
@@ -123,7 +123,7 @@ describe('SideBar', () => {
       });
 
       it('does not return --showing', () => {
-        expect(sideBarClassName).to.equal('side-bar');
+        expect(sideBarClassName).to.equal('side-bar row-between');
       });
     });
   });
@@ -170,7 +170,7 @@ describe('SideBar', () => {
     const color1 = faker.internet.color();
     const color2 = faker.internet.color();
 
-    const project = fromJS({
+    const expectedProject = fromJS({
       id: faker.random.number(),
       attributes: {
         title: faker.random.word(),
@@ -214,11 +214,11 @@ describe('SideBar', () => {
     beforeEach(() => {
       sideBar = new SideBar();
       sideBar.props = {
-        activeProject: project,
+        activeProject: expectedProject,
         colorSets: colorSets
       };
 
-      sideBarBulletStyles = sideBar.sideBarBulletStyles(project);
+      sideBarBulletStyles = sideBar.sideBarBulletStyles(expectedProject);
     });
 
     it('returns a background and border-color', () => {

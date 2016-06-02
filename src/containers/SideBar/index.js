@@ -20,7 +20,6 @@ class SideBar extends Component {
   }
 
   setActiveProject (project) {
-    console.log('called');
     this.props.setActiveProject(project);
   }
 
