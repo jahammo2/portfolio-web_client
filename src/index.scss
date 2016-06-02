@@ -27,6 +27,11 @@ body,
   justify-content: space-between;
 }
 
+.column-center {
+  @include column;
+  justify-content: center;
+}
+
 p {
   margin: 0 0 ($base-spacing * .5);
 }
@@ -35,3 +40,7 @@ a {
   cursor: pointer;
 }
 
+ul {
+  padding: 0;
+  list-style: none;
+}

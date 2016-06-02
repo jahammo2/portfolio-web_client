@@ -4,6 +4,7 @@ import { Map, List } from 'immutable';
 import './index.scss';
 import laptop from '../../img/laptop.png';
 import ProjectDashboardInfo from '../../components/ProjectDashboardInfo';
+import { getColor } from '../../utils/ContainerHelpers';
 
 // PropTypes
 const propTypes = {
@@ -14,16 +15,11 @@ const propTypes = {
 
 class ProjectDashboard extends Component {
   getBackground () {
-    const colorSetId = this.props.project.getIn(['relationships', 'color_set', 'data', 'id']);
-    const colorSet = this.props.colorSets.find((entry) => {
-      return entry.get('id') === colorSetId;
-    });
-
-    if (colorSet) {
-      return colorSet.getIn(['attributes', 'background']);
-    }
-
-    return 'white';
+    return getColor(
+      this.props.project,
+      this.props.colorSets,
+      'background'
+    );
   }
 
   displayDeviceImage () {
