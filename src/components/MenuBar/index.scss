@@ -1,7 +1,8 @@
 @import "../../variables";
 
 .menu-bar {
-  margin-top: ($base-font-size * .5);
+  font-weight: light;
+  margin-top: ($base-font-size * .15);
 
   &:hover {
     cursor: pointer
@@ -10,11 +11,11 @@
   &__title {
     margin-right: ($base-font-size * .5);
   }
-}
 
-i.fa-bars,
-i.fa-times {
-  font-size: 36px;
-  margin-top: -3px;
-  color: black;
+  &__hamburger {
+    margin-top: -15px;
+    font-weight: bold;
+    font-size: ($base-font-size * 1.5);
+    text-transform: capitalize;
+  }
 }

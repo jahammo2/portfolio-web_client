@@ -3,7 +3,7 @@
 .side-bar {
   position: absolute;
   height: 100%;
-  width: 5.5%;
+  width: ((100% - $base-width) * .5);
   background: white;
   z-index: 3;
   top: $header-height;

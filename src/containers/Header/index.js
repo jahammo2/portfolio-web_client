@@ -34,7 +34,7 @@ class Header extends Component {
           <p className='header__name'>Jordan Hammond</p>
           <MenuBar
             sideBarShown={this.props.sideBarShown}
-            icon={this.iconClassName()}
+            sideBarShowing={this.props.sideBarShowing}
             title={this.title()}
           />
         </div>
