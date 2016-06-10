@@ -17,6 +17,7 @@
   &__container {
     margin: ($header-height * .275) auto 0;
     font-size: $base-font-size;
+    font-weight: bold;
     width: ($base-width - 4%);
     height: 100%;
 
@@ -26,7 +27,6 @@
 
     @media screen and (min-width: 768px) {
       font-size: ($base-font-size * 1.25);
-      font-weight: bold;
       width: $base-width;
     }
   }
