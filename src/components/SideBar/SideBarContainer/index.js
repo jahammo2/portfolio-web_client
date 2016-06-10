@@ -24,8 +24,8 @@ class SideBarContainer extends Component {
 
   sideBarContainerClassName () {
     return this.props.sideBarShowing ?
-      'side-bar__container side-bar__container--showing column-center' :
-      'side-bar__container column-center';
+      'side-bar__container side-bar__container--showing column-start' :
+      'side-bar__container column-start';
   }
 
   displayTitleLinks () {
