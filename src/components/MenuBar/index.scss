@@ -1,7 +1,15 @@
 @import "../../variables";
 
 .menu-bar {
-  margin-top: ($base-font-size * .15);
+  margin-top: ($header-height * .0625);
+
+  @media screen and (min-width: 600px) {
+    margin-top: ($base-font-size * .2);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: ($base-font-size * .1);
+  }
 
   &:hover {
     cursor: pointer
@@ -13,6 +21,14 @@
 
   &__icon {
     width: 20%;
-    margin-top: -15px;
+    margin-top: -23px;
+
+    @media screen and (min-width: 600px) {
+      margin-top: -30px;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-top: -25px;
+    }
   }
 }

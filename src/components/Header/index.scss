@@ -15,10 +15,9 @@
   }
 
   &__container {
-    margin: ($base-font-size * .625) auto 0;
+    margin: ($header-height * .25) auto 0;
     font-size: $base-font-size;
-    font-weight: bold;
-    width: 87%;
+    width: ($base-width - 4%);
     height: 100%;
 
     @media screen and (min-width: 600px) {
@@ -26,6 +25,8 @@
     }
 
     @media screen and (min-width: 768px) {
+      font-size: ($base-font-size * 1.25);
+      font-weight: bold;
       width: $base-width;
     }
   }
@@ -40,10 +41,12 @@
 
   &__name {
     font-family: $alt-font-family;
-    font-size: ($base-font-size * 1.25);
+    line-height: $base-line-height - .4;
     max-width: 100px;
 
     @media screen and (min-width: 600px) {
+      line-height: $base-line-height;
+      font-size: ($base-font-size * 1.25);
       max-width: 500px;
     }
   }

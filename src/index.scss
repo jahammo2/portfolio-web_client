@@ -12,6 +12,10 @@ body,
   font-family: $base-font-family;
   color: $base-black;
   line-height: $base-line-height;
+
+  @media screen and (max-width: 600px) {
+    min-height: 100vh;
+  }
 }
 
 .row-between {
@@ -27,6 +31,11 @@ body,
 .column-between {
   @include column;
   justify-content: space-between;
+}
+
+.column-start {
+  @include column;
+  justify-content: flex-start;
 }
 
 .column-center {
