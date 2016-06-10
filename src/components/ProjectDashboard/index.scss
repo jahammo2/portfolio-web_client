@@ -16,7 +16,12 @@
     }
 
     @media screen and (min-width: 768px) {
+      margin-top: 5vh;
       margin-left: -(((100% - $base-width) * 1.5));
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-top: 0;
     }
   }
 
@@ -33,22 +38,22 @@
       background-repeat: no-repeat;
     }
   }
-}
 
-.project-dashboard__container {
-  overflow: scroll;
-  width: 88%;
-  margin: 0 auto;
-  padding-top: $header-height-spacing;
+  &__container {
+    overflow: scroll;
+    width: 88%;
+    margin: 0 auto;
+    padding-top: $header-height-spacing;
 
-  @media screen and (min-width: 600px) {
-    padding-top: $header-height-spacing__tablet;
-    // padding-top: 14%;
-    overflow: initial;
-  }
+    @media screen and (min-width: 600px) {
+      padding-top: $header-height-spacing__tablet;
+      overflow: initial;
+    }
 
-  @media screen and (min-width: 768px) {
-    @include row;
-    justify-content: space-between;
+    @media screen and (min-width: 768px) {
+      @include row;
+      justify-content: space-between;
+      min-height: 60vh;
+    }
   }
 }

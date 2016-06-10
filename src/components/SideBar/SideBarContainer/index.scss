@@ -1,0 +1,45 @@
+@import "../../../variables";
+
+.side-bar {
+  &__container {
+    overflow: scroll;
+    visibility: hidden;
+    height: 100%;
+    width: 0%;
+    right: -300px;
+    position: absolute;
+    transition-property: right, visibility, width;
+    transition-duration: .5s, 0s, 0s;
+    transition-delay: 0s, .5s, .5s;
+
+    @media screen and (min-width: 600px) {
+      height: 98%;
+      padding-bottom: $side-bar-padding;
+      margin: initial;
+    }
+
+    &--showing {
+      min-width: 200px;
+      width: $base-width;
+      right: 5.5%;
+      visibility: visible;
+      transition-property: right;
+      transition-duration: .5s;
+
+      @media screen and (min-width: 600px) {
+        right: 50px;
+        width: 300px;
+      }
+    }
+  }
+
+  &__project {
+    margin-bottom: $base-font-size;
+    font-size: 18px;
+
+    &:hover,
+    &--active {
+      font-weight: bold;
+    }
+  }
+}

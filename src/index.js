@@ -10,7 +10,7 @@ import LogIn from './components/LogIn';
 import App from './components/App';
 import PortfolioRoot from './containers/PortfolioRoot';
 import AdminPanel from './components/AdminPanel';
-import ProjectDashboard from './containers/ProjectDashboard';
+import ProjectDashboard from './components/ProjectDashboard';
 import { Provider } from 'react-redux';
 import NotFound from './components/NotFound';
 

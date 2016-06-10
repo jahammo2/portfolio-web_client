@@ -1,0 +1,37 @@
+@import "../../../variables";
+
+.side-bar {
+  &__bullets {
+    margin: 0;
+    margin-left: -11px;
+    z-index: 2;
+    width: 20%;
+
+    @media screen and (min-width: 600px) {
+      height: 98%;
+      margin-top: 2px;
+      padding-bottom: $side-bar-padding;
+    }
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__bullet {
+    height: 15px;
+    width: 15px;
+    border: 3px solid black;
+    margin-bottom: $base-font-size * 1.2;
+    transition-property: border-radius;
+    transition-duration: .5s;
+    cursor: pointer;
+
+    &:hover,
+    &--active {
+      border-radius: 50%;
+      transition-property: border-radius;
+      transition-duration: .5s;
+    }
+  }
+}

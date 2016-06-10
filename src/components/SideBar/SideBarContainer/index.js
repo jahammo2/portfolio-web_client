@@ -1,4 +1,4 @@
-// import './index.scss';
+import './index.scss';
 import React, { Component, PropTypes } from 'react';
 import { List, Map } from 'immutable';
 
