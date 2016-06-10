@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import menuButton from '../../img/menubutton.svg';
+import xButton from '../../img/xbutton.svg';
 
-// PropTypes
 const propTypes = {
   sideBarShown: PropTypes.func,
   sideBarShowing: PropTypes.bool,
@@ -12,18 +12,15 @@ const propTypes = {
 
 class MenuBar extends Component {
   displayMenuIcon () {
+    if (this.props.sideBarShowing) {
+      return (
+        <img className='menu-bar__icon' src={xButton} />
+      );
+    }
+
     return (
-      <img className='menu-bar__hamburger' src={menuButton} />
+      <img className='menu-bar__icon' src={menuButton} />
     );
-    // if (this.props.sideBarShowing) {
-    //   return(
-    //     <p className='menu-bar__x'>x</p>
-    //   );
-    // }
-    //
-    // return(
-    //   <i className='fa fa-bars' aria-hidden='true'></i>
-    // );
   }
 
   render () {

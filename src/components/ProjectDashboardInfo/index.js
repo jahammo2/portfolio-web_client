@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import './index.scss';
 
-// PropTypes
 const propTypes = {
   title: PropTypes.string,
   description: PropTypes.string

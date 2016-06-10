@@ -1,7 +1,5 @@
-// Imports
 import React, { Component, PropTypes } from 'react';
 
-// PropTypes
 const propTypes = {
   children: PropTypes.node
 };

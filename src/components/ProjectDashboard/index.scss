@@ -36,7 +36,6 @@
 }
 
 .project-dashboard__container {
-  height: calc(100% - $header-height-spacing);
   overflow: scroll;
   width: 88%;
   margin: 0 auto;
@@ -44,6 +43,7 @@
 
   @media screen and (min-width: 600px) {
     padding-top: $header-height-spacing__tablet;
+    // padding-top: 14%;
     overflow: initial;
   }
 

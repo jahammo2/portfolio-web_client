@@ -1,9 +1,7 @@
-// Imports
 import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import MenuBar from '../../components/MenuBar';
 
-// PropTypes
 const propTypes = {
   children: PropTypes.node,
   sideBarShown: PropTypes.func,

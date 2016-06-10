@@ -1,7 +1,6 @@
 @import "../../variables";
 
 .menu-bar {
-  font-weight: light;
   margin-top: ($base-font-size * .15);
 
   &:hover {
@@ -12,10 +11,8 @@
     margin-right: ($base-font-size * .5);
   }
 
-  &__hamburger {
+  &__icon {
+    width: 20%;
     margin-top: -15px;
-    font-weight: bold;
-    font-size: ($base-font-size * 1.5);
-    text-transform: capitalize;
   }
 }
