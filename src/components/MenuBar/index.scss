@@ -8,7 +8,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    margin-top: ($base-font-size * .1);
+    margin-top: 0;
   }
 
   &:hover {
@@ -28,7 +28,7 @@
     }
 
     @media screen and (min-width: 768px) {
-      margin-top: -25px;
+      margin-top: -28px;
     }
   }
 }

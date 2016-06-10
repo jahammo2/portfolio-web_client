@@ -12,6 +12,7 @@
   transition-duration: .5s;
 
   @media screen and (min-width: 600px) {
+    max-height: 100%;
     top: $header-height__tablet;
     height: calc(100% - (105px * 1.5));
   }
