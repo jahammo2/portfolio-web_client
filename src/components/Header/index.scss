@@ -15,8 +15,8 @@
   }
 
   &__container {
-    margin: 22px auto 0;
-    font-size: 24px;
+    margin: ($base-font-size * .625) auto 0;
+    font-size: $base-font-size;
     font-weight: bold;
     width: 87%;
     height: 100%;
@@ -39,10 +39,11 @@
   }
 
   &__name {
+    font-family: $alt-font-family;
+    font-size: ($base-font-size * 1.25);
     max-width: 100px;
 
     @media screen and (min-width: 600px) {
-      margin-top: 12px;
       max-width: 500px;
     }
   }

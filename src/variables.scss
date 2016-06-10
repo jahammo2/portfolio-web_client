@@ -1,9 +1,15 @@
-$base-font-size: 24px;
+$base-font-size: 20px;
 $base-spacing: $base-font-size;
-$base-width: 89%;
+$base-width: 94%;
+$base-black: #333;
+$base-line-height: 1.4;
+$base-font-family: "abril-text";
 
-$header-height: 100px;
+$alt-font-family: "aktiv-grotesk";
+
+$header-height: 65px;
 $header-height__tablet: $header-height + 5px;
 $header-height-spacing: 135px;
 $header-height-spacing__tablet: ($header-height__tablet * 1.5);
 
+$side-bar-padding: calc(2% + .5vw);

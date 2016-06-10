@@ -9,7 +9,9 @@ body,
   min-height: 100%;
   width: 100%;
   font-size: $base-font-size;
-  font-family: "georgia";
+  font-family: $base-font-family;
+  color: $base-black;
+  line-height: $base-line-height;
 }
 
 .row-between {

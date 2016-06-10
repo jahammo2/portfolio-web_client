@@ -1,0 +1,32 @@
+@import "../../variables";
+
+.side-bar {
+  position: absolute;
+  height: 100%;
+  width: ((100% - $base-width) * .5);
+  background: white;
+  z-index: 3;
+  top: $header-height;
+  right: 0;
+  transition-property: width;
+  transition-duration: .5s;
+
+  @media screen and (min-width: 600px) {
+    top: $header-height__tablet;
+    height: calc(100% - (105px * 1.5));
+  }
+
+  @media screen and (min-width: 768px) {
+    height: calc(85vh - (105px * .5));
+  }
+
+  &--showing {
+    width: 100%;
+    transition-property: width;
+    transition-duration: .5s;
+
+    @media screen and (min-width: 600px) {
+      width: 400px;
+    }
+  }
+}

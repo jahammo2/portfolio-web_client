@@ -9,12 +9,12 @@
   position: relative;
 
   @media screen and (min-width: 600px) {
-    padding-top: ($header-height__tablet * .48);
-    padding-bottom: ($header-height__tablet * .48);
+    padding-top: ($header-height__tablet * .45);
+    padding-bottom: ($header-height__tablet * .45);
   }
 
   @media screen and (min-width: 768px) {
-    height: 85vh;
+    height: calc(100vh - 70px);
   }
 
   &__container {
@@ -27,7 +27,7 @@
 
     @media screen and (min-width: 600px) {
       &--pushed {
-        margin-left: (calc(-400px + 11%));
+        margin-left: (calc(-400px + 6%));
         transition-property: margin-left, width;
         transition-duration: .5s, .5s;
       }

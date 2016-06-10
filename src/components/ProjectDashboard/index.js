@@ -1,4 +1,3 @@
-// Imports
 import React, { Component, PropTypes } from 'react';
 import { Map, List } from 'immutable';
 import './index.scss';
@@ -6,7 +5,6 @@ import laptop from '../../img/laptop.png';
 import ProjectDashboardInfo from '../../components/ProjectDashboardInfo';
 import { getColor } from '../../utils/ContainerHelpers';
 
-// PropTypes
 const propTypes = {
   project: PropTypes.instanceOf(Map),
   colorSets: PropTypes.instanceOf(List),

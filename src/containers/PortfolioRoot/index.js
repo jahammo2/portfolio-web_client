@@ -2,8 +2,8 @@ import React, { Component, PropTypes, cloneElement } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { List, Map } from 'immutable';
-import SideBar from '../SideBar';
-import Header from '../Header';
+import SideBar from '../../components/SideBar';
+import Header from '../../components/Header';
 import * as actionCreators from '../../actions/PortfolioActions';
 import './index.scss';
 
