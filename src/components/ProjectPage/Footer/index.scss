@@ -1,0 +1,49 @@
+@import "../../../variables";
+
+.project-page__footer {
+  height: 126px;
+  width: 100%;
+
+  &__project {
+    width: 49.5%;
+    height: 100%;
+    // temporary until I actually add in images
+    background: lightpink;
+    position: relative;
+
+    &__link {
+      &__container {
+        background: white;
+        width: 25%;
+        height: ($base-font-size + 2px);
+        padding: ($base-font-size * 2);
+        padding-bottom: ($base-font-size * .65);
+        padding-top: ($base-font-size * .35);
+        overflow: hidden;
+        position: absolute;
+        top: ($base-font-size * 2);
+        font-weight: bold;
+        font-family: $base-font-family;
+        border-radius: 3% / 15%;
+      }
+
+      &__title {
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+      }
+    }
+
+    &:first-child {
+      .project-page__footer__project__link__container {
+        left: ($base-font-size * 1.5);
+      }
+    }
+
+    &:last-child {
+      .project-page__footer__project__link__container {
+        right: ($base-font-size * 1.5);
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import chaiImmutable from 'chai-immutable';
 import faker from 'faker';
 import jsdom from 'jsdom';
 import sinon from 'sinon';
+import Slider from 'react-slick';
 
 const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
 const win = doc.defaultView;
@@ -19,6 +20,7 @@ global.expect = chai.expect;
 global.faker = faker;
 global.spy = sinon.spy;
 global.stub = sinon.stub;
+global.Slider = Slider;
 
 Object.keys(window).forEach((key) => {
   if (!(key in global)) {

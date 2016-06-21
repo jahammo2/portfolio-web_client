@@ -2,6 +2,7 @@ $base-font-size: 20px;
 $base-spacing: $base-font-size;
 $base-width: 94%;
 $base-black: #333;
+$base-gray: #D8D8D8;
 $base-line-height: 1.4;
 $base-font-family: "abril-text";
 
@@ -13,3 +14,5 @@ $header-height-spacing: 135px;
 $header-height-spacing__tablet: ($header-height__tablet * 1.5);
 
 $side-bar-padding: calc(2% + .5vw);
+
+$dashboard-height: 60vh;

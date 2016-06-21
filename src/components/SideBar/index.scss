@@ -2,33 +2,48 @@
 
 .side-bar {
   position: absolute;
-  max-height: 20%;
+  // height: 100%;
+  height: calc(100% - 92px);
   width: ((100% - $base-width) * .5);
   background: white;
   z-index: 3;
   top: $header-height;
   right: 0;
-  transition-property: width;
-  transition-duration: .5s;
+  transition-property: width, background;
+  transition-duration: .5s, .5s;
+  transition-timing-function: ease, cubic-bezier(0.42, 0.0, .8, 1.0);
 
   @media screen and (min-width: 600px) {
-    max-height: 100%;
+    height: 100%;
+    position: fixed;
     top: $header-height__tablet;
     height: calc(100% - (105px * 1.5));
   }
 
   @media screen and (min-width: 768px) {
-    height: calc(83% - (105px * .5));
+    // height: calc(90% - (105px * .5));
+    height: 100%;
+    // height: calc(100% - 92px);
   }
 
   &--showing {
-    max-height: 100%;
     width: 100%;
-    transition-property: width;
-    transition-duration: .5s;
+    // right: ((100% - $base-width) * .5);
+    background: $base-gray;
+    // transition-timing-function: ease, cubic-bezier(0.42, 0.0, 1.0, 1.0);
 
     @media screen and (min-width: 600px) {
+      // background-image:linear-gradient(to bottom, $base-gray 0%, $base-gray 100%), linear-gradient(to bottom, white 0%, white 100%);
+      // background-clip: content-box, padding-box;
+      // padding-left: (100% - $base-width);
+      max-height: 100%;
       width: 400px;
+      background: white;
+
+      // .side-bar__bullets {
+      //   margin-left: -56px;
+      //   // margin-left: calc(97% - 400px);
+      // }
     }
   }
 }

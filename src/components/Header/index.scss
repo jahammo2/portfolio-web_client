@@ -6,9 +6,10 @@
   margin: 0;
   height: $header-height;
   width: 100%;
-  position: absolute;
+  position: fixed;
   background: white;
   opacity: .81;
+  z-index: 10;
 
   @media screen and (min-width: 600px) {
     height: ($header-height__tablet);
@@ -40,6 +41,7 @@
   }
 
   &__name {
+    height: 0;
     font-family: $alt-font-family;
     line-height: $base-line-height - .4;
     max-width: 100px;

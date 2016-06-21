@@ -28,6 +28,11 @@ body,
   justify-content: flex-end;
 }
 
+.row-center {
+  @include row;
+  justify-content: center;
+}
+
 .column-between {
   @include column;
   justify-content: space-between;
@@ -48,10 +53,27 @@ p {
 }
 
 a {
+  color: $base-black;
+  text-decoration: none;
   cursor: pointer;
 }
 
 ul {
   padding: 0;
   list-style: none;
+}
+
+.button {
+  width: 191px;
+  height: ($base-font-size * 1.80);
+  color: white;
+  background: $base-black;
+  font-weight: bold;
+  font-family: $base-font-family;
+  padding-top: ($base-font-size * .2);
+  border-radius: 3% / 15%;
+
+  &__text {
+    margin: 0;
+  }
 }

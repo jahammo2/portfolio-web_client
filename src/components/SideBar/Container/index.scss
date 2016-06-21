@@ -1,0 +1,99 @@
+@import "../../../variables";
+
+.side-bar {
+  &__container {
+    overflow: scroll;
+    visibility: hidden;
+    height: 100%;
+    // min-width: 0%;
+    width: 0%;
+    // right: -96vw;
+    // position: absolute;
+    // background: white;
+    // margin-right: -38%;
+    transition-property: width, visibility;
+    transition-delay: .5s, .5s;
+    padding-left: $base-font-size;
+    // transition-property: right, visibility, min-width, width, background;
+    // transition-duration: .5s, 0s, 0s, 0s, .5s;
+    // transition-delay: 0s, .5s, .5s, .5s, 0s;
+    // background: $base-gray;
+
+    @media screen and (min-width: 600px) {
+      padding-left: 0;
+      transition-property: width, visibility, margin-left;
+      transition-delay: .5s, .5s, 0s;
+      transition-duration: 0s, 0s, .5s;
+      background: $base-gray;
+      margin-left: 2.7vw;
+      // min-width: 20vw;
+    }
+
+    &--showing {
+      min-width: 88vw;
+      // width: $base-width;
+      // width: 100%;
+      width: ($base-width - 4%);
+      // width: 90%;
+      // padding-left: 4%;
+      transition-delay: .5s, 0s;
+      // margin: 0 auto;
+      // right: ((100% - $base-width) * .5);
+      // right: 0;
+      // right: ((100% - ($base-width - 4%)) * .5);
+      visibility: visible;
+      // transition-property: width, right, background, min-width;
+      // transition-duration: 0s, .5s, .5s, 0s;
+      // transition-delay: .5s, 0s, 0s, .5s;
+
+      @media screen and (min-width: 600px) {
+        // min-width: 20vw;
+        // min-width: 0;
+        transition-delay: .5s, 0s, 0s;
+        margin-left: 42px;
+        min-width: 347px;
+        // max-width: $base-width;
+      }
+    }
+
+    &__list {
+      padding-top: $base-font-size;
+      // max-width: 310px;
+      min-width: 88vw;
+      // width: 80%;
+      // width: $base-width;
+      width: 100%;
+      margin: 0 auto;
+      // height: $dashboard-height;
+      // transition-property: width;
+      // transition-duration: 0s;
+
+      @media screen and (min-width: 600px) {
+        padding-top: $header-height__tablet;
+        height: $dashboard-height;
+        margin: 0;
+        padding-left: 45px;
+        width: calc(100% - 90px);
+        min-width: 20vw;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__project {
+    margin-bottom: $base-font-size;
+    font-size: $base-font-size;
+    padding-right: 45px;
+
+    &:hover,
+    &--active {
+      font-weight: bold;
+    }
+
+    @media screen and (min-width: 600px) {
+      overflow: hidden;
+      height: ($base-font-size * 1.25);
+      font-size: ($base-font-size * .9);
+    }
+  }
+}

@@ -11,7 +11,7 @@ const INITIAL_STATE = new Map({
 });
 
 function setIncludedData (projects, included) {
-  return projects.included.forEach(function (include) {
+  return projects.included.forEach((include) => {
     included[include.type] = included[include.type] || [];
     included[include.type].push(include);
   });
@@ -24,7 +24,7 @@ function setFromIncluded (included, map) {
 }
 
 function setProjectStates (state, projects) {
-  return state.withMutations(function (map) {
+  return state.withMutations((map) => {
     const included = {};
 
     setIncludedData(projects, included);
