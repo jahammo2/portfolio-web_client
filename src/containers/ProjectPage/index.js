@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { List, Map } from 'immutable';
-import Carousel from '../../components/Carousel';
 import SidePanel from '../../components/ProjectPage/SidePanel';
 import Info from '../../components/ProjectPage/Info';
 import Footer from '../../components/ProjectPage/Footer';
@@ -19,18 +18,6 @@ const propTypes = {
 };
 
 export class ProjectPage extends Component {
-  sisterProject (sisterIndex) {
-    const projectIndex = this.props.projects.indexOf(this.props.project);
-    const newIndex = projectIndex + sisterIndex;
-
-    if (newIndex > this.props.project.size) {
-      return this.props.projects.get(0);
-    }
-
-    console.log(this.props.projects.get(newIndex));
-    return this.props.projects.get(newIndex);
-  }
-
   componentDidUpdate () {
     const currentProject = this.props.projects.find((project) => {
       return project.get('id') === this.props.params.projectId;
@@ -39,6 +26,41 @@ export class ProjectPage extends Component {
     if (currentProject) {
       this.props.projectActive(currentProject);
     }
+  }
+
+  sisterProject (sisterIndex) {
+    const projectIndex = this.props.projects.indexOf(this.props.project);
+    const newIndex = projectIndex + sisterIndex;
+
+    if (newIndex > this.props.project.size) {
+      return this.props.projects.get(0);
+    }
+
+    return this.props.projects.get(newIndex);
+  }
+
+  displayMobile () {
+    return (
+      <div className='project-page column-start'>
+        <div className='project-page__header-image' />
+        {this.renderInfo()}
+        {this.renderSidePanel()}
+        {this.renderFooter()}
+      </div>
+    );
+  }
+
+  displayDesktop () {
+    return (
+      <div className='project-page'>
+        <div className='project-page__header-image' />
+        <div className='project-page__container row-between'>
+          {this.renderSidePanel()}
+          {this.renderInfo()}
+        </div>
+        {this.renderFooter()}
+      </div>
+    );
   }
 
   renderSidePanel () {
@@ -67,30 +89,6 @@ export class ProjectPage extends Component {
         openingBody={this.props.project.getIn(['attributes', 'opening_body'])}
         closingBody={this.props.project.getIn(['attributes', 'closing_body'])}
       />
-    );
-  }
-
-  displayMobile () {
-    return (
-      <div className='project-page column-start'>
-        <div className='project-page__header-image' />
-        {this.renderInfo()}
-        {this.renderSidePanel()}
-        {this.renderFooter()}
-      </div>
-    );
-  }
-
-  displayDesktop () {
-    return (
-      <div className='project-page'>
-        <div className='project-page__header-image' />
-        <div className='project-page__container row-between'>
-          {this.renderSidePanel()}
-          {this.renderInfo()}
-        </div>
-        {this.renderFooter()}
-      </div>
     );
   }
 

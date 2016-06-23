@@ -21,10 +21,10 @@ class Bullets extends Component {
     return window.location.pathname;
   }
 
-  bulletsClassName (project) {
+  bulletsClassName () {
     return this.path() === '/' ?
       'side-bar__bullets side-bar__bullets--on-homepage column-center' :
-      'side-bar__bullets column-center'
+      'side-bar__bullets column-center';
   }
 
   bulletClassName (project) {

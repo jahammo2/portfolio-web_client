@@ -17,19 +17,19 @@ class Footer extends Component {
 
   displayLinksToProjects () {
     return this.projects().map((project) => {
-        return project && (
-          <div className='project-page__footer__project'>
-            <Link
-              key={project.get('id')}
-              to={`/projects/${project.get('id')}`}
-              className='project-page__footer__project__link'
-            >
-              <div className='project-page__footer__project__link__container'>
-                <p className='project-page__footer__project__link__title'>{project.getIn(['attributes', 'title'])}</p>
-              </div>
-            </Link>
-          </div>
-        );
+      return project && (
+        <div className='project-page__footer__project'>
+          <Link
+            key={project.get('id')}
+            to={`/projects/${project.get('id')}`}
+            className='project-page__footer__project__link'
+          >
+            <div className='project-page__footer__project__link__container'>
+              <p className='project-page__footer__project__link__title'>{project.getIn(['attributes', 'title'])}</p>
+            </div>
+          </Link>
+        </div>
+      );
     });
   }
 
