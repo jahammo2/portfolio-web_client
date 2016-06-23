@@ -24,7 +24,7 @@ export class ProjectPage extends Component {
     });
 
     if (currentProject) {
-      this.props.projectActive(currentProject);
+      return this.props.projectActive(currentProject);
     }
   }
 
