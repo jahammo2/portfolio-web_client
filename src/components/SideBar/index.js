@@ -1,8 +1,8 @@
 import './index.scss';
 import React, { Component, PropTypes } from 'react';
 import { List, Map } from 'immutable';
-import SideBarContainer from './SideBarContainer';
-import SideBarBullets from './SideBarBullets';
+import Container from './Container';
+import Bullets from './Bullets';
 
 const propTypes = {
   projects: PropTypes.instanceOf(List),
@@ -31,7 +31,7 @@ class SideBar extends Component {
   render () {
     return (
       <div className={this.sideBarClassName()}>
-        <SideBarBullets
+        <Bullets
           projects={this.props.projects}
           activeProject={this.props.activeProject}
           setActiveProject={this.props.setActiveProject}
@@ -39,7 +39,7 @@ class SideBar extends Component {
           sideBarShowing={this.props.sideBarShowing}
           colorSets={this.props.colorSets}
         />
-        <SideBarContainer
+        <Container
           projects={this.props.projects}
           activeProject={this.props.activeProject}
           setActiveProject={this.props.setActiveProject}

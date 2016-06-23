@@ -1,5 +1,4 @@
-@import "../../mixins/index";
-@import "../../variables";
+@import "../../../variables";
 
 .project-dashboard__project-info {
   margin-top: 6px;
@@ -31,4 +30,17 @@
       font-size: $base-font-size;
     }
   }
+
+  &__view-project {
+    margin-top: $base-font-size;
+
+    @media screen and (min-width: 768px) {
+      font-style: italic;
+    }
+  }
+}
+
+.fa-long-arrow-right {
+  margin-top: 6px;
+  margin-left: ($base-font-size * .75);
 }

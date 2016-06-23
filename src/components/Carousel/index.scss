@@ -1,0 +1,35 @@
+@import "../../variables";
+
+.slick-slider {
+  height: 400px;
+  width: 100%;
+  // temporary until I actually add in images
+  background: lightgreen;
+}
+
+.slick-dots {
+  background: lightgreen;
+  padding-bottom: ($base-font-size * .5);
+
+  li {
+    height: ($base-font-size * .5);
+    width: ($base-font-size * .5);
+
+    button {
+      width: 100%;
+      height: 100%;
+      border: 1px solid white;
+      border-radius: 50%;
+
+      &::before {
+        content: '';
+      }
+    }
+  }
+
+  .slick-active {
+    button {
+      background: white;
+    }
+  }
+}

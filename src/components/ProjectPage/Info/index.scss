@@ -1,0 +1,27 @@
+@import "../../../variables";
+
+.project-page__info {
+  width: 100%;
+  margin-top: ($base-font-size * 2);
+
+  @media screen and (min-width: 600px) {
+    margin-top: 0;
+    width: 66%;
+  }
+
+  &__description {
+    font-family: $alt-font-family;
+    font-size: ($base-font-size * 1.5);
+    line-height: ($base-line-height - .2);
+    margin-bottom: ($base-font-size * 1.2);
+
+    @media screen and (min-width: 600px) {
+      margin-bottom: ($base-font-size * 1.7);
+    }
+  }
+
+  &__carousel {
+    width: 100%;
+    margin: ($base-font-size * 2) 0 ($base-font-size * 2.4);
+  }
+}

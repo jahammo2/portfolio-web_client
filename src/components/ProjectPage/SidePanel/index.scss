@@ -1,0 +1,34 @@
+@import "../../../variables";
+
+.project-page__side-panel {
+  height: 100%;
+  width: 100%;
+  padding-top: ($base-font-size * 1.5);
+  padding-bottom: ($base-font-size * 2);
+
+  @media screen and (min-width: 600px) {
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 28%;
+  }
+
+  &__link {
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  &__lines {
+    width: 100%;
+    height: $base-font-size;
+    margin-top: ($base-font-size * 1.5);
+  }
+
+  &__line {
+    height: 1px;
+    background: $base-black;
+    border: none;
+    margin: 0;
+    width: 100%;
+  }
+}

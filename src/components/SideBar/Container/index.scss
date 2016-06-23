@@ -1,0 +1,69 @@
+@import "../../../variables";
+
+.side-bar {
+  &__container {
+    overflow: scroll;
+    visibility: hidden;
+    height: 100%;
+    width: 0%;
+    transition-property: width, visibility;
+    transition-delay: .5s, .5s;
+    padding-left: $base-font-size;
+
+    @media screen and (min-width: 600px) {
+      padding-left: 0;
+      transition-property: width, visibility, margin-left;
+      transition-delay: .5s, .5s, 0s;
+      transition-duration: 0s, 0s, .5s;
+      background: $base-gray;
+      margin-left: 2.7vw;
+    }
+
+    &--showing {
+      min-width: 88vw;
+      width: ($base-width - 4%);
+      transition-delay: .5s, 0s;
+      visibility: visible;
+
+      @media screen and (min-width: 600px) {
+        transition-delay: .5s, 0s, 0s;
+        margin-left: 42px;
+        min-width: 347px;
+      }
+    }
+
+    &__list {
+      padding-top: $base-font-size;
+      min-width: 88vw;
+      width: 100%;
+      margin: 0 auto;
+
+      @media screen and (min-width: 600px) {
+        padding-top: $header-height__tablet;
+        height: $dashboard-height;
+        margin: 0;
+        padding-left: 45px;
+        width: calc(100% - 90px);
+        min-width: 20vw;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__project {
+    margin-bottom: $base-font-size;
+    font-size: $base-font-size;
+    padding-right: 45px;
+
+    &:hover,
+    &--active {
+      font-weight: bold;
+    }
+
+    @media screen and (min-width: 600px) {
+      overflow: hidden;
+      height: ($base-font-size * 1.25);
+      font-size: ($base-font-size * .9);
+    }
+  }
+}

@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SideBarContainer from './index';
+import Container from './index';
 import {
   renderIntoDocument,
   Simulate
 } from 'react-addons-test-utils';
 import * as ActionCreators from '../../../actions/PortfolioActions';
 
-describe('SideBarContainer', () => {
+describe('Container', () => {
   let component;
   const projects = new List([
     new Map({
@@ -49,7 +49,7 @@ describe('SideBarContainer', () => {
 
     beforeEach(() => {
       component = renderIntoDocument(
-        <SideBarContainer
+        <Container
           projects={projects}
           activeProject={project}
           isActiveProject={isActiveProject}
@@ -66,7 +66,7 @@ describe('SideBarContainer', () => {
       expect(setActiveProject.calledOnce).to.be.true;
     });
 
-    it('calls sideBarContainerShown on clicking of link', () => {
+    it('calls containerShown on clicking of link', () => {
       expect(sideBarShown.calledOnce).to.be.true;
     });
 
@@ -80,20 +80,20 @@ describe('SideBarContainer', () => {
     });
   });
 
-  describe('sideBarContainerProjectClassName', () => {
+  describe('containerProjectClassName', () => {
     let sideBarProjectClassName;
-    let sideBarContainer;
+    let container;
 
     beforeEach(() => {
-      sideBarContainer = new SideBarContainer();
-      sideBarContainer.props = {
+      container = new Container();
+      container.props = {
         isActiveProject: (currentProject, activeProject) => {
           return activeProject.get('id') === currentProject.get('id');
         },
         activeProject: project
       };
 
-      sideBarProjectClassName = sideBarContainer.sideBarProjectClassName(projects.last());
+      sideBarProjectClassName = container.sideBarProjectClassName(projects.last());
     });
 
     it('returns active if true', () => {

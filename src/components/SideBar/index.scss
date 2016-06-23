@@ -1,34 +1,34 @@
 @import "../../variables";
 
 .side-bar {
-  position: absolute;
-  max-height: 20%;
+  height: calc(100% - 92px);
   width: ((100% - $base-width) * .5);
   background: white;
   z-index: 3;
   top: $header-height;
   right: 0;
-  transition-property: width;
-  transition-duration: .5s;
+  transition-property: width, background;
+  transition-duration: .5s, .5s;
+  transition-timing-function: ease, cubic-bezier(0.42, 0.0, .8, 1.0);
+  position: fixed;
 
   @media screen and (min-width: 600px) {
-    max-height: 100%;
+    height: 100%;
     top: $header-height__tablet;
-    height: calc(100% - (105px * 1.5));
   }
 
   @media screen and (min-width: 768px) {
-    height: calc(83% - (105px * .5));
+    height: 100%;
   }
 
   &--showing {
-    max-height: 100%;
     width: 100%;
-    transition-property: width;
-    transition-duration: .5s;
+    background: $base-gray;
 
     @media screen and (min-width: 600px) {
+      max-height: 100%;
       width: 400px;
+      background: white;
     }
   }
 }

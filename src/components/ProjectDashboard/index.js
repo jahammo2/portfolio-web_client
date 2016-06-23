@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Map, List } from 'immutable';
 import './index.scss';
-import laptop from '../../img/laptop.png';
-import ProjectDashboardInfo from '../../components/ProjectDashboardInfo';
-import { getColor } from '../../utils/ContainerHelpers';
+import Info from './Info';
+import { getColor } from '../../utils/ProjectHelpers';
+import DeviceImage from '../DeviceImage';
 
 const propTypes = {
   project: PropTypes.instanceOf(Map),
@@ -12,34 +12,31 @@ const propTypes = {
 };
 
 class ProjectDashboard extends Component {
-  getBackground () {
-    return getColor(
+  projectDashboardStyles () {
+    const color = getColor(
       this.props.project,
       this.props.colorSets,
       'background'
     );
-  }
 
-  displayDeviceImage () {
-    return (
-      <div className='project-dashboard__image'>
-        <img className='project-dashboard__laptop' src={laptop} />
-        <div className='project-dashboard__laptop__overlay' />
-      </div>
-    );
+    return {
+      background: color
+    };
   }
 
   render () {
     return (
       <div
         className='project-dashboard'
-        style={{background: this.getBackground()}}
+        style={this.projectDashboardStyles()}
       >
         <div className='project-dashboard__container'>
-          {this.displayDeviceImage()}
-          <ProjectDashboardInfo
-            title={this.props.project.getIn(['attributes', 'title'])}
-            description={this.props.project.getIn(['attributes', 'description'])}
+          <div className='project-dashboard__image'>
+            <DeviceImage imageName='laptop' />
+          </div>
+          <Info
+            project={this.props.project}
+            colorSets={this.props.colorSets}
           />
         </div>
       </div>

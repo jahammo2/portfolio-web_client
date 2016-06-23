@@ -6,9 +6,10 @@
   margin: 0;
   height: $header-height;
   width: 100%;
-  position: absolute;
+  position: fixed;
   background: white;
   opacity: .81;
+  z-index: 10;
 
   @media screen and (min-width: 600px) {
     height: ($header-height__tablet);
@@ -17,7 +18,8 @@
   &__container {
     margin: ($header-height * .275) auto 0;
     font-size: $base-font-size;
-    width: ($base-width - 4%);
+    font-weight: bold;
+    width: ($base-width - 8%);
     height: 100%;
 
     @media screen and (min-width: 600px) {
@@ -26,7 +28,6 @@
 
     @media screen and (min-width: 768px) {
       font-size: ($base-font-size * 1.25);
-      font-weight: bold;
       width: $base-width;
     }
   }
@@ -40,6 +41,7 @@
   }
 
   &__name {
+    height: 0;
     font-family: $alt-font-family;
     line-height: $base-line-height - .4;
     max-width: 100px;

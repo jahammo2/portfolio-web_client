@@ -1,7 +1,7 @@
 import './index.scss';
 import React, { Component, PropTypes } from 'react';
 import { List, Map } from 'immutable';
-import { getColor } from '../../../utils/ContainerHelpers';
+import { getColor } from '../../../utils/ProjectHelpers';
 
 const propTypes = {
   projects: PropTypes.instanceOf(List),
@@ -12,23 +12,33 @@ const propTypes = {
   colorSets: PropTypes.instanceOf(List)
 };
 
-class SideBarBullets extends Component {
+class Bullets extends Component {
   constructor (props) {
     super(props);
   }
 
-  sideBarBulletClassName (project) {
+  path () {
+    return window.location.pathname;
+  }
+
+  bulletsClassName () {
+    return this.path() === '/' ?
+      'side-bar__bullets side-bar__bullets--on-homepage column-center' :
+      'side-bar__bullets column-center';
+  }
+
+  bulletClassName (project) {
     return this.props.isActiveProject(project, this.props.activeProject) ?
       'side-bar__bullet side-bar__bullet--active' :
       'side-bar__bullet';
   }
 
-  sideBarBulletStyles (project) {
+  bulletStyles (project) {
     if (this.props.isActiveProject(project, this.props.activeProject)) {
       const color = getColor(
         project,
         this.props.colorSets,
-        'button'
+        'circle'
       );
 
       return {
@@ -44,8 +54,8 @@ class SideBarBullets extends Component {
     return this.props.projects.map((project, index) => {
       return (
         <li
-          style={this.sideBarBulletStyles(project)}
-          className={this.sideBarBulletClassName(project)}
+          style={this.bulletStyles(project)}
+          className={this.bulletClassName(project)}
           onMouseOver={() => {this.props.setActiveProject(project);}}
           onClick={() => {this.props.setActiveProject(project);}}
           key={index + 5000}
@@ -57,13 +67,14 @@ class SideBarBullets extends Component {
 
   render () {
     return (
-      <ul className='side-bar__bullets column-center'>
-        {this.displayBullets()}
+      <ul className={this.bulletsClassName()}>
+        {this.path() === '/' &&
+          this.displayBullets()}
       </ul>
     );
   }
 }
 
-SideBarBullets.propTypes = propTypes;
+Bullets.propTypes = propTypes;
 
-export default SideBarBullets;
+export default Bullets;
