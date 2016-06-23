@@ -15,7 +15,7 @@ class SidePanel extends Component {
 
     return (
       <a
-        className='button row-center'
+        className='button row-center project-page__side-panel__link'
         href={link}
       >
         <p className='button__text'>visit site</p>

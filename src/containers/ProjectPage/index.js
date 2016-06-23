@@ -41,28 +41,63 @@ export class ProjectPage extends Component {
     }
   }
 
-  render () {
+  renderSidePanel () {
+    return (
+      <SidePanel
+        project={this.props.project}
+        devices={this.props.devices}
+        languages={this.props.languages}
+      />
+    );
+  }
+
+  renderFooter () {
+    return (
+      <Footer
+        nextProject={this.sisterProject(1)}
+        previousProject={this.sisterProject(-1)}
+      />
+    );
+  }
+
+  renderInfo () {
+    return (
+      <Info
+        description={this.props.project.getIn(['attributes', 'description'])}
+        openingBody={this.props.project.getIn(['attributes', 'opening_body'])}
+        closingBody={this.props.project.getIn(['attributes', 'closing_body'])}
+      />
+    );
+  }
+
+  displayMobile () {
+    return (
+      <div className='project-page column-start'>
+        <div className='project-page__header-image' />
+        {this.renderInfo()}
+        {this.renderSidePanel()}
+        {this.renderFooter()}
+      </div>
+    );
+  }
+
+  displayDesktop () {
     return (
       <div className='project-page'>
         <div className='project-page__header-image' />
         <div className='project-page__container row-between'>
-          <SidePanel
-            project={this.props.project}
-            devices={this.props.devices}
-            languages={this.props.languages}
-          />
-          <Info
-            description={this.props.project.getIn(['attributes', 'description'])}
-            openingBody={this.props.project.getIn(['attributes', 'opening_body'])}
-            closingBody={this.props.project.getIn(['attributes', 'closing_body'])}
-          />
+          {this.renderSidePanel()}
+          {this.renderInfo()}
         </div>
-        <Footer
-          nextProject={this.sisterProject(1)}
-          previousProject={this.sisterProject(-1)}
-        />
+        {this.renderFooter()}
       </div>
     );
+  }
+
+  render () {
+    return window.innerWidth > 599 ?
+      this.displayDesktop() :
+      this.displayMobile();
   }
 }
 

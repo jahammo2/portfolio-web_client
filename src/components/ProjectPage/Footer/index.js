@@ -9,10 +9,14 @@ const propTypes = {
 };
 
 class Footer extends Component {
-  displayLinksToProjects () {
-    const projects = [this.props.nextProject, this.props.previousProject];
+  projects () {
+    return window.innerWidth > 599 ?
+      [this.props.nextProject, this.props.previousProject] :
+      [this.props.nextProject];
+  }
 
-    return projects.map((project) => {
+  displayLinksToProjects () {
+    return this.projects().map((project) => {
         return project && (
           <div className='project-page__footer__project'>
             <Link

@@ -1,8 +1,6 @@
 @import "../../variables";
 
 .side-bar {
-  position: absolute;
-  // height: 100%;
   height: calc(100% - 92px);
   width: ((100% - $base-width) * .5);
   background: white;
@@ -12,18 +10,16 @@
   transition-property: width, background;
   transition-duration: .5s, .5s;
   transition-timing-function: ease, cubic-bezier(0.42, 0.0, .8, 1.0);
+  position: fixed;
 
   @media screen and (min-width: 600px) {
     height: 100%;
-    position: fixed;
     top: $header-height__tablet;
-    height: calc(100% - (105px * 1.5));
+    // height: calc(100% - (105px * 1.5));
   }
 
   @media screen and (min-width: 768px) {
-    // height: calc(90% - (105px * .5));
     height: 100%;
-    // height: calc(100% - 92px);
   }
 
   &--showing {
