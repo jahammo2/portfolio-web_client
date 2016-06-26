@@ -3,7 +3,8 @@ import './index.scss';
 import laptop from '../../img/laptop.png';
 
 const propTypes = {
-  imageName: PropTypes.string
+  device: PropTypes.string,
+  image: PropTypes.string
 };
 
 class DeviceImage extends Component {
@@ -11,10 +12,13 @@ class DeviceImage extends Component {
     return (
       <div className='device-image'>
         <img
-          className={`device-image__${this.props.imageName}`}
+          className={`device-image__${this.props.device}`}
           src={laptop}
         />
-        <div className={`device-image__${this.props.imageName}__overlay`} />
+        <div
+          style={{backgroundImage: `url(${this.props.image})`}}
+          className={`device-image__${this.props.device}__overlay`}
+        />
       </div>
     );
   }

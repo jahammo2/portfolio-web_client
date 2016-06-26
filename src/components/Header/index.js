@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import MenuBar from '../../components/MenuBar';
+import { Link } from 'react-router';
 
 const propTypes = {
   children: PropTypes.node,
@@ -29,7 +30,7 @@ class Header extends Component {
     return (
       <div className='header column-between'>
         <div className='header__container row-between'>
-          <a href='/' className='header__name'>Jordan Hammond</a>
+          <Link to='/' className='header__name'>Jordan Hammond</Link>
           <MenuBar
             sideBarShown={this.props.sideBarShown}
             sideBarShowing={this.props.sideBarShowing}

@@ -20,8 +20,14 @@ const propTypes = {
 };
 
 export class PortfolioRoot extends Component {
+  componentDidUpdate () {
+    if (this.props.colorSets.size === 1) {
+      return this.props.fetchProjects();
+    }
+  }
+
   componentWillMount () {
-    this.props.fetchProjects();
+    return this.props.fetchProjects();
   }
 
   portfolioRootContainerClassName () {

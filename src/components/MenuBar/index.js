@@ -27,7 +27,7 @@ class MenuBar extends Component {
     return (
       <div
         onClick={() => {this.props.sideBarShown();}}
-        className='row-right menu-bar'
+        className='row-end menu-bar'
         ref='sideBarShown'
       >
         <p className='menu-bar__title'>{this.props.title}</p>

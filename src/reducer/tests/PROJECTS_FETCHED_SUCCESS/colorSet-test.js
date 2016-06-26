@@ -76,7 +76,7 @@ describe('reducer', () => {
         devices: new List([]),
         colorSets: new List([
           expectedProjects.included[0],
-          expectedProjects.included[1]
+          expectedProjects.included[1],
         ]),
         activeProject: new Map()
       });

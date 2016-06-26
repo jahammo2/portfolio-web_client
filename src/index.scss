@@ -23,9 +23,14 @@ body,
   justify-content: space-between;
 }
 
-.row-right {
+.row-end {
   @include row;
   justify-content: flex-end;
+}
+
+.row-start {
+  @include row;
+  justify-content: flex-start;
 }
 
 .row-center {

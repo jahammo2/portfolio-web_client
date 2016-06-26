@@ -31,9 +31,16 @@ function extractTitles (matchingObjects) {
   });
 }
 
-export function getIncludedObjects (project, objects, relationship) {
+export function getIncludedObjectTitles (project, objects, relationship) {
   const projectDevices = project.getIn(['relationships', relationship, 'data']) || new List([]);
   const matchingDevices = getMatchingObjects(projectDevices, objects);
 
   return extractTitles(matchingDevices);
+}
+
+export function getIncludedObjects (project, objects, relationship) {
+  const projectDevices = project.getIn(['relationships', relationship, 'data']) || new List([]);
+  const matchingDevices = getMatchingObjects(projectDevices, objects);
+
+  return matchingDevices;
 }

@@ -11,28 +11,40 @@ import './index.scss';
 const propTypes = {
   params: PropTypes.object,
   projects: PropTypes.instanceOf(List),
-  project: PropTypes.instanceOf(Map),
+  individualProject: PropTypes.instanceOf(Map),
   devices: PropTypes.instanceOf(List),
   languages: PropTypes.instanceOf(List),
-  projectActive: PropTypes.func
+  screenshots: PropTypes.instanceOf(List),
+  nextProject: PropTypes.instanceOf(Map),
+  previousProject: PropTypes.instanceOf(Map),
+  fetchProjectById: PropTypes.func
 };
 
 export class ProjectPage extends Component {
-  componentDidUpdate () {
-    const currentProject = this.props.projects.find((project) => {
-      return project.get('id') === this.props.params.projectId;
-    });
+  constructor () {
+    super();
+    this.state = { projectId: 0 }
+  }
 
-    if (currentProject) {
-      return this.props.projectActive(currentProject);
+  componentDidUpdate () {
+    if (this.state.projectId !== this.props.params.projectId) {
+      this.setState({projectId: this.props.params.projectId});
+      return this.props.fetchProjectById(this.props.params.projectId);
     }
   }
 
+  componentWillMount () {
+    return this.props.fetchProjectById(this.props.params.projectId);
+  }
+
   sisterProject (sisterIndex) {
-    const projectIndex = this.props.projects.indexOf(this.props.project);
+    const projectIds = this.props.projects.map((project) => {
+      return project.get('id');
+    });
+    const projectIndex = projectIds.indexOf(this.props.individualProject.get('id'));
     const newIndex = projectIndex + sisterIndex;
 
-    if (newIndex > this.props.project.size) {
+    if (newIndex > this.props.individualProject.size) {
       return this.props.projects.get(0);
     }
 
@@ -42,7 +54,10 @@ export class ProjectPage extends Component {
   displayMobile () {
     return (
       <div className='project-page column-start'>
-        <div className='project-page__header-image' />
+        <div
+          className='project-page__header-image'
+          style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
+        />
         {this.renderInfo()}
         {this.renderSidePanel()}
         {this.renderFooter()}
@@ -53,7 +68,10 @@ export class ProjectPage extends Component {
   displayDesktop () {
     return (
       <div className='project-page'>
-        <div className='project-page__header-image' />
+        <div
+          className='project-page__header-image'
+          style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
+        />
         <div className='project-page__container row-between'>
           {this.renderSidePanel()}
           {this.renderInfo()}
@@ -66,7 +84,7 @@ export class ProjectPage extends Component {
   renderSidePanel () {
     return (
       <SidePanel
-        project={this.props.project}
+        project={this.props.individualProject}
         devices={this.props.devices}
         languages={this.props.languages}
       />
@@ -76,8 +94,8 @@ export class ProjectPage extends Component {
   renderFooter () {
     return (
       <Footer
-        nextProject={this.sisterProject(1)}
-        previousProject={this.sisterProject(-1)}
+        nextProject={this.sisterProject(-1)}
+        previousProject={this.sisterProject(1)}
       />
     );
   }
@@ -85,9 +103,9 @@ export class ProjectPage extends Component {
   renderInfo () {
     return (
       <Info
-        description={this.props.project.getIn(['attributes', 'description'])}
-        openingBody={this.props.project.getIn(['attributes', 'opening_body'])}
-        closingBody={this.props.project.getIn(['attributes', 'closing_body'])}
+        project={this.props.individualProject}
+        devices={this.props.devices}
+        screenshots={this.props.screenshots}
       />
     );
   }
@@ -103,9 +121,11 @@ ProjectPage.propTypes = propTypes;
 
 function mapStateToProps (state) {
   return {
+    individualProject: state.get('individualProject'),
     projects: state.get('projects'),
     devices: state.get('devices'),
-    languages: state.get('languages')
+    languages: state.get('languages'),
+    screenshots: state.get('screenshots')
   };
 }
 

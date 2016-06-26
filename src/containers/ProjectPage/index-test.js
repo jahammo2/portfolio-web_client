@@ -41,13 +41,16 @@ describe('ProjectPage', () => {
   ]);
 
   describe('componentDidUpdate', () => {
-    let projectActive;
+    let fetchProjectById;
 
     before(() => {
       project = projects.last();
       projectPage = new ProjectPage();
+      projectPage.state = {
+        projectId: projects.first().get('id')
+      };
       projectPage.props = {
-        projectActive: () => {
+        fetchProjectById: () => {
           return;
         },
         projects: projects,
@@ -56,12 +59,45 @@ describe('ProjectPage', () => {
         }
       };
 
-      projectActive = spy(projectPage.props, 'projectActive');
+      fetchProjectById = spy(projectPage.props, 'fetchProjectById');
     });
 
-    it('calls ProjectActive if the projectId matches a project id', () => {
+    it('calls fetchProjectById if the state projectId is different than the props projectId', () => {
       projectPage.componentDidUpdate();
-      expect(projectActive.calledOnce).to.be.true;
+      expect(fetchProjectById.calledOnce).to.be.true;
+    });
+
+    afterEach(() => {
+      fetchProjectById.restore();
+    });
+  });
+
+  describe('componentWillMount', () => {
+    let fetchProjectById;
+
+    before(() => {
+      project = projects.last();
+      projectPage = new ProjectPage();
+      projectPage.props = {
+        fetchProjectById: () => {
+          return;
+        },
+        projects: projects,
+        params: {
+          projectId: project.get('id')
+        }
+      };
+
+      fetchProjectById = spy(projectPage.props, 'fetchProjectById');
+    });
+
+    it('calls fetchProjectById', () => {
+      projectPage.componentWillMount();
+      expect(fetchProjectById.calledOnce).to.be.true;
+    });
+
+    afterEach(() => {
+      fetchProjectById.restore();
     });
   });
 
@@ -70,7 +106,7 @@ describe('ProjectPage', () => {
       projectPage = new ProjectPage();
       projectPage.props = {
         projects: projects,
-        project: projects.get(1)
+        individualProject: projects.get(1)
       };
     });
 
@@ -87,7 +123,7 @@ describe('ProjectPage', () => {
     it('returns the first project if +1 and the last project is the current project', () => {
       projectPage.props = {
         projects: projects,
-        project: projects.get(2)
+        individualProject: projects.get(2)
       };
       const sisterProject = projectPage.sisterProject(+1);
 
