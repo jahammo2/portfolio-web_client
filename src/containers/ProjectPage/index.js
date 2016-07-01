@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { List, Map } from 'immutable';
 import SidePanel from '../../components/ProjectPage/SidePanel';
 import Info from '../../components/ProjectPage/Info';
+import Logo from '../../components/Logo';
 import Footer from '../../components/ProjectPage/Footer';
 import * as actionCreators from '../../actions/PortfolioActions';
 import './index.scss';
@@ -57,7 +58,13 @@ export class ProjectPage extends Component {
       <div
         className='project-page__header-image'
         style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
-      />
+      >
+        <Logo
+          project={this.props.individualProject}
+          logo={this.props.individualProject.getIn(['attributes', 'logo'])}
+          colorSets={this.props.colorSets}
+        />
+      </div>
     );
   }
 
@@ -129,6 +136,7 @@ function mapStateToProps (state) {
     projects: state.get('projects'),
     devices: state.get('devices'),
     languages: state.get('languages'),
+    colorSets: state.get('colorSets'),
     screenshots: state.get('screenshots')
   };
 }
