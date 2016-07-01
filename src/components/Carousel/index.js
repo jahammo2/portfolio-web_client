@@ -1,29 +1,51 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import Slider from 'react-slick';
+import { List } from 'immutable';
+import DeviceImage from '../DeviceImage';
+
+const propTypes = {
+  slickGoTo: PropTypes.number,
+  devices: PropTypes.instanceOf(List),
+  screenshots: PropTypes.instanceOf(List)
+};
 
 class Carousel extends Component {
+  displaySlide (device, index) {
+    return (
+      <div
+        className='carousel-slide'
+        key={device.get('id')}
+      >
+        <div className='carousel-slide__image'>
+          <DeviceImage
+            device='laptop'
+            image={this.props.screenshots.get(index).getIn(['attributes', 'image'])}
+          />
+        </div>
+        <p className='carousel-slide__caption'>{this.props.screenshots.get(index).getIn(['attributes', 'caption'])}</p>
+      </div>
+    );
+  }
+
   render () {
     const settings = {
-      arrows: true,
-      autoplay: true,
-      dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      slickGoTo: this.props.slickGoTo
     };
     return (
       <Slider {...settings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
+        {this.props.devices.map((device, index) => {
+          return this.displaySlide(device, index);
+        })}
       </Slider>
     );
   }
 }
+
+Carousel.propTypes = propTypes;
 
 export default Carousel;

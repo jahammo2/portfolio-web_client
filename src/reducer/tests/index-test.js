@@ -3,7 +3,9 @@ import reducer from '../index';
 describe('reducer', () => {
   const initialState = new Map({
     projects: new List([]),
+    individualProject: new Map(),
     colorSets: new List([]),
+    screenshots: new List([]),
     languages: new List([]),
     devices: new List([]),
     activeProject: new Map(),

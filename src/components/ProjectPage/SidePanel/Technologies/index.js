@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { getIncludedObjects } from '../../../../utils/ProjectHelpers';
+import { getIncludedObjectTitles } from '../../../../utils/ProjectHelpers';
 import './index.scss';
 import { List, Map } from 'immutable';
 import moment from 'moment';
@@ -25,11 +25,11 @@ class Technologies extends Component {
   }
 
   displayTech (techProps, techName) {
-    const techList = getIncludedObjects(
+    const techList = Array.from(new Set(getIncludedObjectTitles(
       this.props.project,
       techProps,
       techName
-    );
+    )));
 
     return (
       <ul className='project-page__side-panel__technologies__list'>

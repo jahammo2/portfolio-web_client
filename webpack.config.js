@@ -43,7 +43,12 @@ module.exports = {
     contentBase: './dist',
     hot: true,
     historyApiFallback: true,
-    devtool: 'eval'
+    devtool: 'eval',
+    proxy: {
+      '/uploads/*': {
+        target: 'http://localhost:3000'
+      }
+    }
   },
   devtool: '#source-map',
   plugins: [

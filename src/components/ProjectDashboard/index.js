@@ -32,7 +32,7 @@ class ProjectDashboard extends Component {
       >
         <div className='project-dashboard__container'>
           <div className='project-dashboard__image'>
-            <DeviceImage imageName='laptop' />
+            <DeviceImage device='laptop' image={this.props.project.getIn(['attributes', 'featured_screenshot', 'image'])} />
           </div>
           <Info
             project={this.props.project}

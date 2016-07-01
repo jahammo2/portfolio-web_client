@@ -18,9 +18,12 @@ class Footer extends Component {
   displayLinksToProjects () {
     return this.projects().map((project) => {
       return project && (
-        <div className='project-page__footer__project'>
+        <div
+          key={project.get('id')}
+          className='project-page__footer__project'
+          style={{backgroundImage: `url(${project.getIn(['attributes', 'header_image'])})`}}
+        >
           <Link
-            key={project.get('id')}
             to={`/projects/${project.get('id')}`}
             className='project-page__footer__project__link'
           >

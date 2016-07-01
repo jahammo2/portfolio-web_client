@@ -1,14 +1,49 @@
 @import "../../variables";
 
-.slick-slider {
-  height: 400px;
+.carousel-slide {
   width: 100%;
-  // temporary until I actually add in images
-  background: lightgreen;
+  height: 100%;
+
+  &__image {
+    width: 100%;
+
+    @media screen and (min-width: 600px) {
+      margin: 0 auto;
+      width: 70%;
+
+      .device-image__laptop__overlay {
+        top: 1.2vw;
+      }
+    }
+
+    .device-image__laptop__overlay {
+      height: 74.8%;
+    }
+  }
+
+  &__caption {
+    margin-bottom: 0;
+    padding-left: 2px;
+    margin-top: ($base-font-size * 1.5);
+  }
+}
+
+.slick-slider {
+  width: 100%;
+  margin-bottom: 0;
+  padding: ($base-font-size * 1.5) 0 0;
+  overflow: scroll;
+  font-family: $alt-font-family;
+  font-size: $base-font-size;
+  font-weight: 500;
+
+  @media screen and (max-width: 600px) {
+    overflow: scroll;
+    height: 400px;
+  }
 }
 
 .slick-dots {
-  background: lightgreen;
   padding-bottom: ($base-font-size * .5);
 
   li {

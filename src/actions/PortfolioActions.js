@@ -20,14 +20,32 @@ export function projectsFetched (projects) {
   };
 }
 
+export function projectFetched (project) {
+  return {
+    type: 'PROJECT_FETCHED_SUCCESS',
+    project
+  };
+}
+
 export function fetchProjects () {
-  return function (dispatch) {
+  return (dispatch) => {
     return window
       .fetch(`${getHost()}/api/projects`)
         .then(response => response.json())
         .then((response) => {
           dispatch(projectsFetched(response));
           setActiveProject(response.data, dispatch, projectActive);
+        });
+  };
+}
+
+export function fetchProjectById (id) {
+  return (dispatch) => {
+    return window
+      .fetch(`${getHost()}/api/projects/${id}`)
+        .then(response => response.json())
+        .then((response) => {
+          dispatch(projectFetched(response));
         });
   };
 }
