@@ -52,13 +52,19 @@ export class ProjectPage extends Component {
     return this.props.projects.get(newIndex);
   }
 
+  displayHeaderImage () {
+    return (
+      <div
+        className='project-page__header-image'
+        style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
+      />
+    );
+  }
+
   displayMobile () {
     return (
       <div className='project-page column-start'>
-        <div
-          className='project-page__header-image'
-          style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
-        />
+        {this.displayHeaderImage()}
         {this.renderInfo()}
         {this.renderSidePanel()}
         {this.renderFooter()}
@@ -69,10 +75,7 @@ export class ProjectPage extends Component {
   displayDesktop () {
     return (
       <div className='project-page'>
-        <div
-          className='project-page__header-image'
-          style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
-        />
+        {this.displayHeaderImage()}
         <div className='project-page__container row-between'>
           {this.renderSidePanel()}
           {this.renderInfo()}
