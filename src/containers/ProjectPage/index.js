@@ -23,18 +23,19 @@ const propTypes = {
 export class ProjectPage extends Component {
   constructor () {
     super();
-    this.state = { projectId: 0 }
-  }
-
-  componentDidUpdate () {
-    if (this.state.projectId !== this.props.params.projectId) {
-      this.setState({projectId: this.props.params.projectId});
-      return this.props.fetchProjectById(this.props.params.projectId);
-    }
+    this.state = { projectId: 0 };
   }
 
   componentWillMount () {
     return this.props.fetchProjectById(this.props.params.projectId);
+  }
+
+  componentDidUpdate () {
+    if (this.state.projectId !== this.props.params.projectId) {
+      // TODO: linter says not to set state in componentDidUpdate. I need to find a better solution.
+      this.setState({projectId: this.props.params.projectId});
+      return this.props.fetchProjectById(this.props.params.projectId);
+    }
   }
 
   sisterProject (sisterIndex) {

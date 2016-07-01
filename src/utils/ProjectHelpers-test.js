@@ -98,26 +98,6 @@ describe('ProjectHelpers', () => {
     const color1 = faker.internet.color();
     const color2 = faker.internet.color();
 
-    const project = fromJS({
-      id: faker.random.number(),
-      attributes: {
-        title: faker.random.word(),
-        github_page_url: faker.internet.url(),
-        web_page_url: faker.internet.url(),
-        body: faker.lorem.sentences(),
-        description: faker.lorem.sentence(),
-        date_deployed: '2016-03-13 20:45:16'
-      },
-      relationships: {
-        color_set: {
-          data: {
-            type: 'color-sets',
-            id: 19
-          }
-        }
-      }
-    });
-
     const colorSets = new List([
       new Map({
         id: 19,
@@ -139,9 +119,29 @@ describe('ProjectHelpers', () => {
       })
     ]);
 
+    const projectWithColors = fromJS({
+      id: faker.random.number(),
+      attributes: {
+        title: faker.random.word(),
+        github_page_url: faker.internet.url(),
+        web_page_url: faker.internet.url(),
+        body: faker.lorem.sentences(),
+        description: faker.lorem.sentence(),
+        date_deployed: '2016-03-13 20:45:16'
+      },
+      relationships: {
+        color_set: {
+          data: {
+            type: 'color-sets',
+            id: 19
+          }
+        }
+      }
+    });
+
     it('returns the color needed', () => {
       const getColor = ProjectHelpers.getColor(
-        project,
+        projectWithColors,
         colorSets,
         'background'
       );

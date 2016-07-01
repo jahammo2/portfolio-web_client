@@ -28,15 +28,17 @@
   }
 
   &__container {
-    min-height: calc(100vh - 96px - 70px);
+    min-height: calc(100vh - 96px - 70px - 20px);
     overflow: scroll;
     width: 88%;
     margin: 0 auto;
     padding-top: $header-height-spacing;
+    padding-bottom: $base-font-size;
 
     @media screen and (min-width: 600px) {
       padding-top: $header-height-spacing__tablet;
       overflow: initial;
+      padding-bottom: 0;
     }
 
     @media screen and (min-width: 768px) {

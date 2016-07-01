@@ -8,7 +8,7 @@ const propTypes = {
   slickGoTo: PropTypes.number,
   devices: PropTypes.instanceOf(List),
   screenshots: PropTypes.instanceOf(List)
-}
+};
 
 class Carousel extends Component {
   displaySlide (device, index) {

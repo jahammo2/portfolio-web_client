@@ -16,7 +16,7 @@ class Footer extends Component {
   }
 
   displayLinksToProjects () {
-    return this.projects().map((project, iteration) => {
+    return this.projects().map((project) => {
       return project && (
         <div
           key={project.get('id')}

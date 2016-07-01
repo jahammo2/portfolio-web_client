@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import Carousel from '../../../Carousel';
-import { getIncludedObjects } from '../../../../utils/ProjectHelpers';
 import { List, Map } from 'immutable';
 
 const propTypes = {
@@ -23,8 +22,8 @@ class Images extends Component {
           return (
             <li
               onClick={() => {
-                this.setState({slickGoTo: index});}
-              }
+                this.setState({slickGoTo: index});
+              }}
               key={screenshot.get('id')}
               className='project-page__info__images__thumbnails__thumbnail'
               style={{backgroundImage: `url(${screenshot.getIn(['attributes', 'image'])})`}}

@@ -24,7 +24,7 @@ export function projectFetched (project) {
   return {
     type: 'PROJECT_FETCHED_SUCCESS',
     project
-  }
+  };
 }
 
 export function fetchProjects () {
@@ -36,7 +36,7 @@ export function fetchProjects () {
           dispatch(projectsFetched(response));
           setActiveProject(response.data, dispatch, projectActive);
         });
-  }
+  };
 }
 
 export function fetchProjectById (id) {
@@ -47,5 +47,5 @@ export function fetchProjectById (id) {
         .then((response) => {
           dispatch(projectFetched(response));
         });
-  }
+  };
 }
