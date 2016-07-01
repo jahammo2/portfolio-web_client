@@ -25,8 +25,7 @@
       &__container {
         background: white;
         width: ($base-width - 8%);
-        height: ($base-font-size + 2px);
-        padding-bottom: ($base-font-size * .65);
+        padding-bottom: ($base-font-size * .45);
         padding-top: ($base-font-size * .35);
         overflow: hidden;
         position: absolute;
@@ -42,6 +41,7 @@
       }
 
       &__title {
+        margin-bottom: 0;
         height: 100%;
         overflow: hidden;
         text-align: center;

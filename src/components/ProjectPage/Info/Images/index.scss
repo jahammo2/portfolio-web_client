@@ -6,7 +6,7 @@
   border-top: 3px solid $base-dark-gray;
 
   &__thumbnails {
-    margin: ($base-font-size * 1.5) 0 0;
+    margin: ($base-font-size * 1.25) 0 0;
     width: 100%;
     border-top: 2px solid $base-dark-gray;
     flex-wrap: wrap;
@@ -19,6 +19,10 @@
       background-size: auto 100%;
       background-repeat: no-repeat;
       background-position: center;
+
+      @media screen and (min-width: 600px) {
+        width: calc((100% / 7) - 2px);
+      }
     }
   }
 }
