@@ -10,6 +10,8 @@
   opacity: .9;
 
   @media screen and (min-width: 600px) {
+    left: initial;
+    top: initial;
     height: calc(55% - 60px);
     bottom: ($base-font-size * 4.4);
     right: ($base-font-size * 4.4);
