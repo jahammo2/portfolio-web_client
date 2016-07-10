@@ -16,6 +16,7 @@ const propTypes = {
   devices: PropTypes.instanceOf(List),
   languages: PropTypes.instanceOf(List),
   screenshots: PropTypes.instanceOf(List),
+  colorSets: PropTypes.instanceOf(List),
   nextProject: PropTypes.instanceOf(Map),
   previousProject: PropTypes.instanceOf(Map),
   fetchProjectById: PropTypes.func

@@ -28,8 +28,11 @@ class Logo extends Component {
         className='logo column-between'
         style={this.styles()}
       >
-        <img src={this.props.logo} />
-        <p>{this.props.project.getIn(['attributes', 'title'])}</p>
+        <img
+          className='logo__image'
+          src={this.props.logo}
+        />
+        <p className='logo__title'>{this.props.project.getIn(['attributes', 'title'])}</p>
       </div>
     );
   }
