@@ -13,12 +13,13 @@
 
   &__header-image{
     width: 100%;
-    height: 90vw;
+    height: 338px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    position: relative;
 
     @media screen and (min-width: 600px) {
-      height: 600px;
+      height: 500px;
     }
   }
 
