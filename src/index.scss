@@ -82,3 +82,22 @@ ul {
     margin: 0;
   }
 }
+
+.line {
+  background: $base-black;
+  border: none;
+  margin: 0;
+  width: 100%;
+}
+
+.mobile {
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+}
+
+.desktop {
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+}

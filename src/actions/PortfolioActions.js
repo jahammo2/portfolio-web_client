@@ -27,6 +27,13 @@ export function projectFetched (project) {
   };
 }
 
+export function socialLinksFetched (socialLinks) {
+  return {
+    type: 'SOCIAL_LINKS_FETCHED_SUCCESS',
+    socialLinks
+  };
+}
+
 export function fetchProjects () {
   return (dispatch) => {
     return window
@@ -46,6 +53,17 @@ export function fetchProjectById (id) {
         .then(response => response.json())
         .then((response) => {
           dispatch(projectFetched(response));
+        });
+  };
+}
+
+export function fetchSocialLinks () {
+  return (dispatch) => {
+    return window
+      .fetch(`${getHost()}/api/social-links`)
+        .then(response => response.json())
+        .then((response) => {
+          dispatch(socialLinksFetched(response));
         });
   };
 }

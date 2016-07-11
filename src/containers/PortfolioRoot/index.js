@@ -16,7 +16,9 @@ const propTypes = {
   fetchProjects: PropTypes.func,
   projectActive: PropTypes.func,
   sideBarShown: PropTypes.func,
-  sideBarShowing: PropTypes.bool
+  sideBarShowing: PropTypes.bool,
+  socialLinks: PropTypes.instanceOf(List),
+  fetchSocialLinks: PropTypes.func
 };
 
 export class PortfolioRoot extends Component {
@@ -52,6 +54,8 @@ export class PortfolioRoot extends Component {
           sideBarShowing={this.props.sideBarShowing}
           sideBarShown={this.props.sideBarShown}
           colorSets={this.props.colorSets}
+          socialLinks={this.props.socialLinks}
+          fetchSocialLinks={this.props.fetchSocialLinks}
         />
         <div className={this.portfolioRootContainerClassName()}>
           {this.props.children &&
@@ -73,7 +77,8 @@ function mapStateToProps (state) {
     projects: state.get('projects'),
     activeProject: state.get('activeProject'),
     sideBarShowing: state.get('sideBarShowing'),
-    colorSets: state.get('colorSets')
+    colorSets: state.get('colorSets'),
+    socialLinks: state.get('socialLinks')
   };
 }
 

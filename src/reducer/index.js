@@ -9,7 +9,8 @@ const INITIAL_STATE = new Map({
   devices: new List([]),
   languages: new List([]),
   activeProject: new Map(),
-  sideBarShowing: false
+  sideBarShowing: false,
+  socialLinks: new List([])
 });
 
 function setIncludedData (projects, included) {
@@ -58,6 +59,8 @@ const reducer = (state = INITIAL_STATE, action) => {
       return setProjectStates(state, action.project, 'individualProject', setFromNonColorSets);
     case actionTypes.SIDE_BAR_SHOWN_SUCCESS:
       return showOrHideSideBar(state);
+    case actionTypes.SOCIAL_LINKS_FETCHED_SUCCESS:
+      return state.set('socialLinks', fromJS(action.socialLinks.data));
     default:
       return state;
   }

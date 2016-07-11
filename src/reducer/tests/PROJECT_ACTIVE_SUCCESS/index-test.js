@@ -1,15 +1,8 @@
 import reducer from '../../index';
 import { PROJECT_ACTIVE_SUCCESS } from '../../../constants/actionTypes';
+import { initialState } from '../index-test';
 
 describe('reducer', () => {
-  const initialState = new Map({
-    projects: new List([]),
-    colorSets: new List([]),
-    languages: new List([]),
-    devices: new List([]),
-    activeProject: new Map()
-  });
-
   describe('action PROJECT_ACTIVE_SUCCESS', () => {
     it('is working without mutating before state', () => {
       const project = { data: new Map() };
@@ -19,13 +12,7 @@ describe('reducer', () => {
         project: project
       };
 
-      const stateAfter = new Map({
-        projects: new List([]),
-        colorSets: new List([]),
-        languages: new List([]),
-        devices: new List([]),
-        activeProject: new Map(project)
-      });
+      const stateAfter = initialState.set('activeProject', new Map(project));
 
       expect(stateAfter).to.eql(reducer(initialState, action));
     });
@@ -50,13 +37,7 @@ describe('reducer', () => {
         project: project
       };
 
-      const stateAfter = new Map({
-        projects: new List([]),
-        colorSets: new List([]),
-        languages: new List([]),
-        devices: new List([]),
-        activeProject: project
-      });
+      const stateAfter = initialState.set('activeProject', project);
 
       expect(stateAfter).to.eql(reducer(initialState, action));
     });

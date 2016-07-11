@@ -1,17 +1,8 @@
 import reducer from '../../index';
 import { PROJECT_FETCHED_SUCCESS } from '../../../constants/actionTypes';
+import { initialState } from '../index-test';
 
 describe('reducer', () => {
-  const initialState = new Map({
-    projects: new List([]),
-    individualProject: new Map(),
-    colorSets: new List([]),
-    screenshots: new List([]),
-    languages: new List([]),
-    devices: new List([]),
-    activeProject: new Map()
-  });
-
   describe('action PROJECT_FETCHED_SUCCESS', () => {
     it('sets languages, devices, and screenshots', () => {
       const id1 = faker.random.number();
@@ -80,21 +71,10 @@ describe('reducer', () => {
         project: project
       };
 
-      const stateAfter = new Map({
-        projects: new List([]),
-        individualProject: expectedProject.data,
-        colorSets: new List([]),
-        languages: new List([
-          expectedProject.included[0]
-        ]),
-        devices: new List([
-          expectedProject.included[1]
-        ]),
-        screenshots: new List([
-          expectedProject.included[2]
-        ]),
-        activeProject: new Map()
-      });
+      const stateAfter = initialState.set('languages', new List([expectedProject.included[0]]))
+        .set('devices', new List([expectedProject.included[1]]))
+        .set('screenshots', new List([expectedProject.included[2]]))
+        .set('individualProject', expectedProject.data);
 
       expect(stateAfter).to.eql(reducer(initialState, action));
     });

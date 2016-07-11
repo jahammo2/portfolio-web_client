@@ -10,7 +10,9 @@ const propTypes = {
   setActiveProject: PropTypes.func,
   sideBarShown: PropTypes.func,
   sideBarShowing: PropTypes.bool,
-  colorSets: PropTypes.instanceOf(List)
+  colorSets: PropTypes.instanceOf(List),
+  socialLinks: PropTypes.instanceOf(List),
+  fetchSocialLinks: PropTypes.func
 };
 
 class SideBar extends Component {
@@ -46,6 +48,8 @@ class SideBar extends Component {
           isActiveProject={this.isActiveProject}
           sideBarShown={this.props.sideBarShown}
           sideBarShowing={this.props.sideBarShowing}
+          fetchSocialLinks={this.props.fetchSocialLinks}
+          socialLinks={this.props.socialLinks}
         />
       </div>
     );
