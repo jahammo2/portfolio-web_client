@@ -8,7 +8,7 @@
     width: 0%;
     transition-property: width, visibility;
     transition-delay: .5s, .5s;
-    padding-left: $base-font-size;
+    padding-left: 7%;
 
     @media screen and (min-width: 600px) {
       padding-left: 0;
@@ -48,6 +48,16 @@
         justify-content: center;
       }
     }
+
+    &__line {
+      height: 1px;
+      margin-top: ($base-font-size * .25);
+      margin-bottom: ($base-font-size * 1.25);
+
+      @media screen and (min-width: 600px) {
+        margin-bottom: ($base-font-size * .5);
+      }
+    }
   }
 
   &__project {
@@ -65,5 +75,19 @@
       height: ($base-font-size * 1.25);
       font-size: ($base-font-size * .9);
     }
+  }
+}
+
+.about-me {
+  @media screen and (min-width: 600px) {
+    width: ($base-font-size * 7.5);
+  }
+
+  &--desktop {
+    display: none;
+  }
+
+  &:hover {
+    font-weight: bold;
   }
 }

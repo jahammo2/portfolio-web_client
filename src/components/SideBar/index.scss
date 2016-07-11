@@ -23,12 +23,11 @@
 
   &--showing {
     width: 100%;
-    background: $base-gray;
+    background: white;
 
     @media screen and (min-width: 600px) {
       max-height: 100%;
       width: 400px;
-      background: white;
     }
   }
 }

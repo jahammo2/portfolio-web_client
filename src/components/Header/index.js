@@ -31,13 +31,14 @@ class Header extends Component {
       <div className='header column-between'>
         <div className='header__container row-between'>
           <Link to='/' className='header__name'>Jordan Hammond</Link>
+          <div className='header__vertical-line mobile' />
           <MenuBar
             sideBarShown={this.props.sideBarShown}
             sideBarShowing={this.props.sideBarShowing}
             title={this.title()}
           />
         </div>
-        <hr className='header__line' />
+        <hr className='header__line line' />
       </div>
     );
   }

@@ -26,8 +26,8 @@ class SidePanel extends Component {
   displayLines () {
     return (
       <div className='project-page__side-panel__lines column-between'>
-        <hr className='project-page__side-panel__line' />
-        <hr className='project-page__side-panel__line' />
+        <hr className='project-page__side-panel__line line' />
+        <hr className='project-page__side-panel__line line' />
       </div>
     );
   }

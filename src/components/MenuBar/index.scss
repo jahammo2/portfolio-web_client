@@ -32,4 +32,10 @@
       margin-top: -28px;
     }
   }
+
+  &__projects-toggler {
+    @media screen and (min-width: 600px) {
+      margin-left: ($base-font-size * 1.75);
+    }
+  }
 }

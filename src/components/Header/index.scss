@@ -33,11 +33,7 @@
   }
 
   &__line {
-    width: 100%;
-    background: black;
     height: 8px;
-    margin: 0;
-    border: none;
   }
 
   &__name {
@@ -51,5 +47,11 @@
       font-size: ($base-font-size * 1.25);
       max-width: 500px;
     }
+  }
+
+  &__vertical-line {
+    background: $base-black;
+    width: 1px;
+    height: ($base-font-size * 2);
   }
 }

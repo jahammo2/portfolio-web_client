@@ -56,6 +56,8 @@ describe('Container', () => {
           setActiveProject={ActionCreators.projectActive}
           sideBarShown={ActionCreators.sideBarShown}
           colorSets={new List([])}
+          socialLinks={new List([])}
+          fetchSocialLinks={ActionCreators.fetchSocialLinks}
         />
       );
 

@@ -1,0 +1,19 @@
+@import "../../../../variables";
+
+.social-links {
+  padding-top: ($base-font-size * 1.25);
+
+  &__container {
+    width: 100%;
+    margin-top: ($base-font-size * .25);
+
+    @media screen and (min-width: 600px) {
+      position: absolute;
+    }
+  }
+
+  &__icon {
+    margin-right: $base-font-size;
+    font-size: ($base-font-size * 1.5);
+  }
+}

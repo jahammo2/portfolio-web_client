@@ -18,7 +18,7 @@
   }
 
   &__container {
-    width: ($base-width - 8%);
+    width: $base-width;
     margin: 0 auto;
     height: 100%;
     transition-property: margin-left, margin-right, width;
@@ -27,7 +27,6 @@
     @media screen and (min-width: 600px) {
       margin-left: ((100% - $base-width) * .5);
       margin-right: ((100% - $base-width) * .5);
-      width: $base-width;
 
       &--pushed {
         margin-left: (calc(-400px + 6%));

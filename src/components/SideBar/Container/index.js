@@ -2,6 +2,7 @@ import './index.scss';
 import React, { Component, PropTypes } from 'react';
 import { List, Map } from 'immutable';
 import { Link } from 'react-router';
+import SocialLinks from './SocialLinks';
 
 const propTypes = {
   projects: PropTypes.instanceOf(List),
@@ -9,7 +10,9 @@ const propTypes = {
   setActiveProject: PropTypes.func,
   isActiveProject: PropTypes.func,
   sideBarShown: PropTypes.func,
-  sideBarShowing: PropTypes.bool
+  sideBarShowing: PropTypes.bool,
+  socialLinks: PropTypes.instanceOf(List),
+  fetchSocialLinks: PropTypes.func
 };
 
 class Container extends Component {
@@ -25,8 +28,8 @@ class Container extends Component {
 
   containerClassName () {
     return this.props.sideBarShowing ?
-      'side-bar__container side-bar__container--showing' :
-      'side-bar__container';
+      'side-bar__container side-bar__container--showing column-start' :
+      'side-bar__container column-start';
   }
 
   displayTitleLinks () {
@@ -52,12 +55,38 @@ class Container extends Component {
     });
   }
 
+  displayAboutMeLink (device) {
+    return (
+      <Link
+        to='/about-me'
+        className={`about-me about-me--${device}`}
+      >
+        about me
+      </Link>
+    );
+  }
+
+  displaySocialLinks (device) {
+    return (
+      <div className={`social-links__container ${device}`}>
+        <hr className='side-bar__container__line line' />
+        {this.displayAboutMeLink(device)}
+        <SocialLinks
+          fetchSocialLinks={this.props.fetchSocialLinks}
+          socialLinks={this.props.socialLinks}
+        />
+      </div>
+    );
+  }
+
   render () {
     return (
       <div className={this.containerClassName()}>
         <ul className='side-bar__container__list column-start'>
           {this.displayTitleLinks()}
+          {this.displaySocialLinks('desktop')}
         </ul>
+        {this.displaySocialLinks('mobile')}
       </div>
     );
   }

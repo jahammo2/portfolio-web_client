@@ -1,17 +1,18 @@
 import reducer from '../index';
 
-describe('reducer', () => {
-  const initialState = new Map({
-    projects: new List([]),
-    individualProject: new Map(),
-    colorSets: new List([]),
-    screenshots: new List([]),
-    languages: new List([]),
-    devices: new List([]),
-    activeProject: new Map(),
-    sideBarShowing: false
-  });
+export const initialState = new Map({
+  projects: new List([]),
+  individualProject: new Map(),
+  colorSets: new List([]),
+  screenshots: new List([]),
+  languages: new List([]),
+  devices: new List([]),
+  activeProject: new Map(),
+  sideBarShowing: false,
+  socialLinks: new List([])
+});
 
+describe('reducer', () => {
   it('returns the initial state', () => {
     expect(initialState).to.eql(reducer(undefined, {}));
   });
