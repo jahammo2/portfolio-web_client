@@ -7,6 +7,7 @@ import Info from '../../components/ProjectPage/Info';
 import Logo from '../../components/Logo';
 import Footer from '../../components/ProjectPage/Footer';
 import * as actionCreators from '../../actions/PortfolioActions';
+import { getSisterProject } from '../../utils/ProjectHelpers';
 import './index.scss';
 
 const propTypes = {
@@ -38,20 +39,6 @@ export class ProjectPage extends Component {
       this.setState({projectId: this.props.params.projectId});
       return this.props.fetchProjectById(this.props.params.projectId);
     }
-  }
-
-  sisterProject (sisterIndex) {
-    const projectIds = this.props.projects.map((project) => {
-      return project.get('id');
-    });
-    const projectIndex = projectIds.indexOf(this.props.individualProject.get('id'));
-    const newIndex = projectIndex + sisterIndex;
-
-    if (newIndex > this.props.individualProject.size) {
-      return this.props.projects.get(0);
-    }
-
-    return this.props.projects.get(newIndex);
   }
 
   displayHeaderImage () {
@@ -106,8 +93,8 @@ export class ProjectPage extends Component {
   renderFooter () {
     return (
       <Footer
-        nextProject={this.sisterProject(-1)}
-        previousProject={this.sisterProject(1)}
+        nextProject={getSisterProject(-1, this.props.projects, this.props.individualProject)}
+        previousProject={getSisterProject(1, this.props.projects, this.props.individualProject)}
       />
     );
   }

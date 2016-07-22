@@ -42,7 +42,9 @@ export class PortfolioRoot extends Component {
 
   render () {
     return (
-      <div className='portfolio-root'>
+      <div
+        className='portfolio-root'
+      >
         <Header
           sideBarShown={this.props.sideBarShown}
           sideBarShowing={this.props.sideBarShowing}
@@ -61,7 +63,9 @@ export class PortfolioRoot extends Component {
           {this.props.children &&
             cloneElement(this.props.children, {
               project: this.props.activeProject,
-              colorSets: this.props.colorSets
+              colorSets: this.props.colorSets,
+              projects: this.props.projects,
+              setActiveProject: this.props.projectActive
             })
           }
         </div>

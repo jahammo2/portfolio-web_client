@@ -44,3 +44,17 @@ export function getIncludedObjects (project, objects, relationship) {
 
   return matchingDevices;
 }
+
+export function getSisterProject (sisterIndex, projects, currentProject) {
+  const projectIds = projects.map((project) => {
+    return project.get('id');
+  });
+  const projectIndex = projectIds.indexOf(currentProject.get('id'));
+  const newIndex = projectIndex + sisterIndex;
+
+  if (newIndex === projects.size) {
+    return projects.get(0);
+  }
+
+  return projects.get(newIndex);
+}

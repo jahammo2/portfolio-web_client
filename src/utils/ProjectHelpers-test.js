@@ -193,4 +193,60 @@ describe('ProjectHelpers', () => {
       expect(getLanguages).to.equal(new List([languages.first(), languages.last()]));
     });
   });
+
+  describe('getSisterProject', () => {
+    const projects = new List([
+      new Map({
+        id: faker.random.number(),
+        attributes: new Map({
+          title: faker.random.word(),
+          github_page_url: faker.internet.url(),
+          web_page_url: faker.internet.url(),
+          body: faker.lorem.sentences(),
+          description: faker.lorem.sentence(),
+          date_deployed: '2016-03-13 20:45:16'
+        })
+      }),
+      new Map({
+        id: faker.random.number(),
+        attributes: new Map({
+          title: faker.random.word(),
+          github_page_url: faker.internet.url(),
+          web_page_url: faker.internet.url(),
+          body: faker.lorem.sentences(),
+          description: faker.lorem.sentence(),
+          date_deployed: '2016-03-13 20:45:16'
+        })
+      }),
+      new Map({
+        id: faker.random.number(),
+        attributes: new Map({
+          title: faker.random.word(),
+          github_page_url: faker.internet.url(),
+          web_page_url: faker.internet.url(),
+          body: faker.lorem.sentences(),
+          description: faker.lorem.sentence(),
+          date_deployed: '2016-03-13 20:45:16'
+        })
+      })
+    ]);
+
+    const getSisterProject = ProjectHelpers.getSisterProject;
+
+    it('returns the next project if +1', () => {
+      const sisterProject = getSisterProject(1, projects, projects.get(1));
+      expect(sisterProject).to.equal(projects.get(2));
+    });
+
+    it('returns the previous project if -1', () => {
+      const sisterProject = getSisterProject(-1, projects, projects.get(1));
+      expect(sisterProject).to.equal(projects.get(0));
+    });
+
+    it('returns the first project if +1 and the last project is the current project', () => {
+      const sisterProject = getSisterProject(1, projects, projects.get(2));
+
+      expect(sisterProject).to.equal(projects.get(0));
+    });
+  });
 });

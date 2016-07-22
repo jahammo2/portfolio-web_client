@@ -100,34 +100,4 @@ describe('ProjectPage', () => {
       fetchProjectById.restore();
     });
   });
-
-  describe('sisterProject', () => {
-    before(() => {
-      projectPage = new ProjectPage();
-      projectPage.props = {
-        projects: projects,
-        individualProject: projects.get(1)
-      };
-    });
-
-    it('returns the next project if +1', () => {
-      const sisterProject = projectPage.sisterProject(1);
-      expect(sisterProject).to.equal(projects.get(2));
-    });
-
-    it('returns the previous project if -1', () => {
-      const sisterProject = projectPage.sisterProject(-1);
-      expect(sisterProject).to.equal(projects.get(0));
-    });
-
-    it('returns the first project if +1 and the last project is the current project', () => {
-      projectPage.props = {
-        projects: projects,
-        individualProject: projects.get(2)
-      };
-      const sisterProject = projectPage.sisterProject(+1);
-
-      expect(sisterProject).to.equal(projects.get(0));
-    });
-  });
 });
