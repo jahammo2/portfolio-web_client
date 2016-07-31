@@ -9,7 +9,8 @@ export const initialState = new Map({
   devices: new List([]),
   activeProject: new Map(),
   sideBarShowing: false,
-  socialLinks: new List([])
+  socialLinks: new List([]),
+  bio: new Map()
 });
 
 describe('reducer', () => {

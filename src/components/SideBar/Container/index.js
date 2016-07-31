@@ -59,7 +59,7 @@ class Container extends Component {
     return (
       <Link
         to='/about-me'
-        className={`about-me about-me--${device}`}
+        className={`side-bar__about-me about-me--${device}`}
       >
         about me
       </Link>

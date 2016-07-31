@@ -20,7 +20,7 @@ class Footer extends Component {
       return project && (
         <div
           key={project.get('id')}
-          className='project-page__footer__project'
+          className='project-page__footer__project background-image'
           style={{backgroundImage: `url(${project.getIn(['attributes', 'header_image'])})`}}
         >
           <Link

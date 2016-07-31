@@ -34,6 +34,13 @@ export function socialLinksFetched (socialLinks) {
   };
 }
 
+export function bioFetched (bio) {
+  return {
+    type: 'BIO_FETCHED_SUCCESS',
+    bio
+  };
+}
+
 export function fetchProjects () {
   return (dispatch) => {
     return window
@@ -64,6 +71,17 @@ export function fetchSocialLinks () {
         .then(response => response.json())
         .then((response) => {
           dispatch(socialLinksFetched(response));
+        });
+  };
+}
+
+export function fetchBio () {
+  return (dispatch) => {
+    return window
+      .fetch(`${getHost()}/api/bio`)
+        .then(response => response.json())
+        .then((response) => {
+          dispatch(bioFetched(response));
         });
   };
 }

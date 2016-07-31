@@ -10,7 +10,8 @@ const INITIAL_STATE = new Map({
   languages: new List([]),
   activeProject: new Map(),
   sideBarShowing: false,
-  socialLinks: new List([])
+  socialLinks: new List([]),
+  bio: new Map()
 });
 
 function setIncludedData (projects, included) {
@@ -61,6 +62,8 @@ const reducer = (state = INITIAL_STATE, action) => {
       return showOrHideSideBar(state);
     case actionTypes.SOCIAL_LINKS_FETCHED_SUCCESS:
       return state.set('socialLinks', fromJS(action.socialLinks.data));
+    case actionTypes.BIO_FETCHED_SUCCESS:
+      return state.set('bio', fromJS(action.bio.data));
     default:
       return state;
   }

@@ -17,7 +17,7 @@ class DeviceImage extends Component {
         />
         <div
           style={{backgroundImage: `url(${this.props.image})`}}
-          className={`device-image__${this.props.device}__overlay`}
+          className={`device-image__${this.props.device}__overlay background-image`}
         />
       </div>
     );

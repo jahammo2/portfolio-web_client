@@ -6,12 +6,11 @@ import thunk from 'redux-thunk';
 import { Router, Route, IndexRoute } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import reducer from './reducer';
-import LogIn from './components/LogIn';
 import App from './components/App';
 import PortfolioRoot from './containers/PortfolioRoot';
-import AdminPanel from './components/AdminPanel';
 import ProjectDashboard from './components/ProjectDashboard';
 import ProjectPage from './containers/ProjectPage';
+import AboutMe from './containers/AboutMe';
 import { Provider } from 'react-redux';
 import NotFound from './components/NotFound';
 
@@ -26,9 +25,7 @@ const routes = (
     <Route path='/' component={PortfolioRoot}>
       <IndexRoute component={ProjectDashboard} />
       <Route path='projects/:projectId' component={ProjectPage} />
-    </Route>
-    <Route path='/admin' component={AdminPanel}>
-      <Route path='log-in' component={LogIn} />
+      <Route path='about-me' component={AboutMe} />
     </Route>
     <Route path='*' component={NotFound} />
   </Route>

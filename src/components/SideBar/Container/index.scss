@@ -76,18 +76,18 @@
       font-size: ($base-font-size * .9);
     }
   }
-}
 
-.about-me {
-  @media screen and (min-width: 600px) {
-    width: ($base-font-size * 7.5);
-  }
+  &__about-me {
+    @media screen and (min-width: 600px) {
+      width: ($base-font-size * 7.5);
+    }
 
-  &--desktop {
-    display: none;
-  }
+    &--desktop {
+      display: none;
+    }
 
-  &:hover {
-    font-weight: bold;
+    &:hover {
+      font-weight: bold;
+    }
   }
 }

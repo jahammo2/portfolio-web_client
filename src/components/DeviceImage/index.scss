@@ -10,13 +10,10 @@
 
     &__overlay {
       position: absolute;
-      background: $base-black;
       height: 71.8%;
       width: 68.85%;
       top: 5.2%;
       left: 14.8%;
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
 
       @media screen and (min-width: 600px) {
         height: 72.8%;

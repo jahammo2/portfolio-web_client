@@ -44,7 +44,7 @@ export class ProjectPage extends Component {
   displayHeaderImage () {
     return (
       <div
-        className='project-page__header-image'
+        className='project-page__header-image background-image'
         style={{backgroundImage: `url(${this.props.individualProject.getIn(['attributes', 'header_image'])})`}}
       >
         <Logo
