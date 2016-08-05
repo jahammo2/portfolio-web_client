@@ -11,17 +11,21 @@
     margin-top: 0;
   }
 
-  &:hover {
-    cursor: pointer
-  }
-
   &__title {
     margin-right: ($base-font-size * .5);
+  }
+
+  &__about-me {
+    @media screen and (min-width: 600px) {
+      width: ($base-font-size * 7.5);
+    }
   }
 
   &__icon {
     width: 36%;
     margin-top: -23px;
+    color: blue;
+    fill: blue;
 
     @media screen and (min-width: 600px) {
       width: 20%;
@@ -36,6 +40,12 @@
   &__projects-toggler {
     @media screen and (min-width: 600px) {
       margin-left: ($base-font-size * 1.75);
+    }
+
+    &:hover {
+      .menu-bar__icon {
+        fill: blue;
+      }
     }
   }
 }

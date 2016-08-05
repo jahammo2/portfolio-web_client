@@ -4,7 +4,7 @@
   margin-top: 6px;
 
   @media screen and (min-width: 600px) {
-    width: 57%;
+    width: 51%;
   }
 
   @media screen and (min-width: 768px) {
@@ -35,7 +35,13 @@
     margin-top: $base-font-size;
 
     @media screen and (min-width: 768px) {
-      font-style: italic;
+      font-weight: 700;
+    }
+
+    &:hover {
+      background: $base-black;
+      // transition-property: background;
+      // transition-duration: .5s;
     }
   }
 }

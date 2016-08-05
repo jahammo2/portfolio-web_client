@@ -101,3 +101,10 @@ ul {
     display: none;
   }
 }
+
+.link {
+  &:hover {
+    color: blue;
+    cursor: pointer
+  }
+}
