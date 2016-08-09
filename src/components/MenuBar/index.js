@@ -27,18 +27,20 @@ class MenuBar extends Component {
   render () {
     return (
       <div
-        onClick={() => {this.props.sideBarShown();}}
         className='row-end menu-bar'
         ref='sideBarShown'
       >
         <Link
           to='/about-me'
-          className='about-me desktop'
+          className='menu-bar__about-me desktop'
         >
           about me
         </Link>
         <div className='header__vertical-line desktop' />
-        <div className='menu-bar__projects-toggler row-between'>
+        <div
+          onClick={() => {this.props.sideBarShown();}}
+          className='menu-bar__projects-toggler row-between'
+        >
           <p className='menu-bar__title'>{this.props.title}</p>
           {this.displayMenuIcon()}
         </div>

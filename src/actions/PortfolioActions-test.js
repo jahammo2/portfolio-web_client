@@ -133,4 +133,42 @@ describe('PortfolioActions', () => {
       stubbedFetch.restore();
     });
   });
+
+  describe('fetchBio', () => {
+    beforeEach(() => {
+      response = {
+        data: [{
+          attributes: {
+            url: ''
+          }
+        }]
+      };
+      stubbedFetch = stub(window, 'fetch').returns(
+        Promise.resolve(
+          {
+            json: () => {
+              return response;
+            }
+          }
+        )
+      );
+    });
+
+    it('dispatches socialLinksFetched', () => {
+      const dispatch = spy();
+      const asyncAction = PortfolioActions.fetchBio();
+      const action = asyncAction(dispatch);
+
+      return action.then(() => {
+        expect(dispatch.args[0]).to.include({
+          type: 'BIO_FETCHED_SUCCESS',
+          bio: response
+        });
+      });
+    });
+
+    afterEach(() => {
+      stubbedFetch.restore();
+    });
+  });
 });

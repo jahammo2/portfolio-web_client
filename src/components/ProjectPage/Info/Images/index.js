@@ -25,7 +25,7 @@ class Images extends Component {
                 this.setState({slickGoTo: index});
               }}
               key={screenshot.get('id')}
-              className='project-page__info__images__thumbnails__thumbnail'
+              className='project-page__info__images__thumbnails__thumbnail background-image'
               style={{backgroundImage: `url(${screenshot.getIn(['attributes', 'image'])})`}}
             />
           );

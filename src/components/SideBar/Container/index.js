@@ -55,11 +55,22 @@ class Container extends Component {
     });
   }
 
+  desktopStyles () {
+    const totalProjectsHeight = this.props.projects.count() * 45;
+    const extraMargin = window.innerHeight * 0.6 - totalProjectsHeight + 15;
+    const topInPixels = `${totalProjectsHeight + extraMargin}px`;
+
+    return {
+      top: topInPixels
+    };
+  }
+
   displayAboutMeLink (device) {
     return (
       <Link
         to='/about-me'
-        className={`about-me about-me--${device}`}
+        onClick={()=> {this.props.sideBarShown();}}
+        className={`side-bar__about-me side-bar__about-me--${device}`}
       >
         about me
       </Link>
@@ -68,7 +79,10 @@ class Container extends Component {
 
   displaySocialLinks (device) {
     return (
-      <div className={`social-links__container ${device}`}>
+      <div
+        className={`social-links ${device}`}
+        style={device === 'desktop' ? this.desktopStyles() : {}}
+      >
         <hr className='side-bar__container__line line' />
         {this.displayAboutMeLink(device)}
         <SocialLinks
