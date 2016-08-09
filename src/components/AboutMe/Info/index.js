@@ -11,7 +11,10 @@ class Info extends Component {
     return (
       <div className='about-me__info'>
         <p className='about-me__info__title'>{this.props.title}</p>
-        <p className='about-me__info__body'>{this.props.body}</p>
+        <p
+          className='about-me__info__body'
+          dangerouslySetInnerHTML={{__html: this.props.body}}
+        />
       </div>
     );
   }
