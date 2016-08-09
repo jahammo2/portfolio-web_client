@@ -40,7 +40,7 @@ export class SocialLinks extends Component {
 
   render () {
     return (
-      <div className='social-links row-start'>
+      <div className='social-links__container row-start'>
         {this.props.socialLinks.map((socialLink) => {
           return this.displaySocialLink(socialLink);
         })}

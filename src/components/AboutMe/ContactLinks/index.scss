@@ -1,0 +1,35 @@
+@import "../../../variables";
+
+.contact-links {
+  padding-top: $base-font-size;
+  padding-bottom: ($base-font-size * .1);
+  margin: 0;
+
+  @media screen and (min-width: 600px) {
+    margin-top: $base-font-size;
+    padding-right: $base-font-size;
+    border-top: 1px solid $base-dark-gray;
+    border-right: 1px solid $base-dark-gray;
+  }
+
+  &__link {
+    width: 100%;
+    margin-bottom: ($base-font-size * .9);
+
+    a {
+      color: blue;
+    }
+  }
+
+  &__icon {
+    font-size: ($base-font-size * 1.25);
+    width: ($base-font-size * 1.25);
+    padding-top: ($base-font-size * .15);
+  }
+
+  &__title {
+    margin-bottom: 0;
+    margin-left: ($base-font-size * .75);
+    overflow: scroll;
+  }
+}
