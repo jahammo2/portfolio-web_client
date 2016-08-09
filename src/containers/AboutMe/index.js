@@ -24,7 +24,6 @@ export class AboutMe extends Component {
   }
 
   render () {
-    console.log(this.props.bio.getIn(['attributes', 'background_image']));
     return (
       <div
         className='about-me background-image'

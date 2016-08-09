@@ -4,7 +4,7 @@ import { initialState } from '../index-test';
 
 describe('reducer', () => {
   describe('action BIO_FETCHED_SUCCESS', () => {
-    it('it is working without mutating before state', () => {
+    it('is working without mutating before state', () => {
       const bio = {
         data: {
           attributes: {}

@@ -57,12 +57,12 @@ class Container extends Component {
 
   desktopStyles () {
     const totalProjectsHeight = this.props.projects.count() * 45;
-    const extraMargin = window.innerHeight * .6 - totalProjectsHeight + 15;
-    const topInPixels = `${totalProjectsHeight + extraMargin}px`
+    const extraMargin = window.innerHeight * 0.6 - totalProjectsHeight + 15;
+    const topInPixels = `${totalProjectsHeight + extraMargin}px`;
 
     return {
       top: topInPixels
-    }
+    };
   }
 
   displayAboutMeLink (device) {
