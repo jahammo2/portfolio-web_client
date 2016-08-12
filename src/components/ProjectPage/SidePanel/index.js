@@ -13,14 +13,16 @@ class SidePanel extends Component {
   displaySiteLink (site, buttonName) {
     const link = this.props.project.getIn(['attributes', site]);
 
-    return (
-      <a
-        className='button row-center project-page__side-panel__link'
-        href={link}
-      >
-        <p className='button__text'>{buttonName}</p>
-      </a>
-    );
+    if (link) {
+      return (
+        <a
+          className='button row-center project-page__side-panel__link'
+          href={link}
+        >
+          <p className='button__text'>{buttonName}</p>
+        </a>
+      );
+    }
   }
 
   displayLines () {
