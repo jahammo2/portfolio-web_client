@@ -10,15 +10,15 @@ const propTypes = {
 };
 
 class SidePanel extends Component {
-  displaySiteLink () {
-    const link = this.props.project.getIn(['attributes', 'web_page_url']);
+  displaySiteLink (site, buttonName) {
+    const link = this.props.project.getIn(['attributes', site]);
 
     return (
       <a
         className='button row-center project-page__side-panel__link'
         href={link}
       >
-        <p className='button__text'>visit site</p>
+        <p className='button__text'>{buttonName}</p>
       </a>
     );
   }
@@ -35,7 +35,8 @@ class SidePanel extends Component {
   render () {
     return (
       <div className='project-page__side-panel'>
-        {this.displaySiteLink()}
+        {this.displaySiteLink('web_page_url', 'Visit site')}
+        {this.displaySiteLink('github_page_url', 'GitHub page')}
         {this.displayLines()}
         <Technologies
           project={this.props.project}
