@@ -4,10 +4,6 @@
   width: 100%;
   margin-top: ($base-font-size * .25);
 
-  @media screen and (min-width: 600px) {
-    position: absolute;
-  }
-
   &__container {
     padding-top: ($base-font-size * 1.25);
   }

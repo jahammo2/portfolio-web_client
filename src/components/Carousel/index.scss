@@ -11,13 +11,30 @@
       margin: 0 auto;
       width: 70%;
 
-      .device-image__laptop__overlay {
+      .device-image__mobile {
+        width: initial;
+        height: 260px;
+
+        &__overlay {
+          height: 64.6%;
+          width: 73.8%;
+          top: 10.8%;
+          left: 7%;
+        }
+      }
+
+      .device-image__desktop__overlay {
         top: 1.2vw;
       }
     }
 
-    .device-image__laptop__overlay {
+    .device-image__desktop__overlay {
       height: 74.8%;
+    }
+
+    .device-image--mobile {
+      height: 300px;
+      width: (300px * .4948);
     }
   }
 

@@ -19,7 +19,7 @@ class Carousel extends Component {
       >
         <div className='carousel-slide__image'>
           <DeviceImage
-            device='laptop'
+            device={device.getIn(['attributes', 'title'])}
             image={this.props.screenshots.getIn([index, 'attributes', 'image'])}
           />
         </div>

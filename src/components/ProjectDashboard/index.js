@@ -49,6 +49,8 @@ export class ProjectDashboard extends Component {
   }
 
   render () {
+    const device = this.props.project.getIn(['attributes', 'featured_screenshot', 'device']);
+
     return (
       <div
         className='project-dashboard'
@@ -56,10 +58,14 @@ export class ProjectDashboard extends Component {
         onWheel={(e) => {this.scrollThroughProjects(e);}}
       >
         <div className='project-dashboard__container'>
-          <div className='project-dashboard__image'>
-            <DeviceImage device='laptop' image={this.props.project.getIn(['attributes', 'featured_screenshot', 'image'])} />
+          <div className={`project-dashboard__image project-dashboard__image--${device}`}>
+            <DeviceImage
+              device={device}
+              image={this.props.project.getIn(['attributes', 'featured_screenshot', 'image'])}
+            />
           </div>
           <Info
+            device={device}
             project={this.props.project}
             colorSets={this.props.colorSets}
           />

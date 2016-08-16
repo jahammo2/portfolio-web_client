@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import laptop from '../../img/laptop.png';
+import mobile from '../../img/mobile.png';
 
 const propTypes = {
   device: PropTypes.string,
@@ -8,12 +9,22 @@ const propTypes = {
 };
 
 class DeviceImage extends Component {
+  chooseImage () {
+    const device = this.props.device;
+
+    if (device === 'desktop') {
+      return laptop;
+    }
+
+    return mobile;
+  }
+
   render () {
     return (
-      <div className='device-image'>
+      <div className={`device-image device-image--${this.props.device}`}>
         <img
           className={`device-image__${this.props.device}`}
-          src={laptop}
+          src={this.chooseImage()}
         />
         <div
           style={{backgroundImage: `url(${this.props.image})`}}

@@ -6,7 +6,8 @@ import { Link } from 'react-router';
 
 const propTypes = {
   project: PropTypes.instanceOf(Map),
-  colorSets: PropTypes.instanceOf(List)
+  colorSets: PropTypes.instanceOf(List),
+  device: PropTypes.string
 };
 
 class Info extends Component {
@@ -39,7 +40,7 @@ class Info extends Component {
 
   render () {
     return (
-      <div className='project-dashboard__project-info column-between'>
+      <div className={`project-dashboard__project-info project-dashboard__project-info--${this.props.device} column-between`}>
         <p className='project-dashboard__project-info__title'>{this.props.project.getIn(['attributes', 'title'])}</p>
         <p className='project-dashboard__project-info__description'>{this.props.project.getIn(['attributes', 'description'])}</p>
         {this.linkToProject()}
