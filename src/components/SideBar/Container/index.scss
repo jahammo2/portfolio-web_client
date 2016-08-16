@@ -39,7 +39,8 @@
       margin: 0 auto;
 
       @media screen and (min-width: 600px) {
-        padding-top: $header-height__tablet;
+        // 37px is 1/2 the height of the social links
+        padding-top: $header-height__tablet + 37px;
         height: $dashboard-height;
         margin: 0;
         padding-left: 45px;

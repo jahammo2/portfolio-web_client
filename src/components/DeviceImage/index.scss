@@ -5,7 +5,36 @@
   width: 100%;
   position: relative;
 
-  &__laptop {
+  &--mobile {
+    width: $dashboard-height * .4948;
+    margin: 0 auto;
+  }
+
+  &__mobile {
+    width: 100%;
+
+    @media screen and (min-width: 600px) {
+      width: initial;
+      height: 60vh;
+    }
+
+    &__overlay {
+      position: absolute;
+      height: 74%;
+      width: 85.4%;
+      top: 12.2%;
+      left: 7.4%;
+
+      @media screen and (min-width: 600px) {
+        height: 75%;
+        left: 7.3%;
+        top: 12.2%;
+        width: 25.4vh;
+      }
+    }
+  }
+
+  &__desktop {
     width: 100%;
 
     &__overlay {

@@ -57,7 +57,7 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
       template: 'src/index.html',
-      title: 'fasdfasd'
+      title: 'Jordan Hammond'
     }),
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
