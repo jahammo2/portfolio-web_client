@@ -1,4 +1,4 @@
-import { setActiveProject, getHost } from '../utils/ActionHelpers';
+import { setActiveProject } from '../utils/ActionHelpers';
 
 export function sideBarShown () {
   return {
