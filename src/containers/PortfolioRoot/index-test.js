@@ -7,30 +7,6 @@ describe('PortfolioRoot', () => {
     portfolioRoot = new PortfolioRoot();
   });
 
-  describe('componentDidUpdate', () => {
-    let fetchProjects;
-
-    before(() => {
-      portfolioRoot.props = {
-        fetchProjects: () => {
-          return;
-        },
-        colorSets: new List([new Map()])
-      };
-
-      fetchProjects = spy(portfolioRoot.props, 'fetchProjects');
-    });
-
-    it('calls fetchProjects if only 1 colorSet is present', () => {
-      portfolioRoot.componentDidUpdate();
-      expect(fetchProjects.calledOnce).to.be.true;
-    });
-
-    afterEach(() => {
-      fetchProjects.restore();
-    });
-  });
-
   describe('componentWillMount', () => {
     let fetchProjects;
 

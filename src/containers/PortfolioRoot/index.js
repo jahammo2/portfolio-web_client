@@ -26,12 +26,6 @@ export class PortfolioRoot extends Component {
     return this.props.fetchProjects();
   }
 
-  componentDidUpdate () {
-    if (this.props.colorSets.size === 1) {
-      return this.props.fetchProjects();
-    }
-  }
-
   portfolioRootContainerClassName () {
     if (this.props.sideBarShowing) {
       return 'portfolio-root__container portfolio-root__container--pushed';
