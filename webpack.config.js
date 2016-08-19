@@ -70,11 +70,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
         'HOST': JSON.stringify(process.env.HOST)
       }
-    }),
-    new DotenvPlugin({
-      sample: './.env.default',
-      path: './.env'
-    }),
+    })
   ],
   postcss: function () {
     return [lost, autoprefixer];
