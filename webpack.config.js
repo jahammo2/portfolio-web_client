@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var lost = require('lost');
 var path = require('path');
+var DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = {
   entry: [
@@ -52,6 +53,10 @@ module.exports = {
   },
   devtool: '#source-map',
   plugins: [
+    new DotenvPlugin({
+      sample: './.env.default',
+      path: './.env'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -62,9 +67,10 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'HOST': JSON.stringify(process.env.HOST)
       }
-    }),
+    })
   ],
   postcss: function () {
     return [lost, autoprefixer];

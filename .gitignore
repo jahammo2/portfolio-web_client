@@ -4,6 +4,7 @@ npm-debug.log
 .sass-cache
 .DS_STORE
 .idea
+.env
 ./.DevKeysAndPasswords.js
 .DevKeysAndPasswords.js
 .devKeysAndPasswords.js

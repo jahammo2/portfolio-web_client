@@ -1,4 +1,4 @@
-import { setActiveProject, getHost } from '../utils/ActionHelpers';
+import { setActiveProject } from '../utils/ActionHelpers';
 
 export function sideBarShown () {
   return {
@@ -44,7 +44,7 @@ export function bioFetched (bio) {
 export function fetchProjects () {
   return (dispatch) => {
     return window
-      .fetch(`${getHost()}/api/projects`)
+      .fetch(`${process.env.HOST}/api/projects`)
         .then(response => response.json())
         .then((response) => {
           dispatch(projectsFetched(response));
@@ -56,7 +56,7 @@ export function fetchProjects () {
 export function fetchProjectById (id) {
   return (dispatch) => {
     return window
-      .fetch(`${getHost()}/api/projects/${id}`)
+      .fetch(`${process.env.HOST}/api/projects/${id}`)
         .then(response => response.json())
         .then((response) => {
           dispatch(projectFetched(response));
@@ -67,7 +67,7 @@ export function fetchProjectById (id) {
 export function fetchSocialLinks () {
   return (dispatch) => {
     return window
-      .fetch(`${getHost()}/api/social-links`)
+      .fetch(`${process.env.HOST}/api/social-links`)
         .then(response => response.json())
         .then((response) => {
           dispatch(socialLinksFetched(response));
@@ -78,7 +78,7 @@ export function fetchSocialLinks () {
 export function fetchBio () {
   return (dispatch) => {
     return window
-      .fetch(`${getHost()}/api/bio`)
+      .fetch(`${process.env.HOST}/api/bio`)
         .then(response => response.json())
         .then((response) => {
           dispatch(bioFetched(response));
