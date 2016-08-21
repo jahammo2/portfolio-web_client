@@ -28,11 +28,6 @@ class ContactLinks extends Component {
     return (
       <ul className='contact-links'>
         {this.displayLink(
-          this.props.resume,
-          'file',
-          'resume'
-        )}
-        {this.displayLink(
           `mailto:${this.props.email}`,
           'envelope',
           this.props.email
