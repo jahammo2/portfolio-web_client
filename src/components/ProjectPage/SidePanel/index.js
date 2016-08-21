@@ -18,6 +18,7 @@ class SidePanel extends Component {
         <a
           className='button row-center project-page__side-panel__link'
           href={link}
+          target='_blank'
         >
           <p className='button__text'>{buttonName}</p>
         </a>
