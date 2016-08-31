@@ -38,9 +38,13 @@
 
       &__title {
         margin-bottom: 0;
-        height: 100%;
+        height: ($base-font-size * 1.5);
         overflow: hidden;
         text-align: center;
+
+        @media screen and (min-width: 600px) {
+          height: 100%;
+        }
       }
     }
 
