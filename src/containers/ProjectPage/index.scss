@@ -4,6 +4,7 @@
 .project-page {
   min-height: 100%;
   width: 100%;
+  display: inline-block;
 
   &__container {
     padding: ($base-font-size * 3) 0;
