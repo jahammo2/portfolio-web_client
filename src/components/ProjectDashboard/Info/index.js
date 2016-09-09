@@ -11,12 +11,12 @@ const propTypes = {
 };
 
 export class Info extends Component {
-  constructor() {
-    super()
+  constructor () {
+    super();
     this.state = { hover: false };
   }
 
-  getBackgroundColor() {
+  getBackgroundColor () {
     return getColor(
       this.props.project,
       this.props.colorSets,

@@ -1,5 +1,4 @@
 import { Info } from './index';
-import * as ProjectHelpers from '../../../utils/ProjectHelpers';
 
 describe('Info', () => {
   let info;
