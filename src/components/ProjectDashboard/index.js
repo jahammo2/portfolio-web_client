@@ -37,13 +37,13 @@ export class ProjectDashboard extends Component {
     const device = this.props.project.getIn(['attributes', 'featured_screenshot', 'device']);
 
     return (
-      <Swipeable
-        onSwipedUp={() => {this.swipe(1);}}
-        onSwipedDown={() => {this.swipe(-1);}}
+      <div
+        className='project-dashboard'
+        style={this.projectDashboardStyles()}
       >
-        <div
-          className='project-dashboard'
-          style={this.projectDashboardStyles()}
+        <Swipeable
+          onSwipedUp={() => {this.swipe(1);}}
+          onSwipedDown={() => {this.swipe(-1);}}
         >
           <div className='project-dashboard__container'>
             <div className={`project-dashboard__image project-dashboard__image--${device}`}>
@@ -58,8 +58,8 @@ export class ProjectDashboard extends Component {
               colorSets={this.props.colorSets}
             />
           </div>
-        </div>
-      </Swipeable>
+        </Swipeable>
+      </div>
     );
   }
 }
