@@ -4,6 +4,7 @@ import './index.scss';
 import Info from './Info';
 import { getColor, getSisterProject } from '../../utils/ProjectHelpers';
 import DeviceImage from '../DeviceImage';
+import Swipeable from 'react-swipeable';
 
 const propTypes = {
   project: PropTypes.instanceOf(Map),
@@ -14,26 +15,10 @@ const propTypes = {
 };
 
 export class ProjectDashboard extends Component {
-  constructor () {
-    super();
-    this.state = { currentlyChanging: false };
-  }
-
-  scrollThroughProjects (e) {
-    // Scrolling up
-    if (e.deltaY === -18 && this.state.currentlyChanging === false) {
-      const sisterProject = getSisterProject(1, this.props.projects, this.props.project);
-      this.setState({currentlyChanging: true});
-      this.props.setActiveProject(sisterProject);
-    // Scrolling down
-    } else if (e.deltaY === 18 && this.state.currentlyChanging === false) {
-      const sisterProject = getSisterProject(-1, this.props.projects, this.props.project);
-      this.setState({currentlyChanging: true});
-      this.props.setActiveProject(sisterProject);
-    // Scrolling nowhere
-    } else if (e.deltaY === -0) {
-      this.setState({currentlyChanging: false});
-    }
+  swipe (direction) {
+    console.log(direction);
+    const sisterProject = getSisterProject(direction, this.props.projects, this.props.project);
+    this.props.setActiveProject(sisterProject);
   }
 
   projectDashboardStyles () {
@@ -52,25 +37,29 @@ export class ProjectDashboard extends Component {
     const device = this.props.project.getIn(['attributes', 'featured_screenshot', 'device']);
 
     return (
-      <div
-        className='project-dashboard'
-        style={this.projectDashboardStyles()}
-        onWheel={(e) => {this.scrollThroughProjects(e);}}
+      <Swipeable
+        onSwipedUp={() => {this.swipe(1);}}
+        onSwipedDown={() => {this.swipe(-1);}}
       >
-        <div className='project-dashboard__container'>
-          <div className={`project-dashboard__image project-dashboard__image--${device}`}>
-            <DeviceImage
+        <div
+          className='project-dashboard'
+          style={this.projectDashboardStyles()}
+        >
+          <div className='project-dashboard__container'>
+            <div className={`project-dashboard__image project-dashboard__image--${device}`}>
+              <DeviceImage
+                device={device}
+                image={this.props.project.getIn(['attributes', 'featured_screenshot', 'image'])}
+              />
+            </div>
+            <Info
               device={device}
-              image={this.props.project.getIn(['attributes', 'featured_screenshot', 'image'])}
+              project={this.props.project}
+              colorSets={this.props.colorSets}
             />
           </div>
-          <Info
-            device={device}
-            project={this.props.project}
-            colorSets={this.props.colorSets}
-          />
         </div>
-      </div>
+      </Swipeable>
     );
   }
 }
