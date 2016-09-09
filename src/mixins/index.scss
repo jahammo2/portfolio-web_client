@@ -7,3 +7,12 @@
   display: flex;
   flex-direction: column;
 }
+
+@mixin link {
+  font-weight: bold;
+  font-family: $base-font-family;
+
+  &:hover {
+    cursor: pointer
+  }
+}

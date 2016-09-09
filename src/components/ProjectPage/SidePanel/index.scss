@@ -13,7 +13,15 @@
   }
 
   &__link {
+    @include link;
     margin-bottom: $base-font-size;
+    transition-property: background, color;
+    transition-duration: .3s;
+
+    &:hover {
+      background: $base-white;
+      color: $base-black;
+    }
 
     @media screen and (max-width: 600px) {
       width: 100%;
