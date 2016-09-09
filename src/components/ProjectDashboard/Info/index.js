@@ -10,17 +10,34 @@ const propTypes = {
   device: PropTypes.string
 };
 
-class Info extends Component {
-  infoStyles () {
-    const color = getColor(
+export class Info extends Component {
+  constructor() {
+    super()
+    this.state = { hover: false };
+  }
+
+  getBackgroundColor() {
+    return getColor(
       this.props.project,
       this.props.colorSets,
       'button'
     );
+  }
+
+  infoStyles () {
+    if (this.state.hover) {
+      return {
+        background: '#222'
+      };
+    }
 
     return {
-      background: color
+      background: this.getBackgroundColor()
     };
+  }
+
+  toggleHover () {
+    this.setState({ hover: !this.state.hover });
   }
 
   linkToProject () {
@@ -31,6 +48,8 @@ class Info extends Component {
         to={url}
         className='project-dashboard__project-info__view-project row-center button'
         style={this.infoStyles()}
+        onMouseEnter={this.toggleHover.bind(this)}
+        onMouseLeave={this.toggleHover.bind(this)}
       >
         <p className='button__text'>view project</p>
       </Link>
