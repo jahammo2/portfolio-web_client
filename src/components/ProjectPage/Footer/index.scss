@@ -18,6 +18,8 @@
     }
 
     &__link {
+      @include link;
+
       &__container {
         background: white;
         width: ($base-width - 8%);
@@ -29,6 +31,13 @@
         font-family: $base-font-family;
         border-radius: 3% / 15%;
         top: calc((75px - 42px) * .5);
+        transition-property: background, color;
+        transition-duration: .3s;
+
+        &:hover {
+          background: $base-black;
+          color: $base-white;
+        }
 
         @media screen and (min-width: 600px) {
           width: 35%;
