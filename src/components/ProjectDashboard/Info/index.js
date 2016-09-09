@@ -33,7 +33,6 @@ class Info extends Component {
         style={this.infoStyles()}
       >
         <p className='button__text'>view project</p>
-        <i className='fa fa-long-arrow-right'></i>
       </Link>
     );
   }

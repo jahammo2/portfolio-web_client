@@ -30,8 +30,10 @@ export class SocialLinks extends Component {
   displaySocialLink (socialLink) {
     return (
       <a
+        className='link'
         key={socialLink.get('id')}
         href={socialLink.getIn(['attributes', 'url'])}
+        target='_blank'
       >
         {this.pickIcon(socialLink.getIn(['attributes', 'site']))}
       </a>
