@@ -14,9 +14,9 @@ const propTypes = {
 class MenuBar extends Component {
   displayMenuIcon () {
     if (this.props.sideBarShowing) {
+      // <img className='menu-bar__icon' src={xButton} />
       return (
-        <svg>xButton</svg>
-        // <img className='menu-bar__icon' src={xButton} />
+        <svg>{xButton}</svg>
       );
     }
 
