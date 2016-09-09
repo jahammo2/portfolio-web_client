@@ -16,7 +16,6 @@ const propTypes = {
 
 export class ProjectDashboard extends Component {
   swipe (direction) {
-    console.log(direction);
     const sisterProject = getSisterProject(direction, this.props.projects, this.props.project);
     this.props.setActiveProject(sisterProject);
   }
