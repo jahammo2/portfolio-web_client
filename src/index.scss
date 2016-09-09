@@ -108,3 +108,9 @@ ul {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.link {
+  &:hover {
+    cursor: pointer
+  }
+}

@@ -4,7 +4,7 @@
   margin-top: 6px;
 
   @media screen and (min-width: 600px) {
-    width: 57%;
+    width: 51%;
 
     &--mobile {
       width: 100%;
@@ -37,9 +37,11 @@
 
   &__view-project {
     margin-top: $base-font-size;
+    transition-property: background;
+    transition-duration: .3s;
 
     @media screen and (min-width: 768px) {
-      font-style: italic;
+      font-weight: 700;
     }
   }
 }
