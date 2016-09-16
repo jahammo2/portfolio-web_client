@@ -15,10 +15,26 @@ const propTypes = {
 };
 
 export class ProjectDashboard extends Component {
-  swipe (direction) {
-    console.log(direction);
-    const sisterProject = getSisterProject(direction, this.props.projects, this.props.project);
-    this.props.setActiveProject(sisterProject);
+  constructor(props) {
+    super(props);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleSwipeAction = this.handleSwipeAction.bind(this);
+  }
+
+  componentWillMount () {
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleKeyDown (e) {
+    if (e.key === 'ArrowDown') {
+      this.swipe(1);
+    } else if (e.key === 'ArrowUp') {
+      this.swipe(-1);
+    }
   }
 
   projectDashboardStyles () {
@@ -34,16 +50,16 @@ export class ProjectDashboard extends Component {
   }
 
   handleSwipeAction (e, x, y, isFlick, velocity) {
-    console.log(e);
-    console.log(x);
-    console.log(y);
-    console.log(isFlick);
-    console.log(velocity);
     if (velocity > 1 && y > 0) {
       this.swipe(1);
     } else if (velocity > 1 && y < 0) {
       this.swipe(-1);
     }
+  }
+
+  swipe (direction) {
+    const sisterProject = getSisterProject(direction, this.props.projects, this.props.project);
+    this.props.setActiveProject(sisterProject);
   }
 
   render () {
@@ -57,7 +73,7 @@ export class ProjectDashboard extends Component {
         <Swipeable
           flickThreshold={40}
           delta={100}
-          onSwiped={this.handleSwipeAction.bind(this)}
+          onSwiped={this.handleSwipeAction}
         >
           <div className='project-dashboard__container'>
             <div className={`project-dashboard__image project-dashboard__image--${device}`}>
