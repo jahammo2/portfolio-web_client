@@ -10,7 +10,7 @@ const propTypes = {
 };
 
 class Logo extends Component {
-  styles (name) {
+  getColorForStyle (name) {
     const color = getColor(
       this.props.project,
       this.props.colorSets,
@@ -24,7 +24,7 @@ class Logo extends Component {
     return (
       <div
         className='logo column-between'
-        style={{ background: this.styles('logo_background') }}
+        style={{ background: this.getColorForStyle('logo_background') }}
       >
         <img
           className='logo__image'
@@ -32,7 +32,7 @@ class Logo extends Component {
         />
         <p
           className='logo__title'
-          style={{ color: this.styles('logo_title') }}
+          style={{ color: this.getColorForStyle('logo_title') }}
         >{this.props.project.getIn(['attributes', 'title'])}</p>
       </div>
     );
