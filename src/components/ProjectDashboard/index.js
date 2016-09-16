@@ -15,18 +15,24 @@ const propTypes = {
 };
 
 export class ProjectDashboard extends Component {
-  componentWillMount() {
-    window.addEventListener('keydown', this.handleKeyDown.bind(this));
+  constructor(props) {
+    super(props);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleSwipeAction = this.handleSwipeAction.bind(this);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown.bind(this));
+  componentWillMount () {
+    window.addEventListener('keydown', this.handleKeyDown);
   }
 
-  handleKeyDown(e) {
-    if (e.key === "ArrowDown") {
+  componentWillUnmount () {
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleKeyDown (e) {
+    if (e.key === 'ArrowDown') {
       this.swipe(1);
-    } else if (e.key === "ArrowUp") {
+    } else if (e.key === 'ArrowUp') {
       this.swipe(-1);
     }
   }
@@ -67,11 +73,9 @@ export class ProjectDashboard extends Component {
         <Swipeable
           flickThreshold={40}
           delta={100}
-          onSwiped={this.handleSwipeAction.bind(this)}
+          onSwiped={this.handleSwipeAction}
         >
-          <div
-            className='project-dashboard__container'
-          >
+          <div className='project-dashboard__container'>
             <div className={`project-dashboard__image project-dashboard__image--${device}`}>
               <DeviceImage
                 device={device}

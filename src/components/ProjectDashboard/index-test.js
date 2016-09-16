@@ -15,6 +15,46 @@ describe('ProjectDashboard', () => {
     };
   });
 
+  describe('componentWillMount', () => {
+    let addEventListener;
+
+    beforeEach(() => {
+      addEventListener = spy(window, 'addEventListener');
+      projectDashboard.componentWillMount();
+    });
+
+    it('adds an event listener on keydown to handleKeyDown', () => {
+      const [eventType, handler] = addEventListener.firstCall.args;
+
+      expect(eventType).to.eq('keydown');
+      expect(handler).to.eq(projectDashboard.handleKeyDown);
+    });
+
+    afterEach(() => {
+      addEventListener.restore();
+    });
+  });
+
+  describe('componentWillUnmount', () => {
+    let removeEventListener;
+
+    beforeEach(() => {
+      removeEventListener = spy(window, 'removeEventListener');
+      projectDashboard.componentWillUnmount();
+    });
+
+    it('removes an event listener on keydown for handleKeyDown', () => {
+      const [eventType, handler] = removeEventListener.firstCall.args;
+
+      expect(eventType).to.eq('keydown');
+      expect(handler).to.eq(projectDashboard.handleKeyDown);
+    });
+
+    afterEach(() => {
+      removeEventListener.restore();
+    });
+  });
+
   describe('swipe', () => {
     let getSisterProject;
     let setActiveProject;
