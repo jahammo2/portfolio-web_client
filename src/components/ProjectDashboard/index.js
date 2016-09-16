@@ -15,7 +15,7 @@ const propTypes = {
 };
 
 export class ProjectDashboard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleSwipeAction = this.handleSwipeAction.bind(this);

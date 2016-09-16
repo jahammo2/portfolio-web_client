@@ -15,6 +15,7 @@ const propTypes = {
 class Bullets extends Component {
   constructor (props) {
     super(props);
+    this.state = { hover: null };
   }
 
   path () {
@@ -28,13 +29,17 @@ class Bullets extends Component {
   }
 
   bulletClassName (project) {
-    return this.props.isActiveProject(project, this.props.activeProject) ?
+    return this.bulletIsToBeHighlighted(project) ?
       'side-bar__bullet side-bar__bullet--active' :
       'side-bar__bullet';
   }
 
+  bulletIsToBeHighlighted (project) {
+    return this.props.isActiveProject(project, this.props.activeProject) || this.state.hover === project;
+  }
+
   bulletStyles (project) {
-    if (this.props.isActiveProject(project, this.props.activeProject)) {
+    if (this.bulletIsToBeHighlighted(project)) {
       const color = getColor(
         project,
         this.props.colorSets,
@@ -50,13 +55,18 @@ class Bullets extends Component {
     return {};
   }
 
+  handleMouseOver (project) {
+    return this.setState({ hover: project });
+  }
+
   displayBullets () {
     return this.props.projects.map((project, index) => {
       return (
         <li
           style={this.bulletStyles(project)}
           className={this.bulletClassName(project)}
-          onMouseOver={() => {this.props.setActiveProject(project);}}
+          onMouseOver={() => {this.setState({ hover: project });}}
+          onMouseOut={() => {this.setState({ hover: null });}}
           onClick={() => {this.props.setActiveProject(project);}}
           key={index + 5000}
         >
