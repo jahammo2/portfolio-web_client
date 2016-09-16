@@ -8,11 +8,15 @@
   }
 
   @media screen and (min-width: 768px) {
-    margin-top: 0;
+    margin-top: -1px;
   }
 
   &__title {
     margin-right: ($base-font-size * .5);
+
+    @media screen and (min-width: 768px) {
+      margin-right: ($base-font-size * 1.5);
+    }
   }
 
   &__about-me {
@@ -23,15 +27,15 @@
 
   &__icon {
     width: 36%;
-    margin-top: -27px;
+    margin-top: -19px;
 
     @media screen and (min-width: 600px) {
       width: 60%;
-      margin-top: -30px;
+      margin-top: -26px;
     }
 
     @media screen and (min-width: 768px) {
-      margin-top: -33px;
+      margin-top: -21px;
     }
   }
 

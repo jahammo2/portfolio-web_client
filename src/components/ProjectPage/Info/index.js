@@ -6,10 +6,16 @@ import { List, Map } from 'immutable';
 const propTypes = {
   project: PropTypes.instanceOf(Map),
   devices: PropTypes.instanceOf(List),
-  screenshots: PropTypes.instanceOf(List)
+  screenshots: PropTypes.instanceOf(List),
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 class Info extends Component {
+  componentWillMount () {
+    if (this.props.sideBarShowing) this.props.sideBarShown();
+  }
+
   render () {
     return (
       <div className='project-page__info'>

@@ -59,7 +59,9 @@ export class PortfolioRoot extends Component {
               project: this.props.activeProject,
               colorSets: this.props.colorSets,
               projects: this.props.projects,
-              setActiveProject: this.props.projectActive
+              setActiveProject: this.props.projectActive,
+              sideBarShown: this.props.sideBarShown,
+              sideBarShowing: this.props.sideBarShowing
             })
           }
         </div>

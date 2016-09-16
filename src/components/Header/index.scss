@@ -16,7 +16,7 @@
   }
 
   &__container {
-    margin: ($header-height * .32) auto 0;
+    margin: ($base-font-size * 1.25) auto 0;
     font-size: $base-font-size;
     font-weight: bold;
     width: ($base-width - 8%);
@@ -52,6 +52,6 @@
   &__vertical-line {
     background: $base-black;
     width: 1px;
-    height: ($base-font-size * 2);
+    height: ($base-font-size * 1.75);
   }
 }

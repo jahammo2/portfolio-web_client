@@ -11,6 +11,8 @@ const propTypes = {
   setActiveProject: PropTypes.func,
   projects: PropTypes.instanceOf(List),
   colorSets: PropTypes.instanceOf(List),
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool,
   children: PropTypes.node
 };
 
@@ -27,6 +29,7 @@ export class ProjectDashboard extends Component {
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown);
+    if (this.props.sideBarShowing) this.props.sideBarShown();
   }
 
   handleKeyDown (e) {
