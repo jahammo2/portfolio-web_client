@@ -20,7 +20,9 @@ const propTypes = {
   colorSets: PropTypes.instanceOf(List),
   nextProject: PropTypes.instanceOf(Map),
   previousProject: PropTypes.instanceOf(Map),
-  fetchProjectById: PropTypes.func
+  fetchProjectById: PropTypes.func,
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 export class ProjectPage extends Component {
@@ -105,6 +107,8 @@ export class ProjectPage extends Component {
         project={this.props.individualProject}
         devices={this.props.devices}
         screenshots={this.props.screenshots}
+        sideBarShowing={this.props.sideBarShowing}
+        sideBarShown={this.props.sideBarShown}
       />
     );
   }
@@ -125,7 +129,8 @@ function mapStateToProps (state) {
     devices: state.get('devices'),
     languages: state.get('languages'),
     colorSets: state.get('colorSets'),
-    screenshots: state.get('screenshots')
+    screenshots: state.get('screenshots'),
+    sideBarShowing: state.get('sideBarShowing')
   };
 }
 

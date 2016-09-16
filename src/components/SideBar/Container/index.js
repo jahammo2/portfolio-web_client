@@ -43,7 +43,7 @@ class Container extends Component {
             onMouseOver={() => {this.props.setActiveProject(project);}}
             onClick={() => {
               this.props.setActiveProject(project);
-              return this.props.sideBarShown();
+              this.props.sideBarShown();
             }}
             to={`/projects/${project.get('id')}`}
             ref='setActiveProject'

@@ -9,12 +9,18 @@ import './index.scss';
 
 const propTypes = {
   bio: PropTypes.instanceOf(Map),
-  fetchBio: PropTypes.func
+  fetchBio: PropTypes.func,
+  sideBarShown: PropTypes.func,
+  sideBarShowing: PropTypes.bool
 };
 
 export class AboutMe extends Component {
   componentWillMount () {
     this.props.fetchBio();
+  }
+
+  componentWillUnmount () {
+    if (this.props.sideBarShowing) this.props.sideBarShown();
   }
 
   aboutMeStyles () {
@@ -58,7 +64,8 @@ AboutMe.propTypes = propTypes;
 
 function mapStateToProps (state) {
   return {
-    bio: state.get('bio')
+    bio: state.get('bio'),
+    sideBarShowing: state.get('sideBarShowing')
   };
 }
 
