@@ -10,29 +10,30 @@ const propTypes = {
 };
 
 class Logo extends Component {
-  styles () {
+  styles (name) {
     const color = getColor(
       this.props.project,
       this.props.colorSets,
-      'button'
+      name
     );
 
-    return {
-      background: color
-    };
+    return color;
   }
 
   render () {
     return (
       <div
         className='logo column-between'
-        style={this.styles()}
+        style={{ background: this.styles('logo_background') }}
       >
         <img
           className='logo__image'
           src={this.props.logo}
         />
-        <p className='logo__title'>{this.props.project.getIn(['attributes', 'title'])}</p>
+        <p
+          className='logo__title'
+          style={{ color: this.styles('logo_title') }}
+        >{this.props.project.getIn(['attributes', 'title'])}</p>
       </div>
     );
   }
