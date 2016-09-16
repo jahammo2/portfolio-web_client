@@ -16,23 +16,23 @@ export class Info extends Component {
     this.state = { hover: false };
   }
 
-  getBackgroundColor () {
+  getColorForStyle (name) {
     return getColor(
       this.props.project,
       this.props.colorSets,
-      'button'
+      name
     );
   }
 
   infoStyles () {
     if (this.state.hover) {
       return {
-        background: '#222'
+        background: this.getColorForStyle('button_hover') || "#FFF"
       };
     }
 
     return {
-      background: this.getBackgroundColor()
+      background: this.getColorForStyle('button')
     };
   }
 
@@ -51,14 +51,20 @@ export class Info extends Component {
         onMouseEnter={this.toggleHover.bind(this)}
         onMouseLeave={this.toggleHover.bind(this)}
       >
-        <p className='button__text'>view project</p>
+        <p
+          className='button__text'
+          style={{ color: this.getColorForStyle('button_text') || "#FFF" }}
+        >view project</p>
       </Link>
     );
   }
 
   render () {
     return (
-      <div className={`project-dashboard__project-info project-dashboard__project-info--${this.props.device} column-between`}>
+      <div
+        className={`project-dashboard__project-info project-dashboard__project-info--${this.props.device} column-between`}
+        style={{ color: this.getColorForStyle('text') || "#222" }}
+      >
         <p className='project-dashboard__project-info__title'>{this.props.project.getIn(['attributes', 'title'])}</p>
         <p className='project-dashboard__project-info__description'>{this.props.project.getIn(['attributes', 'description'])}</p>
         {this.linkToProject()}
