@@ -3,6 +3,7 @@
 
 .project-dashboard {
   height: 100%;
+  min-height: 500px;
   font-family: "aktiv-grotesk";
   transition-property: background;
   transition-duration: .5s;
@@ -12,7 +13,7 @@
 
     &--desktop {
       @media screen and (min-width: 600px) {
-        width: 90%;
+        width: 90vh;
         margin-left: -(((100% - $base-width) * .5) + 6%);
       }
 

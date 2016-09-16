@@ -1,7 +1,6 @@
 @import "../../variables";
 
 .device-image {
-  height: 100%;
   width: 100%;
   position: relative;
 
@@ -50,8 +49,7 @@
 
       @media screen and (min-width: 768px) {
         width: 68.45%;
-        top: 1.5vw;
-        height: 24.3vw;
+        height: 74%;
       }
     }
   }
