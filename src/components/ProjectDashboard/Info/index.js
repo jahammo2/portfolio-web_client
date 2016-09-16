@@ -27,7 +27,7 @@ export class Info extends Component {
   infoStyles () {
     if (this.state.hover) {
       return {
-        background: this.getColorForStyle('button_hover') || "#FFF"
+        background: this.getColorForStyle('button_hover') || "#222"
       };
     }
 
