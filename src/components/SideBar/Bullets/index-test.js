@@ -27,20 +27,22 @@ describe('Bullets', () => {
     })
   ]);
   const project = projects.last();
+  let bullets;
+
+  beforeEach(() => {
+    bullets = new Bullets();
+    bullets.props = {
+      isActiveProject: (currentProject, activeProject) => {
+        return activeProject.get('id') === currentProject.get('id');
+      },
+      activeProject: project
+    };
+  });
 
   describe('bulletClassName', () => {
     let bulletClassName;
-    let bullets;
 
     beforeEach(() => {
-      bullets = new Bullets();
-      bullets.props = {
-        isActiveProject: (currentProject, activeProject) => {
-          return activeProject.get('id') === currentProject.get('id');
-        },
-        activeProject: project
-      };
-
       bulletClassName = bullets.bulletClassName(projects.last());
     });
 
@@ -50,13 +52,11 @@ describe('Bullets', () => {
   });
 
   describe('bulletStyles', () => {
-    let bullets;
     let getColor;
     const colorSets = new List([]);
 
     beforeEach(() => {
       getColor = spy(ProjectHelpers, 'getColor');
-      bullets = new Bullets();
 
       bullets.props = {
         isActiveProject: (currentProject, activeProject) => {
@@ -70,6 +70,41 @@ describe('Bullets', () => {
     it('calls getColor if the project is the activeProject', () => {
       bullets.bulletStyles(project);
       expect(getColor.calledOnce).to.be.true;
+    });
+  });
+
+  describe('bulletIsToBeHighlighted', () => {
+    let isActiveProject;
+
+    it('returns true if state.hover is the project in question', () => {
+      isActiveProject = stub(bullets.props, 'isActiveProject').returns(false);
+      bullets.state = {
+        hover: project
+      };
+
+      expect(bullets.bulletIsToBeHighlighted(project)).to.be.true;
+    });
+
+    it('returns true if state.hover is not the project in question but the project is active', () => {
+      isActiveProject = stub(bullets.props, 'isActiveProject').returns(true);
+      bullets.state = {
+        hover: null
+      };
+
+      expect(bullets.bulletIsToBeHighlighted(project)).to.be.true;
+    });
+
+    it('returns false if state.hover is not the project in question and the project is not active', () => {
+      isActiveProject = stub(bullets.props, 'isActiveProject').returns(false);
+      bullets.state = {
+        hover: null
+      };
+
+      expect(bullets.bulletIsToBeHighlighted(project)).to.be.false;
+    });
+
+    afterEach(() => {
+      isActiveProject.restore();
     });
   });
 });

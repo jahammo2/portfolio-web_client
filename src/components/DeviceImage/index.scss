@@ -49,6 +49,13 @@
 
       @media screen and (min-width: 768px) {
         width: 68.45%;
+        top: 1.5vw;
+        height: 24.3vw;
+      }
+
+      @media screen and (min-width: 600px) and (max-height: 700px) {
+        top: 5.2%;
+        width: 68.45%;
         height: 74%;
       }
     }
