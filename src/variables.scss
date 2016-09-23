@@ -13,6 +13,7 @@ $base-font-family: "abril-text";
 
 $alt-font-family: "aktiv-grotesk";
 
+$header-width: calc(100% - 68px);
 $header-height: 70px;
 $header-height__tablet: $header-height + 5px;
 $header-height-spacing: 135px;

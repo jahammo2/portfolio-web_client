@@ -20,15 +20,16 @@
     }
 
     &--showing {
-      min-width: 88vw;
-      width: ($base-width - 4%);
+      min-width: 93vw;
+      width: ($base-width - 1%);
+      box-sizing: border-box;
       transition-delay: .5s, 0s;
       visibility: visible;
 
       @media screen and (min-width: 600px) {
         transition-delay: .5s, 0s, 0s;
-        margin-left: 42px;
-        min-width: 347px;
+        margin-left: 34px;
+        min-width: 355px;
       }
     }
 

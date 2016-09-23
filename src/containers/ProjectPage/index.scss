@@ -7,9 +7,9 @@
   display: inline-block;
 
   &__container {
-    padding: ($base-font-size * 3) 0;
+    box-sizing: border-box;
+    padding: $base-font-size * 3;
     margin: 0 auto;
-    width: 90%;
   }
 
   &__header-image{
