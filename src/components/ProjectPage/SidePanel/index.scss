@@ -12,21 +12,6 @@
     width: 28%;
   }
 
-  &__link {
-    @include link;
-    margin-bottom: $base-font-size;
-    transition-property: background, color;
-    transition-duration: .3s;
-
-    &:hover {
-      color: $base-gray;
-    }
-
-    @media screen and (max-width: 600px) {
-      width: 100%;
-    }
-  }
-
   &__lines {
     width: 100%;
     height: $base-font-size;

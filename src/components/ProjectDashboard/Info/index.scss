@@ -29,19 +29,11 @@
   &__description {
     font-weight: 300;
     margin-top: ($base-font-size * .5);
+    margin-bottom: ($base-font-size * 1.5);
 
     @media screen and (min-width: 768px) {
+      margin-bottom: ($base-font-size * 1.5);
       font-size: $base-font-size;
-    }
-  }
-
-  &__view-project {
-    margin-top: $base-font-size;
-    transition-property: background;
-    transition-duration: .3s;
-
-    @media screen and (min-width: 768px) {
-      font-weight: 700;
     }
   }
 }
