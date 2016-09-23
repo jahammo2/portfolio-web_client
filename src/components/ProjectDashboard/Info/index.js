@@ -31,7 +31,6 @@ class Info extends Component {
           project={this.props.project}
           colorSets={this.props.colorSets}
           name='view project'
-          target='_self'
           url={`/projects/${this.props.project.get('id')}`}
         />
       </div>

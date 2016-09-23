@@ -48,7 +48,7 @@ export class Button extends Component {
         to={this.props.url}
         className='project-dashboard__project-button__view-project row-center button'
         style={this.buttonStyles()}
-        target={this.props.target}
+        target={this.props.target || ''}
         onMouseEnter={this.toggleHover.bind(this)}
         onMouseLeave={this.toggleHover.bind(this)}
       >
