@@ -13,13 +13,12 @@
 
     &--desktop {
       @media screen and (min-width: 600px) {
-        width: 90%;
-        margin-left: -(((100% - $base-width) * .5) + 6%);
+        width: 84%;
+        margin-left: -3.2%;
       }
 
       @media screen and (min-width: 768px) {
         margin-top: 5vh;
-        margin-left: -(((100% - $base-width) * 1.5));
       }
 
       @media screen and (min-width: 768px) and (min-height: 800px) and (max-width: 1180px) {

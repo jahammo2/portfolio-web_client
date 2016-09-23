@@ -36,7 +36,7 @@ export class Carousel extends Component {
 
   render () {
     const settings = {
-      afterChange: (d) => this.handleChange(d),
+      afterChange: (index) => this.handleChange(index),
       infinite: true,
       speed: 500,
       slidesToShow: 1,
