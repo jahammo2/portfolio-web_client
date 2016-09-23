@@ -1,8 +1,8 @@
 @import "../../variables";
 
 .side-bar {
-  height: calc(100% - 92px);
-  width: ((100% - $base-width) * .5);
+  height: calc(100% - 70px);
+  width: 15px;
   background: white;
   z-index: 3;
   top: $header-height;
@@ -13,6 +13,7 @@
   position: fixed;
 
   @media screen and (min-width: 600px) {
+    width: 34px;
     height: 100%;
     top: $header-height__tablet;
   }
