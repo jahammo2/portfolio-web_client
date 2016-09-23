@@ -7,17 +7,23 @@ import DeviceImage from '../DeviceImage';
 const propTypes = {
   slickGoTo: PropTypes.number,
   devices: PropTypes.instanceOf(List),
-  screenshots: PropTypes.instanceOf(List)
+  screenshots: PropTypes.instanceOf(List),
+  setSlideIndex: PropTypes.func
 };
 
-class Carousel extends Component {
+export class Carousel extends Component {
+  handleChange (index) {
+    this.props.setSlideIndex(index);
+  }
+
   displaySlide (device, index) {
     return (
       <div
         className='carousel-slide'
         key={device.get('id')}
       >
-        <div className='carousel-slide__image'>
+        <div
+          className='carousel-slide__image'>
           <DeviceImage
             device={device.getIn(['attributes', 'title'])}
             image={this.props.screenshots.getIn([index, 'attributes', 'image'])}
@@ -30,6 +36,7 @@ class Carousel extends Component {
 
   render () {
     const settings = {
+      afterChange: (d) => this.handleChange(d),
       infinite: true,
       speed: 500,
       slidesToShow: 1,

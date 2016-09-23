@@ -9,10 +9,29 @@ const propTypes = {
   screenshots: PropTypes.instanceOf(List)
 };
 
-class Images extends Component {
+export class Images extends Component {
   constructor () {
     super();
-    this.state = { slickGoTo: 0 };
+    this.state = {
+      slickGoTo: 0,
+      slideIndex: 0
+    };
+  }
+
+  setSlideIndex (index) {
+    this.setState({ slideIndex: index });
+  }
+
+  setSlickGoTo (index) {
+    this.setState({ slickGoTo: index });
+  }
+
+  thumbnailClassName (index) {
+    if (index === this.state.slideIndex) {
+      return 'thumbnail thumbnail--active background-image';
+    }
+
+    return 'thumbnail background-image';
   }
 
   displayThumbnails () {
@@ -22,12 +41,14 @@ class Images extends Component {
           return (
             <li
               onClick={() => {
-                this.setState({slickGoTo: index});
+                this.setSlickGoTo(index);
               }}
               key={screenshot.get('id')}
-              className='project-page__info__images__thumbnails__thumbnail background-image'
+              className={this.thumbnailClassName(index)}
               style={{backgroundImage: `url(${screenshot.getIn(['attributes', 'image'])})`}}
-            />
+            >
+              <div className='thumbnail__gray-overlay' />
+            </li>
           );
         })}
       </ul>
@@ -41,6 +62,7 @@ class Images extends Component {
           slickGoTo={this.state.slickGoTo}
           devices={this.props.devices}
           screenshots={this.props.screenshots}
+          setSlideIndex={this.setSlideIndex.bind(this)}
         />
         {this.displayThumbnails()}
       </div>
