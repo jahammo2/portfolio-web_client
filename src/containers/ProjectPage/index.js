@@ -88,6 +88,7 @@ export class ProjectPage extends Component {
         project={this.props.individualProject}
         devices={this.props.devices}
         languages={this.props.languages}
+        colorSets={this.props.colorSets}
       />
     );
   }

@@ -26,11 +26,9 @@
   }
 
   &__icon {
-    width: 36%;
     margin-top: -19px;
 
     @media screen and (min-width: 600px) {
-      width: 60%;
       margin-top: -26px;
     }
 

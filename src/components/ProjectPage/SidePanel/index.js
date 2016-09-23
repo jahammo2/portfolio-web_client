@@ -2,11 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import './index.scss';
 import { List, Map } from 'immutable';
 import Technologies from './Technologies';
+import Button from '../../Button';
 
 const propTypes = {
   project: PropTypes.instanceOf(Map),
   devices: PropTypes.instanceOf(List),
-  languages: PropTypes.instanceOf(List)
+  languages: PropTypes.instanceOf(List),
+  colorSets: PropTypes.instanceOf(List)
 };
 
 class SidePanel extends Component {
@@ -15,13 +17,13 @@ class SidePanel extends Component {
 
     if (link) {
       return (
-        <a
-          className='button row-center project-page__side-panel__link'
-          href={link}
+        <Button
+          project={this.props.project}
+          colorSets={this.props.colorSets}
+          name={buttonName}
           target='_blank'
-        >
-          <p className='button__text'>{buttonName}</p>
-        </a>
+          url={link}
+        />
       );
     }
   }

@@ -1,0 +1,14 @@
+@import "../../variables";
+@import "../../mixins/index";
+
+.button {
+  @include button;
+  margin-bottom: $base-font-size;
+  transition-property: background, color;
+  transition-duration: .3s;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    font-weight: 700;
+  }
+}
