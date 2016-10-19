@@ -23,7 +23,7 @@ class DeviceImage extends Component {
       // the timeout gives a little extra time for the laptop or mobile image to load in
       setTimeout(() => {
         this.setState({ showing: props.device });
-      }, 50);
+      }, 200);
     }
   }
 
