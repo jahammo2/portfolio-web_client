@@ -12,8 +12,6 @@ const propTypes = {
 
 class Info extends Component {
   getColorForStyle (name) {
-    console.log("color");
-    // debugger;
     return getColor(
       this.props.project,
       this.props.colorSets,

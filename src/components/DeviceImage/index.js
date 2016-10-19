@@ -14,70 +14,42 @@ class DeviceImage extends Component {
     this.state = { showing: null };
   }
 
-  componentDidMount () {
-    console.log('mounted');
-    // this.setState({ showing: true });
-  }
-
-  componentWillMount () {
-    console.log('will mount');
-    // this.setState({ showing: true });
-  }
-
-  componentWillUnmount () {
-    console.log('unmounted');
-    // this.setState({ showing: false });
-  }
-
   componentWillReceiveProps (props) {
-    console.log('will receive');
-    console.log(props);
-    // this.setState({ showing: null });
     if (props.device !== this.state.showing) {
+      // the timeout gives a little extra time for the laptop or mobile image to load in
       setTimeout(() => {
         this.setState({ showing: props.device });
-      }, 100);
+      }, 50);
     }
   }
 
-  componentDidReceiveProps (props) {
-    console.log(props);
-    console.log('did receive');
-  }
-
-  shouldComponentUpdate () {
-    console.log('here');
-    return true;
-  }
-
-  chooseImage () {
-    console.log("image");
-    const device = this.props.device;
-
-    if (this.state.showing === device) {
-      if (device === 'desktop') {
-        console.log("desktop");
-        return laptop;
-      } else if (device === 'mobile') {
-        console.log("mobile");
-        return mobile;
-      }
+  chooseImage (device) {
+    if (device === 'desktop') {
+      return laptop;
+    } else if (device === 'mobile') {
+      return mobile;
     }
   }
 
   render () {
-    return (
-      <div className={`device-image device-image--${this.props.device}`}>
-        <img
-          className={`device-image__container device-image__container__${this.props.device}`}
-          src={this.chooseImage()}
-        />
-        <div
-          style={{backgroundImage: `url(${this.props.image})`}}
-          className={`device-image__${this.props.device}__overlay background-image`}
-        />
-      </div>
-    );
+    const device = this.props.device;
+
+    if (this.state.showing === device) {
+      return (
+        <div className={`device-image device-image--${device}`}>
+          <img
+            className={`device-image__container device-image__container__${device}`}
+            src={this.chooseImage(device)}
+          />
+          <div
+            style={{backgroundImage: `url(${this.props.image})`}}
+            className={`device-image__container__${device}__overlay background-image`}
+          />
+        </div>
+      );
+    }
+
+    return <div />;
   }
 }
 
