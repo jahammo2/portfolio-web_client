@@ -3,60 +3,68 @@
 .device-image {
   width: 100%;
   position: relative;
+  visibility: hidden;
 
   &--mobile {
+    visibility: visible;
     width: $dashboard-height * .4948;
     margin: 0 auto;
   }
 
-  &__mobile {
-    width: 100%;
-
-    @media screen and (min-width: 600px) {
-      width: initial;
-      height: 60vh;
-    }
-
-    &__overlay {
-      position: absolute;
-      height: 74%;
-      width: 85.4%;
-      top: 12.2%;
-      left: 7.4%;
-
-      @media screen and (min-width: 600px) {
-        height: 75%;
-        left: 7.3%;
-        top: 12.2%;
-        width: 25.4vh;
-      }
-    }
+  &--desktop {
+    visibility: visible;
   }
 
-  &__desktop {
-    width: 100%;
-
-    &__overlay {
-      position: absolute;
-      height: 72.8%;
-      width: 68.85%;
-      top: 5.2%;
-      left: 14.8%;
+  &__container {
+    &__mobile {
+      width: 100%;
 
       @media screen and (min-width: 600px) {
-        height: 72.8%;
+        width: initial;
+        height: 60vh;
       }
 
-      @media screen and (min-width: 768px) {
-        width: 68.45%;
-        top: 1.5vw;
-        height: 75%;
-      }
-
-      @media screen and (min-width: 600px) and (max-height: 700px) {
-        top: 5.2%;
-        width: 68.45%;
+      &__overlay {
+        position: absolute;
         height: 74%;
+        width: 85.4%;
+        top: 12.2%;
+        left: 7.4%;
+
+        @media screen and (min-width: 600px) {
+          height: 75%;
+          left: 7.3%;
+          top: 12.2%;
+          width: 25.4vh;
+        }
+      }
+    }
+
+    &__desktop {
+      width: 100%;
+
+      &__overlay {
+        position: absolute;
+        height: 72.8%;
+        width: 68.85%;
+        top: 5.2%;
+        left: 14.8%;
+
+        @media screen and (min-width: 600px) {
+          height: 72.8%;
+        }
+
+        @media screen and (min-width: 768px) {
+          width: 68.45%;
+          top: 1.5vw;
+          height: 75%;
+        }
+
+        @media screen and (min-width: 600px) and (max-height: 700px) {
+          top: 5.2%;
+          width: 68.45%;
+          height: 74%;
+        }
       }
     }
   }

@@ -11,7 +11,7 @@
       margin: 0 auto;
       width: 70%;
 
-      .device-image__mobile {
+      .device-image__container__mobile {
         width: initial;
         height: 260px;
 
@@ -23,12 +23,12 @@
         }
       }
 
-      .device-image__desktop__overlay {
+      .device-image__container__desktop__overlay {
         top: 1.2vw;
       }
     }
 
-    .device-image__desktop__overlay {
+    .device-image__container__desktop__overlay {
       height: 74.8%;
     }
 
