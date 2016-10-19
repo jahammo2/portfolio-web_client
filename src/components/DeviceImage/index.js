@@ -34,6 +34,8 @@ class DeviceImage extends Component {
   render () {
     const device = this.props.device;
 
+    console.log(this.state.showing);
+    console.log(device);
     if (this.state.showing === device) {
       return (
         <div className={`device-image device-image--${device}`}>
