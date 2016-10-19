@@ -1,4 +1,4 @@
-# Tapp Web Client
+# Portfolio Web Client
 
 ### Installation
 ```
