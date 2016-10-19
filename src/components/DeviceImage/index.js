@@ -14,6 +14,10 @@ class DeviceImage extends Component {
     this.state = { showing: null };
   }
 
+  componentWillMount () {
+    this.setState({ showing: this.props.device });
+  }
+
   componentWillReceiveProps (props) {
     if (props.device !== this.state.showing) {
       // the timeout gives a little extra time for the laptop or mobile image to load in

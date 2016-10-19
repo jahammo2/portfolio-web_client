@@ -5,20 +5,23 @@ describe('DeviceImage', () => {
   let deviceImage;
   let device;
 
-  describe('chooseImage', () => {
-    let chooseImage;
+  describe('componentWillMount', () => {
+    let setState;
 
     before(() => {
-      device = 'desktop';
       deviceImage = new DeviceImage();
+      deviceImage.props = {
+        device: 'foo'
+      };
+      setState = spy(deviceImage, 'setState');
     });
 
     beforeEach(() => {
-      chooseImage = deviceImage.chooseImage(device);
+      deviceImage.componentWillMount();
     });
 
-    it('returns the corresponding props device', () => {
-      expect(chooseImage).to.deep.eq(laptop);
+    it('calls setState', () => {
+      expect(setState.calledWith({ showing: 'foo' })).to.be.true;
     });
   });
 
@@ -45,6 +48,23 @@ describe('DeviceImage', () => {
 
     it('calls setTimeout when the props device is not what the state is showing', () => {
       expect(windowSpy.calledOnce).to.be.true;
+    });
+  });
+
+  describe('chooseImage', () => {
+    let chooseImage;
+
+    before(() => {
+      device = 'desktop';
+      deviceImage = new DeviceImage();
+    });
+
+    beforeEach(() => {
+      chooseImage = deviceImage.chooseImage(device);
+    });
+
+    it('returns the corresponding props device', () => {
+      expect(chooseImage).to.deep.eq(laptop);
     });
   });
 });
