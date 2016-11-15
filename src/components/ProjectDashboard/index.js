@@ -20,15 +20,19 @@ export class ProjectDashboard extends Component {
   constructor (props) {
     super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleWheel = this.handleWheel.bind(this);
     this.handleSwipeAction = this.handleSwipeAction.bind(this);
+    this.state = { wheelReady: true };
   }
 
   componentWillMount () {
     window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('wheel', this.handleWheel);
   }
 
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown);
+    window.removeEventListener('wheel', this.handleWheel);
     if (this.props.sideBarShowing) this.props.sideBarShown();
   }
 
@@ -40,16 +44,28 @@ export class ProjectDashboard extends Component {
     }
   }
 
-  projectDashboardStyles () {
-    const color = getColor(
-      this.props.project,
-      this.props.colorSets,
-      'background'
-    );
+  handleWheel (e) {
+    if (this.wheelDirection(e.wheelDeltaY).up) {
+      this.wheelToNext(1);
+    } else if (this.wheelDirection(e.wheelDeltaY).down) {
+      this.wheelToNext(-1);
+    }
+  }
 
+  wheelDirection (wheelDeltaY) {
     return {
-      background: color
-    };
+      up: this.state.wheelReady && wheelDeltaY < -100,
+      down: this.state.wheelReady && wheelDeltaY > 100
+    }
+  }
+
+  wheelToNext (direction) {
+    this.setState({ wheelReady: false });
+    this.swipe(direction);
+
+    setTimeout(() => {
+      this.setState({ wheelReady: true });
+    }, 1000);
   }
 
   handleSwipeAction (e, x, y, isFlick, velocity) {
@@ -65,6 +81,18 @@ export class ProjectDashboard extends Component {
     this.props.setActiveProject(sisterProject);
   }
 
+  projectDashboardStyles () {
+    const color = getColor(
+      this.props.project,
+      this.props.colorSets,
+      'background'
+    );
+
+    return {
+      background: color
+    };
+  }
+
   render () {
     const device = this.props.project.getIn(['attributes', 'featured_screenshot', 'device']);
 
@@ -77,6 +105,7 @@ export class ProjectDashboard extends Component {
           flickThreshold={40}
           delta={100}
           onSwiped={this.handleSwipeAction}
+          onSwiping={this.handleSwipeAction}
         >
           <div className='project-dashboard__container'>
             <div className={`project-dashboard__image project-dashboard__image--${device}`}>
