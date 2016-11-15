@@ -105,7 +105,6 @@ export class ProjectDashboard extends Component {
           flickThreshold={40}
           delta={100}
           onSwiped={this.handleSwipeAction}
-          onSwiping={this.handleSwipeAction}
         >
           <div className='project-dashboard__container'>
             <div className={`project-dashboard__image project-dashboard__image--${device}`}>
