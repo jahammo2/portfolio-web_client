@@ -56,7 +56,7 @@ export class ProjectDashboard extends Component {
     return {
       up: this.state.wheelReady && wheelDeltaY < -100,
       down: this.state.wheelReady && wheelDeltaY > 100
-    }
+    };
   }
 
   wheelToNext (direction) {
