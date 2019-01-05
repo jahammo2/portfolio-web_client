@@ -45,11 +45,11 @@ export function fetchProjects () {
   return (dispatch) => {
     return window
       .fetch(`${process.env.HOST}/api/projects`)
-        .then(response => response.json())
-        .then((response) => {
-          dispatch(projectsFetched(response));
-          setActiveProject(response.data, dispatch, projectActive);
-        });
+      .then(response => response.json())
+      .then((response) => {
+        dispatch(projectsFetched(response));
+        setActiveProject(response.data, dispatch, projectActive);
+      });
   };
 }
 
@@ -57,10 +57,10 @@ export function fetchProjectById (id) {
   return (dispatch) => {
     return window
       .fetch(`${process.env.HOST}/api/projects/${id}`)
-        .then(response => response.json())
-        .then((response) => {
-          dispatch(projectFetched(response));
-        });
+      .then(response => response.json())
+      .then((response) => {
+        dispatch(projectFetched(response));
+      });
   };
 }
 
@@ -68,10 +68,10 @@ export function fetchSocialLinks () {
   return (dispatch) => {
     return window
       .fetch(`${process.env.HOST}/api/social-links`)
-        .then(response => response.json())
-        .then((response) => {
-          dispatch(socialLinksFetched(response));
-        });
+      .then(response => response.json())
+      .then((response) => {
+        dispatch(socialLinksFetched(response));
+      });
   };
 }
 
@@ -79,9 +79,9 @@ export function fetchBio () {
   return (dispatch) => {
     return window
       .fetch(`${process.env.HOST}/api/bio`)
-        .then(response => response.json())
-        .then((response) => {
-          dispatch(bioFetched(response));
-        });
+      .then(response => response.json())
+      .then((response) => {
+        dispatch(bioFetched(response));
+      });
   };
 }

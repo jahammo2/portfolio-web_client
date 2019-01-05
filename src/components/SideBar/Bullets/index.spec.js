@@ -1,8 +1,7 @@
 import Bullets from './index';
 import * as ProjectHelpers from '../../../utils/ProjectHelpers';
-import faker from 'faker';
+import Immutable from 'immutable';
 
-const Immutable = require('immutable');
 const List = Immutable.List;
 const Map = Immutable.Map;
 

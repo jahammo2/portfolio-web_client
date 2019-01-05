@@ -1,2 +1,0 @@
---compilers js:babel-core/register,css:./src/utils/mochaNullCompilers.js,png:./src/utils/mochaNullCompilers.js,jpg:./src/utils/mochaNullCompilers.js
---require ./src/utils/mochaHelper

@@ -1,4 +1,8 @@
 import SideBar from './index';
+import Immutable from 'immutable';
+
+const List = Immutable.List;
+const Map = Immutable.Map;
 
 describe('SideBar', () => {
   const projects = new List([

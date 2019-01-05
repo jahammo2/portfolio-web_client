@@ -1,4 +1,5 @@
 import * as ProjectHelpers from './ProjectHelpers';
+import { fromJS, List, Map } from 'immutable';
 
 describe('ProjectHelpers', () => {
   const device1 = 'mobile';
@@ -157,8 +158,9 @@ describe('ProjectHelpers', () => {
         devices,
         'devices'
       );
+      const expectedDevices = new List([device1, device3]);
 
-      expect(getDevices).to.equal(new List([device1, device3]));
+      expect(getDevices.toJS()).to.deep.equal(expectedDevices.toJS());
     });
 
     it('returns a list of language titles for that project', () => {
@@ -167,8 +169,9 @@ describe('ProjectHelpers', () => {
         languages,
         'languages'
       );
+      const expectedLanguages = new List([language1, language3]);
 
-      expect(getLanguages).to.equal(new List([language1, language3]));
+      expect(getLanguages.toJS()).to.deep.equal(expectedLanguages.toJS());
     });
   });
 
@@ -179,8 +182,9 @@ describe('ProjectHelpers', () => {
         devices,
         'devices'
       );
+      const expectedDevices = new List([devices.first(), devices.last()]);
 
-      expect(getDevices).to.equal(new List([devices.first(), devices.last()]));
+      expect(getDevices.toJS()).to.deep.equal(expectedDevices.toJS());
     });
 
     it('returns a list of languages for that project', () => {
@@ -189,8 +193,9 @@ describe('ProjectHelpers', () => {
         languages,
         'languages'
       );
+      const expectedLanguages = new List([languages.first(), languages.last()]);
 
-      expect(getLanguages).to.equal(new List([languages.first(), languages.last()]));
+      expect(getLanguages.toJS()).to.deep.equal(expectedLanguages.toJS());
     });
   });
 

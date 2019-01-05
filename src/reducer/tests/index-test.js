@@ -1,4 +1,8 @@
 import reducer from '../index';
+import Immutable from 'immutable';
+
+const List = Immutable.List;
+const Map = Immutable.Map;
 
 export const initialState = new Map({
   projects: new List([]),

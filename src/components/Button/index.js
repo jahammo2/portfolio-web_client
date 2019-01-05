@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
 import { getColor } from '../../utils/ProjectHelpers';
 import { Link } from 'react-router';

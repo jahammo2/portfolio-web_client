@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Container from './index';
-import {
-  renderIntoDocument,
-  Simulate
-} from 'react-addons-test-utils';
+import { shallow } from 'enzyme';
 import * as ActionCreators from '../../../actions/PortfolioActions';
+import Immutable from 'immutable';
+
+const List = Immutable.List;
+const Map = Immutable.Map;
 
 describe('Container', () => {
   let component;
@@ -42,13 +42,11 @@ describe('Container', () => {
       return activeProject.get('id') === currentProject.get('id');
     };
 
-    before(() => {
-      setActiveProject = spy(ActionCreators, 'projectActive').withArgs(project);
-      sideBarShown = spy(ActionCreators, 'sideBarShown');
-    });
-
     beforeEach(() => {
-      component = renderIntoDocument(
+      setActiveProject = spy(ActionCreators, 'projectActive');
+      sideBarShown = spy(ActionCreators, 'sideBarShown');
+
+      component = shallow(
         <Container
           projects={projects}
           activeProject={project}
@@ -61,11 +59,14 @@ describe('Container', () => {
         />
       );
 
-      Simulate.click(ReactDOM.findDOMNode(component.refs.setActiveProject));
+      component.find('li.side-bar__project')
+        .last()
+        .childAt(0)
+        .simulate('click');
     });
 
     it('calls setActiveProject on clicking of link', () => {
-      expect(setActiveProject.calledOnce).to.be.true;
+      expect(setActiveProject.withArgs(project).calledOnce).to.be.true;
     });
 
     it('calls containerShown on clicking of link', () => {
@@ -73,11 +74,7 @@ describe('Container', () => {
     });
 
     afterEach(() => {
-      setActiveProject.reset();
-      sideBarShown.reset();
-    });
-
-    after(() => {
+      setActiveProject.restore();
       sideBarShown.restore();
     });
   });

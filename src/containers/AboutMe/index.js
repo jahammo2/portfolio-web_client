@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Map } from 'immutable';
@@ -27,6 +28,8 @@ export class AboutMe extends Component {
     if (window.innerWidth > 599) {
       return { backgroundImage: `url(${this.props.bio.getIn(['attributes', 'background_image'])})` };
     }
+
+    return {};
   }
 
   render () {

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import laptop from '../../img/laptop.png';
 import mobile from '../../img/mobile.png';
@@ -33,6 +34,8 @@ class DeviceImage extends Component {
     } else if (device === 'mobile') {
       return mobile;
     }
+
+    return null;
   }
 
   render () {

@@ -1,4 +1,8 @@
 import { ProjectPage } from './index.js';
+import Immutable from 'immutable';
+
+const List = Immutable.List;
+const Map = Immutable.Map;
 
 describe('ProjectPage', () => {
   let projectPage;

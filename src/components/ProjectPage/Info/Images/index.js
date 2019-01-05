@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import Carousel from '../../../Carousel';
 import { List, Map } from 'immutable';
