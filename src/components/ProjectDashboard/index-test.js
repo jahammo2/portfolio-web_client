@@ -1,5 +1,9 @@
 import { ProjectDashboard } from './index';
 import * as ProjectHelpers from '../../utils/ProjectHelpers';
+import Immutable from 'immutable';
+
+const List = Immutable.List;
+const Map = Immutable.Map;
 
 describe('ProjectDashboard', () => {
   let projectDashboard;
@@ -103,10 +107,6 @@ describe('ProjectDashboard', () => {
 
     afterEach(() => {
       swipe.restore();
-    });
-
-    after(() => {
-      swipe.reset();
     });
   });
 });

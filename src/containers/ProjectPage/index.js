@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { List, Map } from 'immutable';
@@ -41,6 +42,8 @@ export class ProjectPage extends Component {
       this.setState({projectId: this.props.params.projectId});
       return this.props.fetchProjectById(this.props.params.projectId);
     }
+
+    return null;
   }
 
   displayHeaderImage () {

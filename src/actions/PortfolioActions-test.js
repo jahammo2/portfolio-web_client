@@ -1,5 +1,4 @@
 import * as PortfolioActions from './PortfolioActions';
-import 'whatwg-fetch';
 
 describe('PortfolioActions', () => {
   let response;
@@ -32,7 +31,7 @@ describe('PortfolioActions', () => {
       const action = asyncAction(dispatch);
 
       return action.then(() => {
-        expect(dispatch.args[0]).to.include({
+        expect(dispatch.args[0]).to.deep.include({
           type: 'PROJECTS_FETCHED_SUCCESS',
           projects: response
         });
@@ -45,7 +44,7 @@ describe('PortfolioActions', () => {
       const action = asyncAction(dispatch);
 
       return action.then(() => {
-        expect(dispatch.args[1]).to.include({
+        expect(dispatch.args[1]).to.deep.include({
           type: 'PROJECT_ACTIVE_SUCCESS',
           project: response.data[0]
         });
@@ -122,7 +121,7 @@ describe('PortfolioActions', () => {
       const action = asyncAction(dispatch);
 
       return action.then(() => {
-        expect(dispatch.args[0]).to.include({
+        expect(dispatch.args[0]).to.deep.include({
           type: 'SOCIAL_LINKS_FETCHED_SUCCESS',
           socialLinks: response
         });
@@ -160,7 +159,7 @@ describe('PortfolioActions', () => {
       const action = asyncAction(dispatch);
 
       return action.then(() => {
-        expect(dispatch.args[0]).to.include({
+        expect(dispatch.args[0]).to.deep.include({
           type: 'BIO_FETCHED_SUCCESS',
           bio: response
         });

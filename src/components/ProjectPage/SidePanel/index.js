@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import { List, Map } from 'immutable';
 import Technologies from './Technologies';
@@ -26,6 +27,8 @@ class SidePanel extends Component {
         />
       );
     }
+
+    return null;
   }
 
   displayLines () {

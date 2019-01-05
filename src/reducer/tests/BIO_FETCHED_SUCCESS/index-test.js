@@ -1,6 +1,7 @@
 import reducer from '../../index';
 import { BIO_FETCHED_SUCCESS } from '../../../constants/actionTypes';
 import { initialState } from '../index-test';
+import { fromJS } from 'immutable';
 
 describe('reducer', () => {
   describe('action BIO_FETCHED_SUCCESS', () => {

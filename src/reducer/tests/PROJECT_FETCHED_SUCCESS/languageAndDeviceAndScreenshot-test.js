@@ -1,6 +1,7 @@
 import reducer from '../../index';
 import { PROJECT_FETCHED_SUCCESS } from '../../../constants/actionTypes';
 import { initialState } from '../index-test';
+import { List, Map } from 'immutable';
 
 describe('reducer', () => {
   describe('action PROJECT_FETCHED_SUCCESS', () => {
@@ -76,7 +77,7 @@ describe('reducer', () => {
         .set('screenshots', new List([expectedProject.included[2]]))
         .set('individualProject', expectedProject.data);
 
-      expect(stateAfter).to.eql(reducer(initialState, action));
+      expect(stateAfter.toJS()).to.deep.equal(reducer(initialState, action).toJS());
     });
   });
 });

@@ -1,6 +1,7 @@
 import reducer from '../../index';
 import { PROJECT_ACTIVE_SUCCESS } from '../../../constants/actionTypes';
 import { initialState } from '../index-test';
+import { fromJS, Map } from 'immutable';
 
 describe('reducer', () => {
   describe('action PROJECT_ACTIVE_SUCCESS', () => {
