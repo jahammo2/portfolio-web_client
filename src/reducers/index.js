@@ -1,18 +1,6 @@
-import { List, Map, fromJS } from 'immutable';
+import { List, fromJS } from 'immutable';
 import * as actionTypes from '../constants/actionTypes.js';
-
-const INITIAL_STATE = new Map({
-  projects: new List([]),
-  individualProject: new Map(),
-  colorSets: new List([]),
-  screenshots: new List([]),
-  devices: new List([]),
-  languages: new List([]),
-  activeProject: new Map(),
-  sideBarShowing: false,
-  socialLinks: new List([]),
-  bio: new Map()
-});
+import INITIAL_STATE from './initialState';
 
 function setIncludedData (projects, included) {
   return projects.included.forEach((include) => {
