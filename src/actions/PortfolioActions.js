@@ -1,4 +1,5 @@
 import { setActiveProject } from '../utils/ActionHelpers';
+import apiService from '../services/api';
 
 export function sideBarShown () {
   return {
@@ -43,45 +44,41 @@ export function bioFetched (bio) {
 
 export function fetchProjects () {
   return (dispatch) => {
-    return window
-      .fetch(`${process.env.HOST}/api/projects`)
-      .then(response => response.json())
-      .then((response) => {
-        dispatch(projectsFetched(response));
-        setActiveProject(response.data, dispatch, projectActive);
+    return apiService
+      .get('/api/projects')
+      .then(({ data }) => {
+        dispatch(projectsFetched(data));
+        setActiveProject(data.data, dispatch, projectActive);
       });
   };
 }
 
 export function fetchProjectById (id) {
   return (dispatch) => {
-    return window
-      .fetch(`${process.env.HOST}/api/projects/${id}`)
-      .then(response => response.json())
-      .then((response) => {
-        dispatch(projectFetched(response));
+    return apiService
+      .get(`/api/projects/${id}`)
+      .then(({ data }) => {
+        dispatch(projectFetched(data));
       });
   };
 }
 
 export function fetchSocialLinks () {
   return (dispatch) => {
-    return window
-      .fetch(`${process.env.HOST}/api/social-links`)
-      .then(response => response.json())
-      .then((response) => {
-        dispatch(socialLinksFetched(response));
+    return apiService
+      .get('/api/social-links')
+      .then(({ data }) => {
+        dispatch(socialLinksFetched(data));
       });
   };
 }
 
 export function fetchBio () {
   return (dispatch) => {
-    return window
-      .fetch(`${process.env.HOST}/api/bio`)
-      .then(response => response.json())
-      .then((response) => {
-        dispatch(bioFetched(response));
+    return apiService
+      .get('/api/bio')
+      .then(({ data }) => {
+        dispatch(bioFetched(data));
       });
   };
 }
