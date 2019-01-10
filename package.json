@@ -23,7 +23,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bourbon": "^5.1.0",
-    "change-object-case": "^0.2.0",
     "history": "^3.3.0",
     "immutable": "~4.0.0-rc.12",
     "keymirror": "^0.1.1",
