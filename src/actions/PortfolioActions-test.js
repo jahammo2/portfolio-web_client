@@ -1,12 +1,13 @@
 import * as PortfolioActions from './PortfolioActions';
+import apiService from '../services/api';
 
 describe('PortfolioActions', () => {
-  let response;
+  let data;
   let stubbedFetch;
 
   describe('fetchProjects', () => {
     beforeEach(() => {
-      response = {
+      data = {
         data: [{
           attributes: {
             featured: true
@@ -14,14 +15,9 @@ describe('PortfolioActions', () => {
         }],
         included: []
       };
-      stubbedFetch = stub(window, 'fetch').returns(
-        Promise.resolve(
-          {
-            json: () => {
-              return response;
-            }
-          }
-        )
+
+      stubbedFetch = stub(apiService, 'get').returns(
+        Promise.resolve({ data })
       );
     });
 
@@ -33,7 +29,7 @@ describe('PortfolioActions', () => {
       return action.then(() => {
         expect(dispatch.args[0]).to.deep.include({
           type: 'PROJECTS_FETCHED_SUCCESS',
-          projects: response
+          projects: data
         });
       });
     });
@@ -46,7 +42,7 @@ describe('PortfolioActions', () => {
       return action.then(() => {
         expect(dispatch.args[1]).to.deep.include({
           type: 'PROJECT_ACTIVE_SUCCESS',
-          project: response.data[0]
+          project: data.data[0]
         });
       });
     });
@@ -58,7 +54,7 @@ describe('PortfolioActions', () => {
 
   describe('fetchProjectById', () => {
     beforeEach(() => {
-      response = {
+      data = {
         data: {
           attributes: {
             featured: true
@@ -66,14 +62,9 @@ describe('PortfolioActions', () => {
         },
         included: []
       };
-      stubbedFetch = stub(window, 'fetch').returns(
-        Promise.resolve(
-          {
-            json: () => {
-              return response;
-            }
-          }
-        )
+
+      stubbedFetch = stub(apiService, 'get').returns(
+        Promise.resolve({ data })
       );
     });
 
@@ -85,7 +76,7 @@ describe('PortfolioActions', () => {
       return action.then(() => {
         expect(dispatch.args[0][0]).to.deep.equal({
           type: 'PROJECT_FETCHED_SUCCESS',
-          project: response
+          project: data
         });
       });
     });
@@ -97,21 +88,16 @@ describe('PortfolioActions', () => {
 
   describe('fetchSocialLinks', () => {
     beforeEach(() => {
-      response = {
+      data = {
         data: [{
           attributes: {
             url: ''
           }
         }]
       };
-      stubbedFetch = stub(window, 'fetch').returns(
-        Promise.resolve(
-          {
-            json: () => {
-              return response;
-            }
-          }
-        )
+
+      stubbedFetch = stub(apiService, 'get').returns(
+        Promise.resolve({ data })
       );
     });
 
@@ -123,7 +109,7 @@ describe('PortfolioActions', () => {
       return action.then(() => {
         expect(dispatch.args[0]).to.deep.include({
           type: 'SOCIAL_LINKS_FETCHED_SUCCESS',
-          socialLinks: response
+          socialLinks: data
         });
       });
     });
@@ -135,21 +121,16 @@ describe('PortfolioActions', () => {
 
   describe('fetchBio', () => {
     beforeEach(() => {
-      response = {
+      data = {
         data: [{
           attributes: {
             url: ''
           }
         }]
       };
-      stubbedFetch = stub(window, 'fetch').returns(
-        Promise.resolve(
-          {
-            json: () => {
-              return response;
-            }
-          }
-        )
+
+      stubbedFetch = stub(apiService, 'get').returns(
+        Promise.resolve({ data })
       );
     });
 
@@ -161,7 +142,7 @@ describe('PortfolioActions', () => {
       return action.then(() => {
         expect(dispatch.args[0]).to.deep.include({
           type: 'BIO_FETCHED_SUCCESS',
-          bio: response
+          bio: data
         });
       });
     });
