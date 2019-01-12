@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const config = require('./webpack.config.base');
 
 config.plugins = config.plugins.concat([
