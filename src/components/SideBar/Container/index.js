@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
 import { Link } from 'react-router';
 import SocialLinks from './SocialLinks';
+import { getHighProjectAmountStyleOverrides } from '../../../utils/ProjectHelpers';
 
 const propTypes = {
   projects: PropTypes.instanceOf(List),
@@ -84,9 +85,14 @@ class Container extends Component {
   }
 
   render () {
+    const listOverrides = getHighProjectAmountStyleOverrides(this.props.projects);
+
     return (
       <div className={this.containerClassName()}>
-        <ul className='side-bar__container__list column-start'>
+        <ul
+          className='side-bar__container__list column-start'
+          style={listOverrides}
+        >
           {this.displayTitleLinks()}
           {this.displaySocialLinks('desktop')}
         </ul>

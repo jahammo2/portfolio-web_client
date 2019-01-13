@@ -16,13 +16,15 @@ export class SocialLinks extends Component {
   pickIcon (site) {
     switch (site) {
       case 'github':
-        return <i className='fa fa-github-square social-links__icon'></i>;
+        return <i className='fab fa-github-square social-links__icon'></i>;
       case 'twitter':
-        return <i className='fa fa-twitter-square social-links__icon'></i>;
+        return <i className='fab fa-twitter-square social-links__icon'></i>;
       case 'linkedin':
-        return <i className='fa fa-linkedin-square social-links__icon'></i>;
+        return <i className='fab fa-linkedin social-links__icon'></i>;
       case 'instagram':
-        return <i className='fa fa-instagram social-links__icon'></i>;
+        return <i className='fab fa-instagram social-links__icon'></i>;
+      case 'dribbble':
+        return <i className='fab fa-dribbble-square social-links__icon'></i>;
       default:
         return null;
     }

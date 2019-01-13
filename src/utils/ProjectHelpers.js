@@ -58,3 +58,15 @@ export function getSisterProject (sisterIndex, projects, currentProject) {
 
   return projects.get(newIndex);
 }
+
+export function getHighProjectAmountStyleOverrides (projects, extraOverrides) {
+  const desktopDisplay = window.innerWidth > 599;
+
+  if (!desktopDisplay) return null;
+  if (projects.size < 11) return null;
+
+  return {
+    paddingTop: '50px',
+    ...extraOverrides
+  };
+}
