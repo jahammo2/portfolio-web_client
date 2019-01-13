@@ -21,13 +21,19 @@ class Info extends Component {
     return (
       <div className='project-page__info'>
         <p className='project-page__info__description'>{this.props.project.getIn(['attributes', 'description'])}</p>
-        <div dangerouslySetInnerHTML={{__html: this.props.project.getIn(['attributes', 'opening_body'])}} />
+        <div
+          className='project-page__info__body'
+          dangerouslySetInnerHTML={{__html: this.props.project.getIn(['attributes', 'opening_body'])}}
+        />
         <Images
           project={this.props.project}
           devices={this.props.devices}
           screenshots={this.props.screenshots}
         />
-        <div dangerouslySetInnerHTML={{__html: this.props.project.getIn(['attributes', 'closing_body'])}} />
+        <div
+          className='project-page__info__body'
+          dangerouslySetInnerHTML={{__html: this.props.project.getIn(['attributes', 'closing_body'])}}
+        />
       </div>
     );
   }

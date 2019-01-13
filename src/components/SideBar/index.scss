@@ -1,16 +1,16 @@
 @import "../../variables";
 
 .side-bar {
-  height: calc(100% - 70px);
-  width: 15px;
   background: white;
-  z-index: 3;
-  top: $header-height;
+  height: calc(100% - 70px);
+  position: fixed;
   right: 0;
+  top: $header-height;
   transition-property: width, background;
   transition-duration: .5s, .5s;
   transition-timing-function: ease, cubic-bezier(0.42, 0.0, .8, 1.0);
-  position: fixed;
+  width: 15px;
+  z-index: 3;
 
   @media screen and (min-width: 600px) {
     width: 34px;

@@ -2,7 +2,7 @@ import './index.scss';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
-import { getColor } from '../../../utils/ProjectHelpers';
+import { getColor, getHighProjectAmountStyleOverrides } from '../../../utils/ProjectHelpers';
 
 const propTypes = {
   projects: PropTypes.instanceOf(List),
@@ -77,8 +77,19 @@ class Bullets extends Component {
   }
 
   render () {
+    const listOverrides = getHighProjectAmountStyleOverrides(
+      this.props.projects,
+      {
+        height: 'initial',
+        justifyContent: 'flex-start'
+      }
+    );
+
     return (
-      <ul className={this.bulletsClassName()}>
+      <ul
+        className={this.bulletsClassName()}
+        style={listOverrides}
+      >
         {this.path() === '/' &&
           this.displayBullets()}
       </ul>

@@ -2,6 +2,7 @@
 
 .project-page__side-panel__technologies {
   font-family: $alt-font-family;
+  font-size: ($base-font-size * 1.25);
   padding-top: ($base-font-size * .2);
 
   @media screen and (min-width: 768px) {

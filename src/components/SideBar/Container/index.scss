@@ -41,7 +41,7 @@
 
       @media screen and (min-width: 600px) {
         padding-top: $header-height__tablet + 35px;
-        height: $dashboard-height;
+        min-height: $dashboard-height;
         margin: 0;
         padding-left: 45px;
         width: calc(100% - 90px);
