@@ -14,7 +14,7 @@ const propTypes = {
 
 class Info extends Component {
   componentWillMount () {
-    if (this.props.sideBarShowing) this.props.sideBarShown();
+    this.props.sideBarShown(false);
   }
 
   render () {

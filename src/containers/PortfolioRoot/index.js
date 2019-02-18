@@ -23,6 +23,12 @@ const propTypes = {
 };
 
 export class PortfolioRoot extends Component {
+  constructor () {
+    super();
+
+    this.handleOpenSideBar = this.handleOpenSideBar.bind(this);
+  }
+
   componentWillMount () {
     return this.props.fetchProjects();
   }
@@ -35,12 +41,15 @@ export class PortfolioRoot extends Component {
     return 'portfolio-root__container';
   }
 
+  handleOpenSideBar () {
+    if (this.props.sideBarShowing) this.props.sideBarShown(false);
+  }
+
   render () {
     return (
-      <div
-        className='portfolio-root'
-      >
+      <div className='portfolio-root'>
         <Header
+          handleOpenSideBar={this.handleOpenSideBar}
           sideBarShown={this.props.sideBarShown}
           sideBarShowing={this.props.sideBarShowing}
         />

@@ -1,12 +1,13 @@
 import reducer from '../../index';
-import { SIDE_BAR_SHOWN_SUCCESS } from '../../../constants/actionTypes';
+import { SIDE_BAR_HANDLE_SUCCESS } from '../../../constants/actionTypes';
 import { initialState } from '../index-test';
 
 describe('reducer', () => {
-  describe('action SIDE_BAR_SHOWN_SUCCESS', () => {
-    it('sets sideBarShown to true if already set to false', () => {
+  describe('action SIDE_BAR_HANDLE_SUCCESS', () => {
+    it('sets sideBarShown to true if being sent true', () => {
       const action = {
-        type: SIDE_BAR_SHOWN_SUCCESS
+        type: SIDE_BAR_HANDLE_SUCCESS,
+        isShowing: true
       };
 
       const stateAfter = initialState.set('sideBarShowing', true);
@@ -14,11 +15,12 @@ describe('reducer', () => {
       expect(stateAfter).to.eql(reducer(initialState, action));
     });
 
-    it('sets sideBarShown to false if already set to true', () => {
+    it('sets sideBarShown to false if being sent false', () => {
       const trueInitialState = initialState.set('sideBarShowing', true);
 
       const action = {
-        type: SIDE_BAR_SHOWN_SUCCESS
+        type: SIDE_BAR_HANDLE_SUCCESS,
+        isShowing: false
       };
 
       const stateAfter = trueInitialState.set('sideBarShowing', false);

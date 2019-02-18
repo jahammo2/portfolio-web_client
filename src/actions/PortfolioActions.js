@@ -1,9 +1,10 @@
 import { setActiveProject } from '../utils/ActionHelpers';
 import apiService from '../services/api';
 
-export function sideBarShown () {
+export function sideBarShown (isShowing = false) {
   return {
-    type: 'SIDE_BAR_SHOWN_SUCCESS'
+    type: 'SIDE_BAR_HANDLE_SUCCESS',
+    isShowing
   };
 }
 
