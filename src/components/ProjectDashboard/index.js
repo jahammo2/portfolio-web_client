@@ -34,7 +34,6 @@ export class ProjectDashboard extends Component {
   componentWillUnmount () {
     window.removeEventListener('keydown', this.handleKeyDown);
     window.removeEventListener('wheel', this.handleWheel);
-    if (this.props.sideBarShowing) this.props.sideBarShown();
   }
 
   handleKeyDown (e) {

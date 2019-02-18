@@ -30,14 +30,6 @@ function setProjectStates (state, projects, setter, setFromIncluded) {
   });
 }
 
-function showOrHideSideBar (state) {
-  if (state.get('sideBarShowing')) {
-    return state.set('sideBarShowing', false);
-  }
-
-  return state.set('sideBarShowing', true);
-}
-
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.PROJECTS_FETCHED_SUCCESS:
@@ -46,8 +38,8 @@ const reducer = (state = INITIAL_STATE, action) => {
       return state.set('activeProject', fromJS(action.project));
     case actionTypes.PROJECT_FETCHED_SUCCESS:
       return setProjectStates(state, action.project, 'individualProject', setFromNonColorSets);
-    case actionTypes.SIDE_BAR_SHOWN_SUCCESS:
-      return showOrHideSideBar(state);
+    case actionTypes.SIDE_BAR_HANDLE_SUCCESS:
+      return state.set('sideBarShowing', action.isShowing);
     case actionTypes.SOCIAL_LINKS_FETCHED_SUCCESS:
       return state.set('socialLinks', fromJS(action.socialLinks.data));
     case actionTypes.BIO_FETCHED_SUCCESS:

@@ -8,7 +8,6 @@ describe('Images', () => {
   before(() => {
     images = new Images();
     images.state = {
-      slickGoTo: 0,
       slideIndex: 0
     };
     index = 10;
@@ -22,13 +21,6 @@ describe('Images', () => {
     it('sets the slideIndex state', () => {
       images.setSlideIndex(index);
       expect(setState.calledWith({ slideIndex: index })).to.be.true;
-    });
-  });
-
-  describe('setSlickGoTo', () => {
-    it('sets the slideIndex state', () => {
-      images.setSlickGoTo(index);
-      expect(setState.calledWith({ slickGoTo: index })).to.be.true;
     });
   });
 

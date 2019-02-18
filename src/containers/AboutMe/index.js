@@ -21,7 +21,7 @@ export class AboutMe extends Component {
   }
 
   componentWillUnmount () {
-    if (this.props.sideBarShowing) this.props.sideBarShown();
+    this.props.sideBarShown(false);
   }
 
   aboutMeStyles () {

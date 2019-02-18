@@ -5,8 +5,9 @@
   margin-top: ($base-font-size * 2);
 
   @media screen and (min-width: 600px) {
+    margin-right: 5%;
     margin-top: 0;
-    width: 66%;
+    width: 56%;
   }
 
   &__body {

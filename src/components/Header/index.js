@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 
 const propTypes = {
   children: PropTypes.node,
+  handleOpenSideBar: PropTypes.func,
   sideBarShown: PropTypes.func,
   sideBarShowing: PropTypes.bool
 };
@@ -31,9 +32,17 @@ class Header extends Component {
     return (
       <div className='header column-between'>
         <div className='header__container row-between'>
-          <Link to='/' className='header__name'>Jordan Hammond</Link>
+          <Link
+            className='header__name'
+            onClick={this.props.handleOpenSideBar}
+            to='/'
+          >
+            Jordan Hammond
+          </Link>
+
           <div className='header__vertical-line mobile' />
           <MenuBar
+            handleOpenSideBar={this.props.handleOpenSideBar}
             sideBarShown={this.props.sideBarShown}
             sideBarShowing={this.props.sideBarShowing}
             title={this.title()}
