@@ -45,7 +45,7 @@ class Container extends Component {
             onMouseOver={() => {this.props.setActiveProject(project);}}
             onClick={() => {
               this.props.setActiveProject(project);
-              this.props.sideBarShown();
+              this.props.sideBarShown(false);
             }}
             to={`/projects/${project.get('id')}`}
             ref='setActiveProject'
@@ -61,7 +61,7 @@ class Container extends Component {
     return (
       <Link
         to='/about-me'
-        onClick={()=> {this.props.sideBarShown();}}
+        onClick={() => {this.props.sideBarShown(false);}}
         className={`side-bar__about-me side-bar__about-me--${device}`}
       >
         about me

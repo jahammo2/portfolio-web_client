@@ -2,41 +2,6 @@
 
 .project-page__info__images {
   width: 100%;
-  margin: ($base-font-size * 2) 0 ($base-font-size * 2.4);
+  margin: ($base-font-size * 3) 0 ($base-font-size * 3.3);
   border-top: 3px solid $base-dark-gray;
-
-  &__thumbnails {
-    box-sizing: border-box;
-    margin: ($base-font-size * 1.25) 0 0;
-    width: 100%;
-    border-top: 1px solid $base-dark-gray;
-    flex-wrap: wrap;
-  }
-}
-
-.thumbnail {
-  box-sizing: border-box;
-  width: calc((100% / 3));
-  border: 1px solid $base-dark-gray;
-  height: 75px;
-  background-size: auto 100%;
-
-  &__gray-overlay {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(70, 70, 70, 0.3);
-    visibility: hidden;
-  }
-
-  &--active {
-    border: 2px solid $base-black;
-
-    .thumbnail__gray-overlay {
-      visibility: visible;
-    }
-  }
-
-  @media screen and (min-width: 600px) {
-    width: calc((100% / 7) - 2px);
-  }
 }

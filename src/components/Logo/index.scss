@@ -31,10 +31,11 @@
   &__title {
     margin: 0;
     font-family: $alt-font-family;
+    font-size: ($base-font-size * 1.5);
     text-align: center;
 
     @media screen and (min-width: 600px) {
-      font-size: ($base-font-size * 1.5);
+      font-size: ($base-font-size * 2);
     }
   }
 }

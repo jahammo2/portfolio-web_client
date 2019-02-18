@@ -21,7 +21,7 @@ export class Carousel extends Component {
     return (
       <div
         className='carousel-slide'
-        key={device.get('id')}
+        key={index}
       >
         <div
           className='carousel-slide__image'>
@@ -38,12 +38,15 @@ export class Carousel extends Component {
   render () {
     const settings = {
       afterChange: (index) => this.handleChange(index),
+      arrows: false,
+      dots: true,
+      focusOnSelect: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1,
-      slickGoTo: this.props.slickGoTo
+      slidesToScroll: 1
     };
+
     return (
       <Slider {...settings}>
         {this.props.devices.map((device, index) => {
