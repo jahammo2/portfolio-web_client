@@ -32,12 +32,6 @@
     }
   }
 
-  &__background-image {
-    @media screen and (max-width: 600px) {
-      background-color: white;
-    }
-  }
-
   &__container {
     position: absolute;
     background: white;
@@ -98,5 +92,11 @@
         }
       }
     }
+  }
+}
+
+div.about-me__background-image {
+  @media screen and (max-width: 600px) {
+    background-color: white;
   }
 }
