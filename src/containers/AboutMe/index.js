@@ -35,7 +35,7 @@ export class AboutMe extends Component {
   render () {
     return (
       <div
-        className='about-me background-image'
+        className='about-me about-me__background-image background-image'
         style={this.aboutMeStyles()}
       >
         <div className='about-me__container'>

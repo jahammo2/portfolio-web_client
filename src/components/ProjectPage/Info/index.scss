@@ -11,7 +11,7 @@
   }
 
   &__body {
-    font-size: ($base-font-size);
+    font-size: ($base-font-size * 1.2);
 
     @media screen and (min-width: 600px) {
       font-size: ($base-font-size * 1.7);
