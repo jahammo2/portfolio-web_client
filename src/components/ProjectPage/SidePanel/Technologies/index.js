@@ -25,7 +25,7 @@ class Technologies extends Component {
     );
   }
 
-  displayTech (techProps, techName) {
+  displayTech (techProps, techName, displayName) {
     const techList = Array.from(new Set(getIncludedObjectTitles(
       this.props.project,
       techProps,
@@ -34,7 +34,7 @@ class Technologies extends Component {
 
     return (
       <ul className='project-page__side-panel__technologies__list'>
-        <p className='project-page__side-panel__technologies__list__title'>{techName}</p>
+        <p className='project-page__side-panel__technologies__list__title'>{displayName || techName}</p>
         {techList.map((tech, index) => {
           return this.conjureLineItem(tech, index);
         })}
@@ -56,7 +56,7 @@ class Technologies extends Component {
   render () {
     return (
       <div className='project-page__side-panel__technologies column-start'>
-        {this.displayTech(this.props.languages, 'technologies')}
+        {this.displayTech(this.props.languages, 'languages', 'technologies')}
         {this.displayTech(this.props.devices, 'devices')}
         {this.displayDeployedDate()}
       </div>
