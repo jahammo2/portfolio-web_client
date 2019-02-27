@@ -56,7 +56,7 @@ class Technologies extends Component {
   render () {
     return (
       <div className='project-page__side-panel__technologies column-start'>
-        {this.displayTech(this.props.languages, 'languages')}
+        {this.displayTech(this.props.languages, 'technologies')}
         {this.displayTech(this.props.devices, 'devices')}
         {this.displayDeployedDate()}
       </div>
