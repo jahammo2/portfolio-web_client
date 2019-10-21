@@ -1,5 +1,11 @@
 @import "../../../variables";
 
+// I know this is not consistent with the rest of the codebase
+// but I rarely touch my portfolio now so it's fine
+.about-me__info-container {
+  position: relative;
+}
+
 .about-me__info {
   font-size: ($base-font-size * 1.125);
   padding-top: $base-font-size;
@@ -22,5 +28,16 @@
 
   &__body {
     font-size: 20px;
+    height: 300px;
+  }
+
+  &__bottom-blur {
+    background: rgb(255,255,255);
+    background: linear-gradient(360deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    bottom: 0;
+    height: 40px;
+    left: ($base-font-size * 3);
+    position: absolute;
+    width: 100%;
   }
 }
