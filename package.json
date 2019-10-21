@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/smashingboxes/tapp-web_client/wiki",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "history": "^3.3.0",
     "immutable": "~4.0.0-rc.12",
     "moment": "^2.13.0",
