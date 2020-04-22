@@ -53,6 +53,15 @@ export class SocialLinks extends Component {
         {this.props.socialLinks.map((socialLink) => {
           return this.displaySocialLink(socialLink);
         })}
+
+        <a
+          className='link'
+          key='unimportant'
+          href='https://medium.com/@jahammo2'
+          target='_blank'
+        >
+          {this.pickIcon('medium')}
+        </a>
       </div>
     );
   }
