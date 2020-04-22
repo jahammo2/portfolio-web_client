@@ -27,6 +27,8 @@ export class SocialLinks extends Component {
         return <i className='fab fa-dribbble-square social-links__icon'></i>;
       case 'gitlab':
         return <i className='fab fa-gitlab social-links__icon'></i>;
+      case 'medium':
+        return <i className='fab fa-medium social-links__icon'></i>;
       default:
         return null;
     }
