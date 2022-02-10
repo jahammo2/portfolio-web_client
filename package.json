@@ -63,7 +63,7 @@
     "jsdom": "^13.0.0",
     "lost": "~8.3.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "redux-devtools-extension": "^2.13.7",
