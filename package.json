@@ -24,7 +24,7 @@
     "axios": "^0.18.0",
     "history": "^3.3.0",
     "immutable": "~4.0.0-rc.12",
-    "moment": "^2.13.0",
+    "moment": "^2.29.2",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
     "prop-types": "^15.6.2",
