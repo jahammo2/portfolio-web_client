@@ -35,11 +35,6 @@ class ContactLinks extends Component {
           'envelope',
           this.props.email
         )}
-        {this.displayLink(
-          `tel:${this.props.phone_number}`,
-          'phone',
-          this.props.phone_number
-        )}
       </ul>
     );
   }
