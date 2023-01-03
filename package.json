@@ -58,7 +58,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "faker": "^4.1.0",
     "file-loader": "^3.0.1",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "ignore-styles": "^5.0.1",
     "jsdom": "^13.0.0",
     "lost": "~8.3.0",
