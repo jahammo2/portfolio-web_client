@@ -42,8 +42,8 @@ export class AboutMe extends Component {
 
           <div className='about-me__container__panel'>
             <div
-              className='about-me__container__panel__image background-image'
-              style={{backgroundImage: `url(${this.props.bio.getIn(['attributes', 'profile_picture'])})`}}
+              className='about-me__container__panel__image'
+              style={{backgroundImage: `url("https://res.cloudinary.com/dorothy/image/upload/v1680637074/IMG_2905_rdi2ij.jpg")`}}
             />
             <hr className='about-me__container__panel__line line' />
             <ContactLinks

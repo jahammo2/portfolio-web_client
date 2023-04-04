@@ -17,7 +17,6 @@ class Info extends Component {
             className='about-me__info__body'
             dangerouslySetInnerHTML={{__html: this.props.body}}
           />
-          <div className='about-me__info__bottom-blur' />
         </div>
       </div>
     );

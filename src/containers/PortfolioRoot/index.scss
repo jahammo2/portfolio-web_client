@@ -34,6 +34,10 @@
         margin-left: -400px + 68px;
       }
     }
+
+    @media screen and (max-width: 600px) {
+      overflow-x: hidden;
+    }
   }
 
   @media screen and (min-width: 600px) {
